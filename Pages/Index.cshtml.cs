@@ -19,7 +19,12 @@ namespace BugTracker.Pages
 
         public void OnGet()
         {
-
+            Console.WriteLine("TEST");
+        }
+        
+        public void OnPost() 
+        {
+        
         }
     }
 }
