@@ -7,6 +7,8 @@ namespace BugTracker.Models
 {
     public enum StatusInd
     {
-      open, inProgress,closed
+        Open,
+        InProgress,
+        Closed
     }
 }

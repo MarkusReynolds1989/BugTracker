@@ -10,7 +10,8 @@ namespace BugTracker.Models
         private StatusInd StatusInd { get; set; }
         private int LoggerId { get; set; }
 
-        public Ticket(int ticketId, int workerId, string title, string description, string resolution, StatusInd statusInd, int loggerId)
+        public Ticket(int ticketId, int workerId, string title, string description, string resolution,
+            StatusInd statusInd, int loggerId)
         {
             TicketId = ticketId;
             WorkerId = workerId;
