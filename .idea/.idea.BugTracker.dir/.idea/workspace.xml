@@ -22,14 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Database/CreateDatabase.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/License.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/readme.md" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Added GPL 3.0 License. Added readme.md.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/License.md" beforeDir="false" afterPath="$PROJECT_DIR$/License.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,8 +104,16 @@
       <option name="presentableId" value="Default" />
       <updated>1607559850557</updated>
       <workItem from="1607559857026" duration="1652000" />
-      <workItem from="1607645120513" duration="800000" />
+      <workItem from="1607645120513" duration="1675000" />
     </task>
+    <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
+      <created>1607645946685</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607645946685</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +135,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added GPL 3.0 License. Added readme.md." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GPL 3.0 License. Added readme.md." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607645270244">
@@ -156,6 +163,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="960" height="1080" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509874" />
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2" timestamp="1607645951424">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607645951424" />
     <state x="744" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607645904630">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -7,9 +7,8 @@
       <e p="BugTracker.csproj" t="IncludeRecursive" />
       <e p="Database" t="Include">
         <e p="CreateDatabase.sql" t="Include" />
-        <e p="License.md" t="Include" />
-        <e p="readme.md" t="Include" />
       </e>
+      <e p="License.md" t="Include" />
       <e p="Models" t="Include">
         <e p="Prsnl.cs" t="Include" />
       </e>
@@ -45,6 +44,7 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="readme.md" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
