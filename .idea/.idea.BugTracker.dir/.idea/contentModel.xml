@@ -6,11 +6,13 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="BugTracker.csproj" t="IncludeRecursive" />
       <e p="Database" t="Include">
-        <e p="CreateDatabase.sql" t="Include" />
+        <e p="ticket_table.sql" t="Include" />
+        <e p="user_table.sql" t="Include" />
       </e>
       <e p="License.md" t="Include" />
       <e p="Models" t="Include">
-        <e p="Prsnl.cs" t="Include" />
+        <e p="Ticket.cs" t="Include" />
+        <e p="User.cs" t="Include" />
       </e>
       <e p="Pages" t="Include">
         <e p="Error.cshtml" t="Include" />

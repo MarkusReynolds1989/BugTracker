@@ -1,6 +1,6 @@
 namespace BugTracker.Models
 {
-    public class Prsnl
+    public class Ticket
     {
         
     }

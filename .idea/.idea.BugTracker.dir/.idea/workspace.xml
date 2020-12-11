@@ -23,10 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Added GPL 3.0 License. Added readme.md.">
+      <change afterPath="$PROJECT_DIR$/Models/Ticket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/License.md" beforeDir="false" afterPath="$PROJECT_DIR$/License.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/ticket_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/ticket_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Prsnl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,9 @@
         <option value="$PROJECT_DIR$/Database/CreateDatabase.sql" />
         <option value="$PROJECT_DIR$/Database/License.md" />
         <option value="$PROJECT_DIR$/Database/readme.md" />
+        <option value="$PROJECT_DIR$/Database/ticket_table.sql" />
+        <option value="$PROJECT_DIR$/Models/User.cs" />
+        <option value="$PROJECT_DIR$/Models/Ticket.cs" />
       </list>
     </option>
   </component>
@@ -104,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607559850557</updated>
       <workItem from="1607559857026" duration="1652000" />
-      <workItem from="1607645120513" duration="1675000" />
+      <workItem from="1607645120513" duration="3345000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -139,10 +143,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added GPL 3.0 License. Added readme.md." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607645270244">
+    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607647280315">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607645270244" />
+    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607647280315" />
     <state width="1870" height="275" key="GridCell.Tab.0.bottom" timestamp="1607561509823">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
