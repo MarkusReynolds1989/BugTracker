@@ -22,11 +22,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Added GPL 3.0 License. Added readme.md.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd.">
+      <change afterPath="$PROJECT_DIR$/Controllers/IDataProcess.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Class.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StatusInd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Ticket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BugTracker.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/ticket_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/ticket_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/user_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/user_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +67,13 @@
         <option value="$PROJECT_DIR$/Database/CreateDatabase.sql" />
         <option value="$PROJECT_DIR$/Database/License.md" />
         <option value="$PROJECT_DIR$/Database/readme.md" />
-        <option value="$PROJECT_DIR$/Database/ticket_table.sql" />
         <option value="$PROJECT_DIR$/Models/User.cs" />
         <option value="$PROJECT_DIR$/Models/Class.cs" />
         <option value="$PROJECT_DIR$/Models/Ticket.cs" />
+        <option value="$PROJECT_DIR$/Database/user_table.sql" />
+        <option value="$PROJECT_DIR$/Database/ticket_table.sql" />
+        <option value="$PROJECT_DIR$/Controllers/Test.cs" />
+        <option value="$PROJECT_DIR$/Controllers/IDataProcess.cs" />
       </list>
     </option>
   </component>
@@ -108,7 +132,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607559850557</updated>
       <workItem from="1607559857026" duration="1652000" />
-      <workItem from="1607645120513" duration="4041000" />
+      <workItem from="1607645120513" duration="5974000" />
+      <workItem from="1607808103824" duration="2475000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -117,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607645946685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd.">
+      <created>1607652070657</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607652070657</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,40 +172,49 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added GPL 3.0 License. Added readme.md." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GPL 3.0 License. Added readme.md." />
+    <MESSAGE value="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd." />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607647280315">
+    <state x="0" y="0" width="1920" height="1080" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607683909716">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1040" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607647280315" />
-    <state width="1870" height="275" key="GridCell.Tab.0.bottom" timestamp="1607561509823">
+    <state x="0" y="0" width="1920" height="1080" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607683909716" />
+    <state x="748" y="297" key="FileChooserDialogImpl" timestamp="1607809617561">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509823" />
-    <state width="1870" height="275" key="GridCell.Tab.0.center" timestamp="1607561509822">
+    <state x="748" y="297" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1607809617561" />
+    <state width="1870" height="274" key="GridCell.Tab.0.bottom" timestamp="1607810566962">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509822" />
-    <state width="1870" height="275" key="GridCell.Tab.0.left" timestamp="1607561509817">
+    <state width="1870" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607810566962" />
+    <state width="1870" height="274" key="GridCell.Tab.0.center" timestamp="1607810566961">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509817" />
-    <state width="1870" height="275" key="GridCell.Tab.0.right" timestamp="1607561509823">
+    <state width="1870" height="274" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607810566961" />
+    <state width="1870" height="274" key="GridCell.Tab.0.left" timestamp="1607810566960">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509823" />
+    <state width="1870" height="274" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607810566960" />
+    <state width="1870" height="274" key="GridCell.Tab.0.right" timestamp="1607810566962">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="274" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607810566962" />
+    <state x="756" y="186" key="RiderGenerateDialog" timestamp="1607809478195">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="756" y="186" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607809478195" />
     <state x="0" y="0" width="960" height="1080" key="VCS.FileHistoryDialog" timestamp="1607561509874">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="960" height="1080" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607561509874" />
-    <state x="560" y="275" key="Vcs.Push.Dialog.v2" timestamp="1607645951424">
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2" timestamp="1607652074032">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607645951424" />
-    <state x="744" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607651945780">
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607652074032" />
+    <state x="744" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607652081210">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="744" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607651945780" />
+    <state x="744" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607652081210" />
   </component>
 </project>
