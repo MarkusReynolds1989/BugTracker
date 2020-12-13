@@ -4,17 +4,25 @@ namespace BugTracker.Models
 {
     public class User
     {
-        private int UserId { get; set; }
-        private string Name { get; set; }
-        private string Password { get; set; }
-        private bool ActiveInd { get; set; }
-
+        public int UserId { get; private set; }
+        public string Name { get; private set; }
+        public string Password { get; private set; }
+        public bool ActiveInd { get; private set; }
+        
+        // This constructor is for a user that already exists.
         public User(int userId, string name, string password, bool activeInd)
         {
             UserId = userId;
             Name = name;
             Password = password;
             ActiveInd = activeInd;
+        }
+        
+        // This constructor is for creating a new user.
+        public User(string name, string password)
+        {
+            Name = name;
+            Password = password;
         }
     }
 }

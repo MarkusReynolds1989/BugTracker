@@ -36,9 +36,25 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.8.3, )"
+            },
+            "Microsoft.UnitTestFramework.Extensions": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.22, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -59,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/var/lib/snapd/snap/dotnet-sdk/104/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/3.1.404/RuntimeIdentifierGraph.json"
         }
       }
     }

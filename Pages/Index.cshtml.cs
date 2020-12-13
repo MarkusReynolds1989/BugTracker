@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BugTracker.Controllers;
+using BugTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -19,7 +21,6 @@ namespace BugTracker.Pages
 
         public void OnGet()
         {
-            Console.WriteLine("TEST");
         }
         
         public void OnPost() 
