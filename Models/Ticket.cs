@@ -7,11 +7,11 @@ namespace BugTracker.Models
         private string Title { get; set; }
         private string Description { get; set; }
         private string Resolution { get; set; }
-        private StatusInd StatusInd { get; set; }
+        private status_ind_cd StatusInd { get; set; }
         private int LoggerId { get; set; }
 
         public Ticket(int ticketId, int workerId, string title, string description, string resolution,
-            StatusInd statusInd, int loggerId)
+            status_ind_cd statusInd, int loggerId)
         {
             TicketId = ticketId;
             WorkerId = workerId;
