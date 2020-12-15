@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Models
 {
-    public enum status_ind_cd
+    public enum StatusIndCd
     {
         Open,
         InProgress,
