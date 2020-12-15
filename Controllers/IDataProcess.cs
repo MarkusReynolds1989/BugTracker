@@ -22,8 +22,8 @@ namespace BugTracker.Controllers
     /// </example>
     public interface IDataProcess<T>
     {
-        public MySqlConnectionStringBuilder ConnectionString { get; set; }
-        public MySqlConnection Connection { get; set; }
+        public MySqlConnectionStringBuilder AuthenticationString { get; set; }
+        public MySqlConnection Authentication { get; set; }
 
         /// <summary>
         /// Preps the connection and collects information for the connection string. 

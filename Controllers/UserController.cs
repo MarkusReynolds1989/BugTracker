@@ -8,34 +8,34 @@ namespace BugTracker.Controllers
 {
     public class UserController : IDataProcess<User>
     {
-        public MySqlConnectionStringBuilder ConnectionString { get; set; }
-        public MySqlConnection Connection { get; set; }
+        public MySqlConnectionStringBuilder AuthenticationString { get; set; }
+        public MySqlConnection Authentication { get; set; }
 
         public bool Init()
         {
             // This is temporary, and when we go to prod we will change this.
-            ConnectionString = new MySqlConnectionStringBuilder
+            AuthenticationString = new MySqlConnectionStringBuilder
             {
                 UserID = "markus", Password = "password123", Database = "bug_tracker",
                 Server = "***REMOVED***"
             };
-            Connection = new MySqlConnection(ConnectionString.ConnectionString);
+            Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
-            Connection.Open();
+            Authentication.Open();
             // If we are able to connect then we know our connection worked, otherwise we should close. 
-            if (Connection.State == ConnectionState.Open)
+            if (Authentication.State == ConnectionState.Open)
             {
-                Connection.Close();
+                Authentication.Close();
                 return true;
             }
 
-            Connection.Close();
+            Authentication.Close();
             return false;
         }
 
         public bool Insert(User user)
         {
-            var query = "INSERT into User (name, password) " +
+            var query = "INSERT INTO User (name, password) " +
                         $"VALUES (\"{user.Name}\", \"{user.Password}\")";
             bool success;
 
@@ -43,21 +43,21 @@ namespace BugTracker.Controllers
 
             try
             {
-                Connection.Open();
-                var command = Connection.CreateCommand();
-                transaction = Connection.BeginTransaction();
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                transaction = Authentication.BeginTransaction();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
                 command.ExecuteNonQuery();
                 transaction.Commit();
-                Connection.Close();
+                Authentication.Close();
                 success = true;
             }
             catch (MySqlException exception)
             {
                 transaction?.Rollback();
                 success = false;
-                Connection.Close();
+                Authentication.Close();
                 Console.WriteLine(exception);
             }
 
@@ -69,7 +69,7 @@ namespace BugTracker.Controllers
             // TODO: Consider configuring this query to where the code can change a user_id.
             var query = "UPDATE User (name, password, active_ind) " +
                         $"VALUES (\"{user.Name}\", \"{user.Password}\", \"{user.ActiveInd}\")" +
-                        $"where user_id = {user.UserId}";
+                        $"WHERE user_id = {user.UserId}";
 
             bool success;
 
@@ -77,22 +77,22 @@ namespace BugTracker.Controllers
 
             try
             {
-                Connection.Open();
-                var command = Connection.CreateCommand();
-                transaction = Connection.BeginTransaction();
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                transaction = Authentication.BeginTransaction();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
                 command.ExecuteNonQuery();
                 transaction.Commit();
-                Connection.Close();
+                Authentication.Close();
                 success = true;
             }
-            catch (MySqlException e)
+            catch (MySqlException exception)
             {
                 transaction?.Rollback();
                 success = false;
-                Connection.Close();
-                Console.WriteLine(e);
+                Authentication.Close();
+                Console.WriteLine(exception);
             }
 
             return success;
@@ -100,30 +100,29 @@ namespace BugTracker.Controllers
 
         public bool Delete(User user)
         {
-            var query = "Delete from User " +
-                        $"where user_id ={user.UserId}";
+            var query = $"DELETE FROM User WHERE user_id ={user.UserId}";
             bool success;
 
             MySqlTransaction transaction = null;
 
             try
             {
-                Connection.Open();
-                var command = Connection.CreateCommand();
-                transaction = Connection.BeginTransaction();
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                transaction = Authentication.BeginTransaction();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
                 command.ExecuteNonQuery();
                 transaction.Commit();
-                Connection.Close();
+                Authentication.Close();
                 success = true;
             }
-            catch (MySqlException e)
+            catch (MySqlException exception)
             {
                 transaction?.Rollback();
                 success = false;
-                Connection.Close();
-                Console.WriteLine(e);
+                Authentication.Close();
+                Console.WriteLine(exception);
             }
 
             return success;
@@ -136,16 +135,13 @@ namespace BugTracker.Controllers
 
             var userList = new List<User>();
 
-            MySqlTransaction transaction = null;
-
             try
             {
-                Connection.Open();
-                var command = Connection.CreateCommand();
-                transaction = Connection.BeginTransaction();
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
-                
+
                 // We should switch to this using pattern for the connection as well.
                 // This implements IDisposable which takes care of closing the connection for us.
                 using var inputStream = command.ExecuteReader();
@@ -157,12 +153,13 @@ namespace BugTracker.Controllers
                     var activeInd = inputStream.GetBoolean(3);
                     userList.Add(new User(userId, userName, userPassword, activeInd));
                 }
-                Connection.Close();
+
+                Authentication.Close();
             }
-            catch (MySqlException e)
+            catch (MySqlException exception)
             {
-                Connection.Close();
-                Console.WriteLine(e);
+                Authentication.Close();
+                Console.WriteLine(exception);
             }
 
             return userList;
