@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_15_20,_4_45_AM_[Default_Changelist]" date="1608029119263" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_15_20,_4_45_AM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/15/20, 4:45 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_15_20,_4_45_AM_[Default_Changelist]/project.nuget.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/netcoreapp3.1/BugTracker.assets.cache" />
+    <option name="AFTER_PATH" value="obj/Debug/netcoreapp3.1/BugTracker.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_15_20,_4_45_AM_[Default_Changelist]/BugTracker.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/shelf/Uncommitted_changes_before_Update_at_12_15_20,_4_45_AM_[Default_Changelist]/BugTracker.csprojAssemblyReference.cache" />
+  </binary>
+</changelist>
