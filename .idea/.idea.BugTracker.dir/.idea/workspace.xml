@@ -22,9 +22,53 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Renamed status_ind_cd to StatusindCd">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="local files">
+      <change afterPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/User.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/User.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/User.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BugTracker.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/UnitTest1.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.PlatformAbstractions.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Microsoft.TestPlatform.PlatformAbstractions.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Microsoft.UnitTestFramework.Extensions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.TestPlatform.TestFramework.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.TagHelpers.output.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Error.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Error.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Privacy.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Privacy.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_ValidationScriptsPartial.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_ValidationScriptsPartial.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewImports.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewImports.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewStart.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewStart.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +95,13 @@
         <option value="$PROJECT_DIR$/Controllers/IDataProcess.cs" />
         <option value="$PROJECT_DIR$/Models/User.cs" />
         <option value="$PROJECT_DIR$/Pages/Index.cshtml.cs" />
-        <option value="$PROJECT_DIR$/BugTrackerTest/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/Models/StatusIndCd.cs" />
         <option value="$PROJECT_DIR$/Models/Ticket.cs" />
+        <option value="$PROJECT_DIR$/BugTrackerTest/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
         <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Pages/User.cshtml" />
       </list>
     </option>
   </component>
@@ -74,6 +121,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BugTracker">
@@ -157,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607991362718</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="local files">
+      <created>1608029197162</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608029197162</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +240,8 @@
     <MESSAGE value="Added the IDataProcess.cs interface." />
     <MESSAGE value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
     <MESSAGE value="Renamed status_ind_cd to StatusindCd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed status_ind_cd to StatusindCd" />
+    <MESSAGE value="local files" />
+    <option name="LAST_COMMIT_MESSAGE" value="local files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="270" y="368" key="#SQL_Dialects" timestamp="1607876571862">
@@ -200,22 +256,94 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="748" y="297" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1607876570616" />
-    <state width="1870" height="269" key="GridCell.Tab.0.bottom" timestamp="1607876966873">
+    <state width="1870" height="257" key="GridCell.Tab.0.bottom" timestamp="1608032709370">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1607876966873" />
-    <state width="1870" height="269" key="GridCell.Tab.0.center" timestamp="1607876966872">
+    <state width="1870" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1608032709370" />
+    <state width="1870" height="257" key="GridCell.Tab.0.center" timestamp="1608032709368">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="269" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1607876966872" />
-    <state width="1870" height="269" key="GridCell.Tab.0.left" timestamp="1607876966870">
+    <state width="1870" height="257" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1608032709368" />
+    <state width="1870" height="257" key="GridCell.Tab.0.left" timestamp="1608032709367">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="269" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1607876966870" />
-    <state width="1870" height="269" key="GridCell.Tab.0.right" timestamp="1607876966872">
+    <state width="1870" height="257" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1608032709367" />
+    <state width="1870" height="257" key="GridCell.Tab.0.right" timestamp="1608032709369">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="269" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1607876966872" />
+    <state width="1870" height="257" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1608032709369" />
+    <state width="1870" height="158" key="GridCell.Tab.1.bottom" timestamp="1608032539794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539794" />
+    <state width="1870" height="158" key="GridCell.Tab.1.center" timestamp="1608032539794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539794" />
+    <state width="1870" height="158" key="GridCell.Tab.1.left" timestamp="1608032539794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539794" />
+    <state width="1870" height="158" key="GridCell.Tab.1.right" timestamp="1608032539794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539794" />
+    <state width="1870" height="158" key="GridCell.Tab.2.bottom" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.2.center" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.2.left" timestamp="1608032539794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539794" />
+    <state width="1870" height="158" key="GridCell.Tab.2.right" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.3.bottom" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.3.center" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.3.left" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.3.right" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.4.bottom" timestamp="1608032539796">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.4.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539796" />
+    <state width="1870" height="158" key="GridCell.Tab.4.center" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.4.center/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.4.left" timestamp="1608032539795">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.4.left/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539795" />
+    <state width="1870" height="158" key="GridCell.Tab.4.right" timestamp="1608032539796">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="158" key="GridCell.Tab.4.right/0.0.1920.1080@0.0.1920.1080" timestamp="1608032539796" />
+    <state x="192" y="92" key="MergeDialog" timestamp="1608029216606">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="192" y="92" key="MergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608029216606" />
+    <state x="589" y="297" key="MultipleFileMergeDialog" timestamp="1608029221741">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="589" y="297" key="MultipleFileMergeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1608029221741" />
     <state x="756" y="186" key="RiderGenerateDialog" timestamp="1607869294043">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -232,9 +360,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="514" y="227" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1607866646392" />
-    <state x="744" y="451" width="432" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607991202805">
+    <state x="744" y="451" width="432" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608029199617">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="744" y="451" width="432" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607991202805" />
+    <state x="744" y="451" width="432" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1608029199617" />
   </component>
 </project>

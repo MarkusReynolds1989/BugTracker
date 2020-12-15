@@ -26,7 +26,6 @@
         "dependencies": {
           "MSTest.TestAdapter": "2.1.2",
           "Microsoft.NET.Test.Sdk": "16.8.3",
-          "Microsoft.UnitTestFramework.Extensions": "2.0.0",
           "MySql.Data": "8.0.22",
           "xunit": "2.4.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -177,7 +176,7 @@
           "System.Data.Common": "4.2.2.0",
           "System.Data.DataSetExtensions": "4.0.1.0",
           "System.Data": "4.0.0.0",
-          "System.Diagnostics.Contracts.Reference": "4.0.4.0",
+          "System.Diagnostics.Contracts": "4.0.4.0",
           "System.Diagnostics.Debug.Reference": "4.1.2.0",
           "System.Diagnostics.DiagnosticSource.Reference": "4.0.5.0",
           "System.Diagnostics.EventLog": "4.0.2.0",
@@ -694,30 +693,6 @@
           "lib/netcoreapp2.1/testhost.dll": {}
         }
       },
-      "Microsoft.UnitTestFramework.Extensions/2.0.0": {
-        "dependencies": {
-          "MSTest.TestFramework": "1.1.17",
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Contracts": "4.0.1",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.UnitTestFramework.Extensions.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.6685.27115"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.0/Microsoft.UnitTestFramework.Extensions.dll": {}
-        }
-      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -734,22 +709,6 @@
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "System.Diagnostics.TextWriterTraceListener": "4.3.0"
-        }
-      },
-      "MSTest.TestFramework/1.1.17": {
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.0.1"
-          },
-          "lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {
-            "assemblyVersion": "14.0.0.0",
-            "fileVersion": "14.0.0.1"
-          }
-        },
-        "compile": {
-          "lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {},
-          "lib/netstandard1.0/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
         }
       },
       "MySql.Data/8.0.22": {
@@ -1025,11 +984,6 @@
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0"
-        }
-      },
-      "System.Diagnostics.Contracts/4.0.1": {
-        "dependencies": {
-          "System.Runtime": "4.3.0"
         }
       },
       "System.Diagnostics.Debug/4.3.0": {
@@ -1734,7 +1688,7 @@
         "runtime": {
           "lib/netstandard2.0/xunit.abstractions.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
+            "fileVersion": "0.0.0.0"
           }
         },
         "compile": {
@@ -2680,7 +2634,7 @@
         },
         "compileOnly": true
       },
-      "System.Diagnostics.Contracts.Reference/4.0.4.0": {
+      "System.Diagnostics.Contracts/4.0.4.0": {
         "compile": {
           "System.Diagnostics.Contracts.dll": {}
         },
@@ -3576,13 +3530,6 @@
       "path": "microsoft.testplatform.testhost/16.8.3",
       "hashPath": "microsoft.testplatform.testhost.16.8.3.nupkg.sha512"
     },
-    "Microsoft.UnitTestFramework.Extensions/2.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GXV/ZUN+MdyjXNNS/kEXFqc9SKdkVHG7lTh95svG71uAlzXDu5zSTk2/XI4+O5y2AixOjUjVVx4B6S86BxLOrg==",
-      "path": "microsoft.unittestframework.extensions/2.0.0",
-      "hashPath": "microsoft.unittestframework.extensions.2.0.0.nupkg.sha512"
-    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3603,13 +3550,6 @@
       "sha512": "sha512-SjDlWk9t9cZKqyMReioqzRkZ1n4kPIqdAAYLd1vY2rEnx16aCShhSt4uXgTN0T1lNZgWE4Ge2+KVxHgxmtQ6QQ==",
       "path": "mstest.testadapter/2.1.2",
       "hashPath": "mstest.testadapter.2.1.2.nupkg.sha512"
-    },
-    "MSTest.TestFramework/1.1.17": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qZQlOVXsCSgEXPQ9TRkIeJYxuprquUiWWoOGNw6emOhQrKcOCIh8++vwJv5xyksb/kt8ZnHQ8wDJuJVcJ7gKNw==",
-      "path": "mstest.testframework/1.1.17",
-      "hashPath": "mstest.testframework.1.1.17.nupkg.sha512"
     },
     "MySql.Data/8.0.22": {
       "type": "package",
@@ -3806,13 +3746,6 @@
       "sha512": "sha512-DHDrIxiqk1h03m6khKWV2X8p/uvN79rgSqpilL6uzpmSfxfU5ng8VcPtW4qsDsQDHiTv6IPV9TmD5M/vElPNLg==",
       "path": "system.console/4.3.0",
       "hashPath": "system.console.4.3.0.nupkg.sha512"
-    },
-    "System.Diagnostics.Contracts/4.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-HvQQjy712vnlpPxaloZYkuE78Gn353L0SJLJVeLcNASeg9c4qla2a1Xq8I7B3jZoDzKPtHTkyVO7AZ5tpeQGuA==",
-      "path": "system.diagnostics.contracts/4.0.1",
-      "hashPath": "system.diagnostics.contracts.4.0.1.nupkg.sha512"
     },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",
@@ -5072,7 +5005,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Diagnostics.Contracts.Reference/4.0.4.0": {
+    "System.Diagnostics.Contracts/4.0.4.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

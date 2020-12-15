@@ -28,7 +28,7 @@ namespace BugTracker.Controllers
                 Connection.Close();
                 return true;
             }
-            
+
             Connection.Close();
             return false;
         }
@@ -40,7 +40,7 @@ namespace BugTracker.Controllers
             bool success;
 
             MySqlTransaction transaction = null;
-            
+
             try
             {
                 Connection.Open();
@@ -70,11 +70,11 @@ namespace BugTracker.Controllers
             var query = "UPDATE User (name, password, active_ind) " +
                         $"VALUES (\"{user.Name}\", \"{user.Password}\", \"{user.ActiveInd}\")" +
                         $"where user_id = {user.UserId}";
-            
+
             bool success;
 
             MySqlTransaction transaction = null;
-            
+
             try
             {
                 Connection.Open();
@@ -100,7 +100,6 @@ namespace BugTracker.Controllers
 
         public bool Delete(User user)
         {
-            
             var query = "Delete from User " +
                         $"where user_id ={user.UserId}";
             bool success;
@@ -131,13 +130,11 @@ namespace BugTracker.Controllers
         }
 
 
-
         public IList<User> SelectAll()
         {
+            const string query = "SELECT * FROM User ";
 
-            var query = "Select * from User ";
-
-            var userList = new List<User>();        
+            var userList = new List<User>();
 
             MySqlTransaction transaction = null;
 
@@ -148,24 +145,27 @@ namespace BugTracker.Controllers
                 transaction = Connection.BeginTransaction();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
-               var inputStream = command.ExecuteReader();
-               while (inputStream.HasRows)
-                {
-                    
-                }
-                transaction.Commit();
-                Connection.Close();
                 
+                // We should switch to this using pattern for the connection as well.
+                // This implements IDisposable which takes care of closing the connection for us.
+                using var inputStream = command.ExecuteReader();
+                while (inputStream.Read())
+                {
+                    var userId = inputStream.GetInt32(0);
+                    var userName = inputStream.GetString(1);
+                    var userPassword = inputStream.GetString(2);
+                    var activeInd = inputStream.GetBoolean(3);
+                    userList.Add(new User(userId, userName, userPassword, activeInd));
+                }
+                Connection.Close();
             }
             catch (MySqlException e)
             {
-                transaction?.Rollback();
-                
                 Connection.Close();
                 Console.WriteLine(e);
             }
 
-            return null;
+            return userList;
         }
     }
 }

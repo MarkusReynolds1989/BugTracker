@@ -10,7 +10,7 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="BugTracker.csproj" t="IncludeRecursive" />
       <e p="BugTrackerTest" t="Include">
-        <e p="UnitTest1.cs" t="Include" />
+        <e p="UserControllerTests.cs" t="Include" />
         <e p="obj" t="Include">
           <e p="BugTrackerTest.csproj.nuget.dgspec.json" t="Include" />
           <e p="BugTrackerTest.csproj.nuget.g.props" t="Include" />
@@ -44,6 +44,8 @@
           <e p="_Layout.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
         </e>
+        <e p="User.cshtml" t="Include" />
+        <e p="User.cshtml.cs" t="Include" />
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
       </e>
