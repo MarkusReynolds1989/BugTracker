@@ -53,12 +53,12 @@ namespace BugTracker.Controllers
                 Connection.Close();
                 success = true;
             }
-            catch (MySqlException e)
+            catch (MySqlException exception)
             {
                 transaction?.Rollback();
                 success = false;
                 Connection.Close();
-                Console.WriteLine(e);
+                Console.WriteLine(exception);
             }
 
             return success;
@@ -99,12 +99,72 @@ namespace BugTracker.Controllers
 
         public bool Delete(User user)
         {
-            throw new System.NotImplementedException();
+            
+            var query = "Delete from User " +
+                        $"where user_id ={user.UserId}";
+            bool success;
+
+            MySqlTransaction transaction = null;
+
+            try
+            {
+                Connection.Open();
+                var command = Connection.CreateCommand();
+                transaction = Connection.BeginTransaction();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                transaction.Commit();
+                Connection.Close();
+                success = true;
+            }
+            catch (MySqlException e)
+            {
+                transaction?.Rollback();
+                success = false;
+                Connection.Close();
+                Console.WriteLine(e);
+            }
+
+            return success;
         }
 
-        public IList<User> Select(User user)
+
+
+        public IList<User> SelectAll()
         {
-            throw new System.NotImplementedException();
+
+            var query = "Select * from User ";
+
+            var userList = new List<User>();        
+
+            MySqlTransaction transaction = null;
+
+            try
+            {
+                Connection.Open();
+                var command = Connection.CreateCommand();
+                transaction = Connection.BeginTransaction();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+               var inputStream = command.ExecuteReader();
+               while (inputStream.HasRows)
+                {
+                    
+                }
+                transaction.Commit();
+                Connection.Close();
+                
+            }
+            catch (MySqlException e)
+            {
+                transaction?.Rollback();
+                
+                Connection.Close();
+                Console.WriteLine(e);
+            }
+
+            return null;
         }
     }
 }
