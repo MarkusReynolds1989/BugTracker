@@ -22,11 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Renamed status_ind_cd to StatusindCd">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Ticket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/status_ind_cd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/StatusIndCd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +52,9 @@
         <option value="$PROJECT_DIR$/Models/User.cs" />
         <option value="$PROJECT_DIR$/Pages/Index.cshtml.cs" />
         <option value="$PROJECT_DIR$/BugTrackerTest/UnitTest1.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
         <option value="$PROJECT_DIR$/Models/StatusIndCd.cs" />
         <option value="$PROJECT_DIR$/Models/Ticket.cs" />
+        <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       </list>
     </option>
   </component>
@@ -122,7 +120,7 @@
       <workItem from="1607645120513" duration="5974000" />
       <workItem from="1607808103824" duration="2691000" />
       <workItem from="1607866343300" duration="8478000" />
-      <workItem from="1607988746718" duration="947000" />
+      <workItem from="1607988746718" duration="3040000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -152,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607876949070</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Renamed status_ind_cd to StatusindCd">
+      <created>1607991362718</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607991362718</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +184,8 @@
     <MESSAGE value="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd." />
     <MESSAGE value="Added the IDataProcess.cs interface." />
     <MESSAGE value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
+    <MESSAGE value="Renamed status_ind_cd to StatusindCd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed status_ind_cd to StatusindCd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="270" y="368" key="#SQL_Dialects" timestamp="1607876571862">
@@ -218,10 +224,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="960" height="1080" key="VCS.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1607876547541" />
-    <state x="560" y="275" key="Vcs.Push.Dialog.v2" timestamp="1607876953635">
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2" timestamp="1607991368852">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607876953635" />
+    <state x="560" y="275" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1607991368852" />
     <state x="514" y="227" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607866646392">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

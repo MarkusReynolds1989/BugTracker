@@ -66,10 +66,11 @@ namespace BugTracker.Controllers
 
         public bool Update(User user)
         {
-            //TODO: Satisfy the where clause.
-            // Will need to add some sort of functionality for it.
+            // TODO: Consider configuring this query to where the code can change a user_id.
             var query = "UPDATE User (name, password, active_ind) " +
-                        $"VALUES (\"{user.Name}\", \"{user.Password}\", \"{user.ActiveInd}\")";
+                        $"VALUES (\"{user.Name}\", \"{user.Password}\", \"{user.ActiveInd}\")" +
+                        $"where user_id = {user.UserId}";
+            
             bool success;
 
             MySqlTransaction transaction = null;
