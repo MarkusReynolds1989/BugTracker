@@ -153,7 +153,7 @@ namespace BugTracker.Controllers
                     var ticketTitle = inputStream.GetString(3);
                     var ticketDescription = inputStream.GetString(4);
                     var ticketResolution = inputStream.GetString(5);
-                    var ticketStatusIndCd = inputStream.GetEnum(6); // I know GetEnum() is wrong but I'm not sure what it should be
+                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(6); // I know GetEnum() is wrong but I'm not sure what it should be
                     ticketList.Add(new Ticket(ticketId, workerId, loggerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd));
                 }
 
