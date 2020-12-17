@@ -3,6 +3,8 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_BugTracker.1105862841.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/16.8.3/build/netcoreapp2.1/Microsoft.TestPlatform.PlatformAbstractions.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/2.1.2/build/_common/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/2.1.2/build/_common/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
@@ -22,12 +24,10 @@
       </e>
       <e p="Controllers" t="Include">
         <e p="IDataProcess.cs" t="Include" />
+        <e p="TicketController.cs" t="Include" />
         <e p="UserController.cs" t="Include" />
       </e>
-      <e p="Database" t="Include">
-        <e p="ticket_table.sql" t="Include" />
-        <e p="user_table.sql" t="Include" />
-      </e>
+      <e p="Database" t="Include" />
       <e p="License.md" t="Include" />
       <e p="Models" t="Include">
         <e p="StatusIndCd.cs" t="Include" />
