@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj": {}
   },
   "projects": {
@@ -12,10 +13,32 @@
         "projectPath": "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj",
         "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Logan\\BugTracker\\obj\\",
+=======
+    "C:\\Users\\Admin\\BugTracker\\BugTracker.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Admin\\BugTracker\\BugTracker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\BugTracker\\BugTracker.csproj",
+        "projectName": "BugTracker",
+        "projectPath": "C:\\Users\\Admin\\BugTracker\\BugTracker.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\BugTracker\\obj\\",
+>>>>>>> d3a20c167f3c6e168a20554b994966b2b5521ed4
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Logan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> d3a20c167f3c6e168a20554b994966b2b5521ed4
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
