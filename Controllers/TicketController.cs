@@ -35,8 +35,8 @@ namespace BugTracker.Controllers
 
         public bool Insert(Ticket ticket)
         {
-            var query = "INSERT INTO Ticket (title, description, resolution) " +
-                        $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\")";
+            var query = "INSERT INTO Ticket (title, description, resolution, statusindcd)" +
+                        $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -67,7 +67,7 @@ namespace BugTracker.Controllers
         public bool Update(Ticket ticket)
         {
             // TODO: Consider configuring this query to where the code can change a ticket_id.
-            var query = "UPDATE Ticket (title, description, resolution, statusindcd) " +
+            var query = "UPDATE Ticket (title, description, resolution, statusindcd)" +
                         $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")" +
                         $"WHERE ticket_id = {ticket.TicketId}";
 
@@ -148,13 +148,13 @@ namespace BugTracker.Controllers
                 while (inputStream.Read())
                 {
                     var ticketId = inputStream.GetInt32(0);
-                    var workerId = inputStream.getInt32(1);
+                    var workerId = inputStream.GetInt32(1);
                     var loggerId = inputStream.GetInt32(2);
                     var ticketTitle = inputStream.GetString(3);
                     var ticketDescription = inputStream.GetString(4);
                     var ticketResolution = inputStream.GetString(5);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(6); // I know GetEnum() is wrong but I'm not sure what it should be
-                    ticketList.Add(new Ticket(ticketId, workerId, loggerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd));
+                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(6);
+                    ticketList.Add(new Ticket(ticketId,workerId,loggerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd));
                 }
 
                 Authentication.Close();
