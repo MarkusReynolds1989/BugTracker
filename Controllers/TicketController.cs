@@ -35,8 +35,8 @@ namespace BugTracker.Controllers
 
         public bool Insert(Ticket ticket)
         {
-            var query = "INSERT INTO Ticket (title, description, resolution, statusindcd)" +
-                        $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")";
+            var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
+                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -149,12 +149,12 @@ namespace BugTracker.Controllers
                 {
                     var ticketId = inputStream.GetInt32(0);
                     var workerId = inputStream.GetInt32(1);
-                    var loggerId = inputStream.GetInt32(2);
-                    var ticketTitle = inputStream.GetString(3);
-                    var ticketDescription = inputStream.GetString(4);
-                    var ticketResolution = inputStream.GetString(5);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId,workerId,loggerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd));
+                    var ticketTitle = inputStream.GetString(2);
+                    var ticketDescription = inputStream.GetString(3);
+                    var ticketResolution = inputStream.GetString(4);
+                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(5);
+                    var loggerId = inputStream.GetInt32(6);
+                    ticketList.Add(new Ticket(ticketId,workerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd,loggerId));
                 }
 
                 Authentication.Close();
