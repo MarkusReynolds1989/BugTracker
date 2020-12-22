@@ -281,9 +281,6 @@ C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\BugTrackerTest\obj\BugTrackerTest.csproj.nuget.dgspec.json
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\BugTrackerTest\obj\project.assets.json
-C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\BugTracker.exe
 C:\Users\Logan\BugTracker\bin\Debug\netcoreapp3.1\BugTracker.deps.json
