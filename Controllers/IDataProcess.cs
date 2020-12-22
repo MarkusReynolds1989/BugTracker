@@ -42,13 +42,13 @@ namespace BugTracker.Controllers
         /// </summary>
         /// <returns> Returns true if the update is successful and false if not.</returns>
         public bool Update(T item);
-        
+
         ///<summary>
         /// Deletes the selected row in the database with the information specified.
         /// </summary>
         /// <returns> Returns true if the delete is successful and false if not.</returns>
         public bool Delete(T item);
-        
+
         /// <summary>
         /// Selects the information from the database and adds it to a list. This method will not work
         /// with SQL functions, it has to return at least 1 or 0 rows.
@@ -56,5 +56,13 @@ namespace BugTracker.Controllers
         /// <returns> Returns a list of the select objects or an empty list if unsuccessful.</returns>
         /// <typeparam name="T"> This is the type of the model implementing class.</typeparam>
         public IList<T> SelectAll();
+
+        /// <summary>
+        /// Selects one row from the database and returns the item if it exists.
+        /// </summary>
+        /// <returns> Returns the row from the database or null if it doesn't exist.</returns>
+        /// <typeparam name="T"> This is the type of the model implementing class.</typeparam>
+        /// <param name="id"> The id of the row we are getting.</param>
+        public T SelectRow(int id);
     }
 }

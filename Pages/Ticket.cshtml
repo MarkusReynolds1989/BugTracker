@@ -1,0 +1,46 @@
+@page
+@model BugTracker.Pages.Ticket
+
+@{
+    // Ticket ID
+    // Worker ID
+    // Title
+    // Description
+    // Resolution
+    // Status Ind
+    // Logger ID
+}
+
+<div class="row" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="col">
+        <input type="text"
+               class="input-group"
+               contenteditable="false"
+               value="Ticket ID"/>
+        <input type="text"
+               class="input-group"
+               contenteditable="false"
+               value="Logger ID"/>
+        <input type="text"
+               class="input-group"
+               value="Worker ID"/>
+        <br>
+        <select class="input-group">
+            <option>Status</option>
+        </select>
+    </div>
+    <div class="col">
+        <input type="text"
+               class="input-group"
+               contenteditable="false"
+               value="Title"/>
+        <textarea placeholder="desc"></textarea>
+    </div>
+</div>
+
+<br>
+<textarea placeholder="resolution" cols="50px" class="input-group"></textarea>
+<br>
+<input type="button"
+       class="btn btn-primary"
+       value="Save"/>
