@@ -10,7 +10,7 @@ namespace BugTracker.BugTrackerTest
 
         [Fact]
         // Test that the connection is correct.
-        public void UserConnectionTest()
+        public void TicketConnectionTest()
         {
             Assert.True(_ticketController.Init());
         }
@@ -18,10 +18,10 @@ namespace BugTracker.BugTrackerTest
         // Test the insert function of the controller. Need to figure out how to run this without
         // actually hitting the database.
         [Fact]
-        public void UserInsertTest()
+        public void TicketInsertTest()
         {
             Assert.True(_ticketController.Init());
-            Assert.True(_ticketController.Insert(new User("Tom", "password123")));
+            Assert.True(_ticketController.Insert(new Ticket());
         }
 
         [Fact]
