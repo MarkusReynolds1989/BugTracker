@@ -10,6 +10,7 @@
     <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/2.1.2/build/_common/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/2.1.2/build/netcoreapp1.0/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="BugTracker.csproj" t="IncludeRecursive" />
       <e p="BugTracker.sln" t="IncludeFlat" />
       <e p="BugTrackerTest" t="Include">
