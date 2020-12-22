@@ -33,6 +33,6 @@ namespace BugTracker.Models
             Resolution = resolution;
             StatusIndCd = statusIndCd;
             LoggerId = loggerId;
-        }        
+        }
     }
 }

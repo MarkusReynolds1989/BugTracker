@@ -21,28 +21,36 @@ namespace BugTracker.BugTrackerTest
         public void TicketInsertTest()
         {
             Assert.True(_ticketController.Init());
-            Assert.True(_ticketController.Insert(new Ticket());
+            Assert.True(_ticketController.Insert(new Ticket(0, "NewTicket", "Test Ticket", "", StatusIndCd.Open, 0)));
         }
 
         [Fact]
-        public void UserUpdateTest()
+        public void TicketUpdateTest()
         {
             Assert.True(_ticketController.Init());
+            Assert.True(_ticketController.Update(new Ticket(0,0,"title","Test ticket","resolve",StatusIndCd.Closed,0)));
         }
 
         // Only run this test when we have to because we will have to query or hardcore that value everytime.
         [Fact]
-        public void UserDeleteTest()
+        public void TicketDeleteTest()
         {
             Assert.True(_ticketController.Init());
-            Assert.True(_ticketController.Delete(new User(6, null, null, true)));
+            Assert.True(_ticketController.Delete(new Ticket(0,0,null,null,null,0,0)));
         }
 
         [Fact]
-        public void UserSelectAllTest()
+        public void TicketSelectAllTest()
         {
             Assert.True(_ticketController.Init());
             Assert.True(_ticketController.SelectAll().Count > 0);
+        }
+
+        [Fact]
+        public void TicketSelectRowTest()
+        {
+            Assert.True(_ticketController.Init());
+            Assert.True(_ticketController.SelectRow(0) != null);
         }
     } 
 }
