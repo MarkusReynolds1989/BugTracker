@@ -4,7 +4,7 @@ using Xunit;
 
 namespace BugTracker.BugTrackerTest
 {
-    /*public class TicketControllerTests
+    public class TicketControllerTests
     {
         private readonly IDataProcess<Ticket> _ticketController = new TicketController();
 
@@ -44,5 +44,5 @@ namespace BugTracker.BugTrackerTest
             Assert.True(_ticketController.Init());
             Assert.True(_ticketController.SelectAll().Count > 0);
         }
-    } */
+    } 
 }
