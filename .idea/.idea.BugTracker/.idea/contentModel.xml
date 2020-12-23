@@ -14,6 +14,7 @@
       <e p="BugTracker.csproj" t="IncludeRecursive" />
       <e p="BugTracker.sln" t="IncludeFlat" />
       <e p="BugTrackerTest" t="Include">
+        <e p="LoginControllerTests.cs" t="Include" />
         <e p="TicketControllerTests.cs" t="Include" />
         <e p="UserControllerTests.cs" t="Include" />
         <e p="obj" t="Include">
@@ -26,6 +27,7 @@
       </e>
       <e p="Controllers" t="Include">
         <e p="IDataProcess.cs" t="Include" />
+        <e p="LoginController.cs" t="Include" />
         <e p="TicketController.cs" t="Include" />
         <e p="UserController.cs" t="Include" />
       </e>
