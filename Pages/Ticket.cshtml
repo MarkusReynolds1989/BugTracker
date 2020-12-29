@@ -1,0 +1,41 @@
+@page
+@model Ticket
+
+@{
+    var ticket = (Models.Ticket) ViewData["ticket"];
+}
+
+<div class="row">
+    <div class="col">
+        <input type="text"
+               class="input-group"
+               value="@ticket.TicketId"/>
+        <input type="text"
+               class="input-group"
+               value="@ticket.LoggerId"/>
+        <input type="text"
+               class="input-group"
+               value="@ticket.WorkerId"/>
+        <br>
+        <select class="input-group">
+            <option>@ticket.StatusIndCd</option>
+            <option>Close</option>
+            <option>Pending</option>
+        </select>
+    </div>
+    <!-- End of column -->
+
+    <div class="col">
+        <input type="text"
+               class="input-group"
+               value="@ticket.Title"/>
+        <textarea>@ticket.Description</textarea>
+    </div>
+</div>
+
+<br>
+<textarea cols="50px" class="input-group">@ticket.Resolution</textarea>
+<br>
+<input type="button"
+       class="btn btn-primary"
+       value="Save"/>
