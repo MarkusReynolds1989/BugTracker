@@ -11,8 +11,8 @@ namespace BugTracker.Pages
         {
             var ticketController = new TicketController();
             ticketController.Init();
-            var ticketList = ticketController.SelectAll();
-            ViewData["ticket"] = ticketList.FirstOrDefault(x => x.TicketId == ticketId);
+            var ticket = ticketController.SelectRow(ticketId);
+            ViewData["ticket"] = ticket;
         }
     }
 }
