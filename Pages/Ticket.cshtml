@@ -9,15 +9,23 @@
     <div class="col">
         <input type="text"
                class="input-group"
+               id="ticketId"
+               name="TicketId"
                value="@ticket.TicketId"/>
         <input type="text"
                class="input-group"
+               id="loggerId"
+               name="LoggerId"
                value="@ticket.LoggerId"/>
         <input type="text"
                class="input-group"
+               id = "workerId"
+               name = "WorkerId"
                value="@ticket.WorkerId"/>
         <br>
-        <select class="input-group">
+        <select class="input-group"
+                id="statusIndCd"
+                name="StatusIndCd">
             <option>@ticket.StatusIndCd</option>
             <option>Close</option>
             <option>Pending</option>
@@ -28,13 +36,18 @@
     <div class="col">
         <input type="text"
                class="input-group"
+               id="title"
+               name="Title"
                value="@ticket.Title"/>
-        <textarea>@ticket.Description</textarea>
+        <textarea id = "desc" name = "Desc">@ticket.Description</textarea>
     </div>
 </div>
 
 <br>
-<textarea cols="50px" class="input-group">@ticket.Resolution</textarea>
+<textarea cols="50px" 
+          class="input-group"
+          id = "resolution"
+          name = "Resolution">@ticket.Resolution</textarea>
 <br>
 <input type="button"
        class="btn btn-primary"
