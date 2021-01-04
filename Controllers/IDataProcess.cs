@@ -56,7 +56,7 @@ namespace BugTracker.Controllers
         /// <returns> Returns a list of the select objects or an empty list if unsuccessful.</returns>
         /// <typeparam name="T"> This is the type of the model implementing class.</typeparam>
         public IList<T> SelectAll();
-
+    
         /// <summary>
         /// Selects one row from the database and returns the item if it exists.
         /// </summary>

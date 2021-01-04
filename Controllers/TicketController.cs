@@ -15,10 +15,10 @@ namespace BugTracker.Controllers
         {
             // This is temporary, and when we go to prod we will change this.
             AuthenticationString = new MySqlConnectionStringBuilder
-            {
-                UserID = "markus", Password = "password123", Database = "bug_tracker",
-                Server = "***REMOVED***"
-            };
+                                   {
+                                       UserID = "markus", Password = "password123", Database = "bug_tracker",
+                                       Server = "***REMOVED***"
+                                   };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
             Authentication.Open();
@@ -152,9 +152,10 @@ namespace BugTracker.Controllers
                     var ticketTitle = inputStream.GetString(2);
                     var ticketDescription = inputStream.GetString(3);
                     var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(5);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
                     var loggerId = inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId,workerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd,loggerId));
+                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                                              ticketStatusIndCd, loggerId));
                 }
 
                 Authentication.Close();
@@ -166,6 +167,17 @@ namespace BugTracker.Controllers
             }
 
             return ticketList;
+        }
+        
+        // Implement overload for getting tickets by worker_id.
+        public IList<Ticket> SelectAll(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ticket SelectRow(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

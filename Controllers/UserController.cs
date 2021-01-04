@@ -15,10 +15,10 @@ namespace BugTracker.Controllers
         {
             // This is temporary, and when we go to prod we will change this.
             AuthenticationString = new MySqlConnectionStringBuilder
-            {
-                UserID = "markus", Password = "password123", Database = "bug_tracker",
-                Server = "***REMOVED***"
-            };
+                                   {
+                                       UserID = "markus", Password = "password123", Database = "bug_tracker",
+                                       Server = "***REMOVED***"
+                                   };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
             Authentication.Open();
@@ -128,7 +128,6 @@ namespace BugTracker.Controllers
             return success;
         }
 
-
         public IList<User> SelectAll()
         {
             const string query = "SELECT * FROM User ";
@@ -163,6 +162,11 @@ namespace BugTracker.Controllers
             }
 
             return userList;
+        }
+
+        public User SelectRow(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
