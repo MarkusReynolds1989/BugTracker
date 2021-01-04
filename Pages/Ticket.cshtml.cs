@@ -12,9 +12,16 @@ namespace BugTracker.Pages
             var ticketController = new TicketController();
             ticketController.Init();
             var ticket = ticketController.SelectRow(ticketId);
-            ViewData["ticket"] = ticket;
+            if (ticket != null)
+            {
+                ViewData["ticket"] = ticket;
+            }
+            else
+            {
+                Redirect("https://localhost:5001/Error");
+            }
         }
-        
+
         // Updates our current value with the values in the fields.
         public void OnPost()
         {
@@ -34,12 +41,12 @@ namespace BugTracker.Pages
 
             var updateTicket =
                 new Models.Ticket(ticketId,
-                                  workerId,
-                                  title,
-                                  description,
-                                  resolution,
-                                  statusIndCd,
-                                  loggerId);
+                    workerId,
+                    title,
+                    description,
+                    resolution,
+                    statusIndCd,
+                    loggerId);
 
             ticketController.Update(updateTicket);
         }

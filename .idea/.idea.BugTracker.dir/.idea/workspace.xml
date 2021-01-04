@@ -22,9 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Fixed some issues with const/ return value of the method.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Removed Tickets Model for now.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Users.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/Users.cshtml.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +52,14 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
+      <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -105,7 +127,7 @@
       <workItem from="1607808103824" duration="2691000" />
       <workItem from="1607866343300" duration="8478000" />
       <workItem from="1607988746718" duration="3040000" />
-      <workItem from="1609801754209" duration="411000" />
+      <workItem from="1609801754209" duration="2200000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -163,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609802042626</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed some issues with const/ return value of the method. in TicketController.cs.">
+      <created>1609802182480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1609802182480</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Removed Tickets Model for now.">
+      <created>1609802372431</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609802372431</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +230,8 @@
     <MESSAGE value="local files" />
     <MESSAGE value="Adjusted the UserController.cs and UserControllerTests.cs classes. Adjusted the SelectAll method from the UserController.cs class.&#10;Added in a vertical slice to gather the users from the database and throw them on the page so we can see them for now." />
     <MESSAGE value="Fixed some issues with const/ return value of the method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some issues with const/ return value of the method." />
+    <MESSAGE value="Fixed some issues with const/ return value of the method. in TicketController.cs." />
+    <MESSAGE value="Removed Tickets Model for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Tickets Model for now." />
   </component>
 </project>

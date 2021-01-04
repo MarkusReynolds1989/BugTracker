@@ -36,7 +36,7 @@ namespace BugTracker.Controllers
         public bool Insert(Ticket ticket)
         {
             var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
-                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
+                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int)ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
 
             MySqlTransaction transaction = null;
