@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GZPhlyuv0bm+WtYgEg3zEQ5YUw6Mf8Gz09fWdlMMPvUHQDMSBrkE2ekByrWV8BIPPzQsLgc9a7zztr1K62iwHg==",
+  "dgSpecHash": "xK9tUIOI6OUhnGYbUNE2e78qK11XRn6ry4zpOg9beMSHRWjiW9l7wxyitJcir4dnqvYE6yOlSSgoww+92IoMhw==",
   "success": true,
   "projectFilePath": "/home/markus/Code/C#/BugTracker/BugTracker.csproj",
   "expectedPackageFiles": [
