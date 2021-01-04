@@ -166,7 +166,38 @@ namespace BugTracker.Controllers
 
         public User SelectRow(int id)
         {
-            throw new NotImplementedException();
+            const string query = $"SELECT * FROM User WHERE user_id={id}";
+
+            var userList = new List<User>();
+
+            try
+            {
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+
+                // We should switch to this using pattern for the connection as well.
+                // This implements IDisposable which takes care of closing the connection for us.
+                using var inputStream = command.ExecuteReader();
+                while (inputStream.Read())
+                {
+                    var userId = inputStream.GetInt32(0);
+                    var userName = inputStream.GetString(1);
+                    var userPassword = inputStream.GetString(2);
+                    var activeInd = inputStream.GetBoolean(3);
+                    userList.Add(new User(userId, userName, userPassword, activeInd));
+                }
+
+                Authentication.Close();
+            }
+            catch (MySqlException exception)
+            {
+                Authentication.Close();
+                Console.WriteLine(exception);
+            }
+
+            return userList;
         }
     }
 }
