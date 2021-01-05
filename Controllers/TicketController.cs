@@ -67,7 +67,7 @@ namespace BugTracker.Controllers
         public bool Update(Ticket ticket)
         {
             // TODO: Consider configuring this query to where the code can change a ticket_id.
-            var query = "UPDATE Ticket (title, description, resolution, statusindcd)" +
+            var query = "UPDATE Ticket (title, description, resolution, status_ind_cd)" +
                         $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")" +
                         $"WHERE ticket_id = {ticket.TicketId}";
 
