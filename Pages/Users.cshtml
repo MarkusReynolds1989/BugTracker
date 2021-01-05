@@ -1,7 +1,9 @@
 @page
 @model User
 @{
-    var list = (IList<Models.User>) @ViewData["list"];
+    var list = (IList<Models.User>) ViewData["list"];
+    // Admin only. 
+    // TODO: Logic to only show for admin.
 }
 
 <div>

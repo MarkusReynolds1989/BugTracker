@@ -10,7 +10,11 @@ namespace BugTracker.Controllers
     {
         // In this case, this will be created from a post method to
         // local host.
+<<<<<<< HEAD
         private MySqlConnectionStringBuilder _authenticationString;
+=======
+        private readonly MySqlConnectionStringBuilder _authenticationString;
+>>>>>>> 3aa5fcdbbfbb43a88ad4d5bb084fa4d02900e724
         private readonly string _userName;
         private readonly string _password;
 
@@ -37,7 +41,11 @@ namespace BugTracker.Controllers
             {
                 authenticationConnection.Open();
                 var query =
+<<<<<<< HEAD
                     $"SELECT * FROM User WHERE name = {_userName} AND password = {_password}";
+=======
+                    $"SELECT * FROM User WHERE name = \"{_userName}\" AND password = \"{_password}\"";
+>>>>>>> 3aa5fcdbbfbb43a88ad4d5bb084fa4d02900e724
                 var command = authenticationConnection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;

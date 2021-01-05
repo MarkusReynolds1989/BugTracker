@@ -51,8 +51,10 @@
         </e>
         <e p="Ticket.cshtml" t="Include" />
         <e p="Ticket.cshtml.cs" t="Include" />
-        <e p="User.cshtml" t="Include" />
-        <e p="User.cshtml.cs" t="Include" />
+        <e p="Tickets.cshtml" t="Include" />
+        <e p="Tickets.cshtml.cs" t="Include" />
+        <e p="Users.cshtml" t="Include" />
+        <e p="Users.cshtml.cs" t="Include" />
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
       </e>

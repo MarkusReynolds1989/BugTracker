@@ -36,7 +36,7 @@ namespace BugTracker.Controllers
         public bool Insert(Ticket ticket)
         {
             var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
-                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
+                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int)ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -67,7 +67,7 @@ namespace BugTracker.Controllers
         public bool Update(Ticket ticket)
         {
             // TODO: Consider configuring this query to where the code can change a ticket_id.
-            var query = "UPDATE Ticket (title, description, resolution, statusindcd)" +
+            var query = "UPDATE Ticket (title, description, resolution, status_ind_cd)" +
                         $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")" +
                         $"WHERE ticket_id = {ticket.TicketId}";
 
@@ -152,9 +152,10 @@ namespace BugTracker.Controllers
                     var ticketTitle = inputStream.GetString(2);
                     var ticketDescription = inputStream.GetString(3);
                     var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(5);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
                     var loggerId = inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId,workerId,ticketTitle,ticketDescription,ticketResolution,ticketStatusIndCd,loggerId));
+                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                        ticketStatusIndCd, loggerId));
                 }
 
                 Authentication.Close();
@@ -166,6 +167,89 @@ namespace BugTracker.Controllers
             }
 
             return ticketList;
+        }
+
+        // Implement overload for getting tickets by worker_id.
+        public IList<Ticket> SelectAll(int id)
+        {
+            // Removed const.
+            var query = $"SELECT * FROM Ticket WHERE worker_id ={id}";
+
+            var ticketList = new List<Ticket>();
+
+            try
+            {
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+
+                // We should switch to this using pattern for the connection as well.
+                // This implements IDisposable which takes care of closing the connection for us.
+                using var inputStream = command.ExecuteReader();
+                while (inputStream.Read())
+                {
+                    var ticketId = inputStream.GetInt32(0);
+                    var workerId = inputStream.GetInt32(1);
+                    var ticketTitle = inputStream.GetString(2);
+                    var ticketDescription = inputStream.GetString(3);
+                    var ticketResolution = inputStream.GetString(4);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
+                    var loggerId = inputStream.GetInt32(6);
+                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                        ticketStatusIndCd, loggerId));
+                }
+
+                Authentication.Close();
+            }
+            catch (MySqlException exception)
+            {
+                Authentication.Close();
+                Console.WriteLine(exception);
+            }
+
+            return ticketList;
+        }
+
+        public Ticket SelectRow(int id)
+        {
+            // Removed const.
+            var query = $"SELECT * FROM Ticket WHERE ticket_id={id}";
+
+            Ticket ticket = null;
+
+            try
+            {
+                Authentication.Open();
+                var command = Authentication.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = query;
+
+                // We should switch to this using pattern for the connection as well.
+                // This implements IDisposable which takes care of closing the connection for us.
+                using var inputStream = command.ExecuteReader();
+                while (inputStream.Read())
+                {
+                    var ticketId = inputStream.GetInt32(0);
+                    var workerId = inputStream.GetInt32(1);
+                    var ticketTitle = inputStream.GetString(2);
+                    var ticketDescription = inputStream.GetString(3);
+                    var ticketResolution = inputStream.GetString(4);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
+                    var loggerId = inputStream.GetInt32(6);
+                    ticket = new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                        ticketStatusIndCd, loggerId);
+                }
+
+                Authentication.Close();
+            }
+            catch (MySqlException exception)
+            {
+                Authentication.Close();
+                Console.WriteLine(exception);
+            }
+
+            return ticket;
         }
     }
 }
