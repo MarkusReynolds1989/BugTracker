@@ -19,14 +19,14 @@
                value="@ticket.LoggerId"/>
         <input type="text"
                class="input-group"
-               id = "workerId"
-               name = "WorkerId"
+               id="workerId"
+               name="WorkerId"
                value="@ticket.WorkerId"/>
         <br>
         <select class="input-group"
                 id="statusIndCd"
                 name="StatusIndCd">
-            <option>@ticket.StatusIndCd</option>
+            <option>@ticket.StatusIndCd</option> <!-- TODO: Figure out how to model this -->
             <option>Close</option>
             <option>Pending</option>
         </select>
@@ -39,6 +39,7 @@
                id="title"
                name="Title"
                value="@ticket.Title"/>
+
         <textarea id = "desc" name = "Desc">@ticket.Description</textarea>
     </div>
 </div>

@@ -28,6 +28,7 @@
           "MSTest.TestFramework": "2.1.2",
           "Microsoft.NET.Test.Sdk": "16.8.3",
           "MySql.Data": "8.0.22",
+          "MySql.Data.Entity": "7.0.7-m61",
           "xunit": "2.4.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -333,6 +334,22 @@
         },
         "compile": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
+      "EntityFramework/6.0.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.20911.0"
+          },
+          "lib/net45/EntityFramework.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.20911.0"
+          }
+        },
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         }
       },
       "Google.Protobuf/3.11.4": {
@@ -759,6 +776,21 @@
           "lib/netstandard2.1/MySql.Data.dll": {},
           "lib/netstandard2.1/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.1/Zstandard.Net.dll": {}
+        }
+      },
+      "MySql.Data.Entity/7.0.7-m61": {
+        "dependencies": {
+          "EntityFramework": "6.0.0",
+          "MySql.Data": "8.0.22"
+        },
+        "runtime": {
+          "lib/net451/MySql.Data.Entity.EF6.dll": {
+            "assemblyVersion": "7.0.7.0",
+            "fileVersion": "7.0.7.0"
+          }
+        },
+        "compile": {
+          "lib/net451/MySql.Data.Entity.EF6.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -3470,6 +3502,13 @@
       "path": "bouncycastle.netcore/1.8.3",
       "hashPath": "bouncycastle.netcore.1.8.3.nupkg.sha512"
     },
+    "EntityFramework/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
+      "path": "entityframework/6.0.0",
+      "hashPath": "entityframework.6.0.0.nupkg.sha512"
+    },
     "Google.Protobuf/3.11.4": {
       "type": "package",
       "serviceable": true,
@@ -3581,6 +3620,13 @@
       "sha512": "sha512-DTKXORgTwQLbAjl8g5+YhvrAB+peQLfAZQ7gbm5Ejma37f/vBtZqP5aTnqZoJUzaQQgj4Psgdcnlo6IwYedyCg==",
       "path": "mysql.data/8.0.22",
       "hashPath": "mysql.data.8.0.22.nupkg.sha512"
+    },
+    "MySql.Data.Entity/7.0.7-m61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1zjadu/AAAR/KyjZLn5Yd1IZUIV8JVLYOPggK5cNtaxks56kXQjU0eatfyxUoguYlqbmZHnc/gIwPWhQUDzZRg==",
+      "path": "mysql.data.entity/7.0.7-m61",
+      "hashPath": "mysql.data.entity.7.0.7-m61.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
