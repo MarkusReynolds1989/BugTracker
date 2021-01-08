@@ -4,7 +4,7 @@ namespace BugTracker.Pages
 {
     public class Tickets : PageModel
     {
-        public void OnGet()
+        public void OnGet(int userId)
         {
             
         }

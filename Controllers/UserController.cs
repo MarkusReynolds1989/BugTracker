@@ -160,7 +160,7 @@ namespace BugTracker.Controllers
                 Authentication.Close();
                 Console.WriteLine(exception);
             }
-
+            
             return userList;
         }
 
