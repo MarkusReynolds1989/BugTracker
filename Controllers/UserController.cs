@@ -15,10 +15,10 @@ namespace BugTracker.Controllers
         {
             // This is temporary, and when we go to prod we will change this.
             AuthenticationString = new MySqlConnectionStringBuilder
-                                   {
-                                       UserID = "markus", Password = "password123", Database = "bug_tracker",
-                                       Server = "***REMOVED***"
-                                   };
+            {
+                UserID = "markus", Password = "password123", Database = "bug_tracker",
+                Server = "***REMOVED***"
+            };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
             Authentication.Open();
@@ -166,9 +166,9 @@ namespace BugTracker.Controllers
 
         public User SelectRow(int id)
         {
-            const string query = $"SELECT * FROM User WHERE user_id={id}";
+            var query = $"SELECT * FROM User WHERE user_id={id}";
 
-            var userList = new List<User>();
+            User user = null;
 
             try
             {
@@ -186,7 +186,7 @@ namespace BugTracker.Controllers
                     var userName = inputStream.GetString(1);
                     var userPassword = inputStream.GetString(2);
                     var activeInd = inputStream.GetBoolean(3);
-                    userList.Add(new User(userId, userName, userPassword, activeInd));
+                    user = new User(userId, userName, userPassword, activeInd);
                 }
 
                 Authentication.Close();
@@ -197,7 +197,7 @@ namespace BugTracker.Controllers
                 Console.WriteLine(exception);
             }
 
-            return userList;
+            return user;
         }
     }
 }

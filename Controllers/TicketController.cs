@@ -15,10 +15,10 @@ namespace BugTracker.Controllers
         {
             // This is temporary, and when we go to prod we will change this.
             AuthenticationString = new MySqlConnectionStringBuilder
-                                   {
-                                       UserID = "markus", Password = "password123", Database = "bug_tracker",
-                                       Server = "***REMOVED***"
-                                   };
+            {
+                UserID = "markus", Password = "password123", Database = "bug_tracker",
+                Server = "***REMOVED***"
+            };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
             Authentication.Open();
@@ -36,7 +36,7 @@ namespace BugTracker.Controllers
         public bool Insert(Ticket ticket)
         {
             var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
-                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
+                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int)ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -67,7 +67,7 @@ namespace BugTracker.Controllers
         public bool Update(Ticket ticket)
         {
             // TODO: Consider configuring this query to where the code can change a ticket_id.
-            var query = "UPDATE Ticket (title, description, resolution, statusindcd)" +
+            var query = "UPDATE Ticket (title, description, resolution, status_ind_cd)" +
                         $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")" +
                         $"WHERE ticket_id = {ticket.TicketId}";
 
@@ -155,7 +155,7 @@ namespace BugTracker.Controllers
                     var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
                     var loggerId = inputStream.GetInt32(6);
                     ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                                              ticketStatusIndCd, loggerId));
+                        ticketStatusIndCd, loggerId));
                 }
 
                 Authentication.Close();
@@ -168,11 +168,12 @@ namespace BugTracker.Controllers
 
             return ticketList;
         }
-        
+
         // Implement overload for getting tickets by worker_id.
         public IList<Ticket> SelectAll(int id)
         {
-            const string query = $"SELECT * FROM Ticket WHERE worker_id ={id}";
+            // Removed const.
+            var query = $"SELECT * FROM Ticket WHERE worker_id ={id}";
 
             var ticketList = new List<Ticket>();
 
@@ -193,10 +194,10 @@ namespace BugTracker.Controllers
                     var ticketTitle = inputStream.GetString(2);
                     var ticketDescription = inputStream.GetString(3);
                     var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(5);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
                     var loggerId = inputStream.GetInt32(6);
                     ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                                              ticketStatusIndCd, loggerId));
+                        ticketStatusIndCd, loggerId));
                 }
 
                 Authentication.Close();
@@ -212,9 +213,10 @@ namespace BugTracker.Controllers
 
         public Ticket SelectRow(int id)
         {
-            const string query = $"SELECT * FROM Ticket WHERE ticket_id={id}";
+            // Removed const.
+            var query = $"SELECT * FROM Ticket WHERE ticket_id={id}";
 
-            var ticketList = new List<Ticket>();
+            Ticket ticket = null;
 
             try
             {
@@ -233,10 +235,10 @@ namespace BugTracker.Controllers
                     var ticketTitle = inputStream.GetString(2);
                     var ticketDescription = inputStream.GetString(3);
                     var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd)inputStream.GetInt32(5);
+                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
                     var loggerId = inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                                              ticketStatusIndCd, loggerId));
+                    ticket = new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                        ticketStatusIndCd, loggerId);
                 }
 
                 Authentication.Close();
@@ -247,7 +249,7 @@ namespace BugTracker.Controllers
                 Console.WriteLine(exception);
             }
 
-            return ticketList;
+            return ticket;
         }
     }
 }

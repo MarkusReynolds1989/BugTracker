@@ -195,7 +195,6 @@ C:/Users/Admin/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.genruntimeconfig.ca
 /home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.dll
 /home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.pdb
 /home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.genruntimeconfig.cache
-/home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/Razor/Pages/User.cshtml.g.cs
 C:/Users/Logan/BugTracker/bin/Debug/netcoreapp3.1/testhost.exe
 C:/Users/Logan/BugTracker/bin/Debug/netcoreapp3.1/testhost.dll
 C:/Users/Logan/BugTracker/bin/Debug/netcoreapp3.1/appsettings.Development.json
@@ -416,12 +415,4 @@ C:/Users/Logan/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.genruntimeconfig.ca
 /home/markus/Code/C#/BugTracker/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 /home/markus/Code/C#/BugTracker/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 /home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/Razor/Pages/Ticket.cshtml.g.cs
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.csprojAssemblyReference.cache
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.AssemblyInfoInputs.cache
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.AssemblyInfo.cs
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.csproj.CoreCompileInputs.cache
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.RazorAssemblyInfo.cache
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.RazorAssemblyInfo.cs
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.dll
-C:\Users\Logan\BugTracker\obj\Debug\netcoreapp3.1\BugTracker.pdb
+/home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/Razor/Pages/Users.cshtml.g.cs

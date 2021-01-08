@@ -1,6 +1,8 @@
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Xunit;
+using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace BugTracker.BugTrackerTest
 {
@@ -50,7 +52,7 @@ namespace BugTracker.BugTrackerTest
         public void TicketSelectRowTest()
         {
             Assert.True(_ticketController.Init());
-            Assert.True(_ticketController.SelectRow(0) != null);
+            Assert.True(_ticketController.SelectRow(1) != null);
         }
     } 
 }

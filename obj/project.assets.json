@@ -16,6 +16,17 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
+      "EntityFramework/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
       "Google.Protobuf/3.11.4": {
         "type": "package",
         "dependencies": {
@@ -457,6 +468,19 @@
           "lib/netstandard2.1/MySql.Data.dll": {},
           "lib/netstandard2.1/Ubiety.Dns.Core.dll": {},
           "lib/netstandard2.1/Zstandard.Net.dll": {}
+        }
+      },
+      "MySql.Data.Entity/7.0.7-m61": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework": "6.0.0",
+          "MySql.Data": "7.0.7-m61"
+        },
+        "compile": {
+          "lib/net451/MySql.Data.Entity.EF6.dll": {}
+        },
+        "runtime": {
+          "lib/net451/MySql.Data.Entity.EF6.dll": {}
         }
       },
       "NETStandard.Library/1.6.1": {
@@ -2159,6 +2183,36 @@
         "lib/xamarinios/BouncyCastle.Crypto.xml"
       ]
     },
+    "EntityFramework/6.0.0": {
+      "sha512": "y6lX/VMghGBV6TvgQS4Q2WK6kAcOoyD+TQxObN9utd0JsMMdMxyqARxKbvgi7KEIbQ8osZ4ZvImaly7l3NDFDw==",
+      "type": "package",
+      "path": "entityframework/6.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/App.config.transform",
+        "Content/Web.config.transform",
+        "entityframework.6.0.0.nupkg.sha512",
+        "entityframework.nuspec",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/about_EntityFramework.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
     "Google.Protobuf/3.11.4": {
       "sha512": "dajCxjDCiPyZuqwZCkFJTwhn/0TJ5VesIs4fXvs56ez1VUi68JjhYMMsPjnJ9gcPqJwTMtXMU1WqUdXYiG1x4w==",
       "type": "package",
@@ -2873,6 +2927,21 @@
         "lib/netstandard2.1/Zstandard.Net.dll",
         "mysql.data.8.0.22.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "MySql.Data.Entity/7.0.7-m61": {
+      "sha512": "1zjadu/AAAR/KyjZLn5Yd1IZUIV8JVLYOPggK5cNtaxks56kXQjU0eatfyxUoguYlqbmZHnc/gIwPWhQUDzZRg==",
+      "type": "package",
+      "path": "mysql.data.entity/7.0.7-m61",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "lib/net451/MySql.Data.Entity.EF6.dll",
+        "lib/net451/MySql.Data.Entity.EF6.xml",
+        "mysql.data.entity.7.0.7-m61.nupkg.sha512",
+        "mysql.data.entity.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -7107,6 +7176,7 @@
       "MSTest.TestFramework >= 2.1.2",
       "Microsoft.NET.Test.Sdk >= 16.8.3",
       "MySql.Data >= 8.0.22",
+      "MySql.Data.Entity >= 7.0.7-m61",
       "xunit >= 2.4.1"
     ]
   },
@@ -7165,6 +7235,10 @@
             "target": "Package",
             "version": "[8.0.22, )"
           },
+          "MySql.Data.Entity": {
+            "target": "Package",
+            "version": "[7.0.7-m61, )"
+          },
           "xunit": {
             "target": "Package",
             "version": "[2.4.1, )"
@@ -7188,8 +7262,34 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/3.1.404/RuntimeIdentifierGraph.json"
+>>>>>>> a5caee484add776e19c3d3c053b333f95e36501b
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EntityFramework 6.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "EntityFramework",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MySql.Data.Entity 7.0.7-m61' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "MySql.Data.Entity",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

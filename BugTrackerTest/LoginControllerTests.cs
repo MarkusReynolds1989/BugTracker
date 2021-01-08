@@ -9,7 +9,7 @@ namespace BugTracker.BugTrackerTest
         [Fact]
         public void LoginTest()
         {
-            var login = new LoginController("Tom", "password123");
+            var login = new LoginController("markus", "password123");
             Assert.NotNull(login.AuthorizeUser());
         }
     }

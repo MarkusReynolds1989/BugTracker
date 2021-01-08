@@ -49,7 +49,7 @@ namespace BugTracker.BugTrackerTest
         public void UserSelectRowTest()
         {
             Assert.True(_userConnection.Init());
-            Assert.True(_userConnection.SelectRow(0) != null);
+            Assert.True(_userConnection.SelectRow(1) != null);
         }
     }
 }
