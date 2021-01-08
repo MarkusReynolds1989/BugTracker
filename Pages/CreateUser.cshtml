@@ -1,0 +1,40 @@
+﻿@page
+@model CreateUserModel
+
+<form
+    class="form-group"
+    method="post">
+    <label for="firstName"> Firstname: </label>
+    <input
+        type="text"
+        id="firstName"
+        name="Firstname"
+        class="form-control">
+    <label for="lastName"> Lastname: </label>
+    <input
+        type="text"
+        id="lastName"
+        name="LastName"
+        class="form-control">
+    <label for="userName"> Username: </label>
+    <input
+        type="text"
+        id="userName"
+        name="Username"
+        class="form-control">
+    <label for="password"> Password:</label>
+    <input
+        type="password"
+        id="password"
+        name="CreatePassword"
+        class="form-control"/>
+    <label for="confirmPassword">
+        Confirm Password:
+    </label>
+    <input type="password"
+           id="confirmPassword"
+           class="form-control"/>
+
+    <input type="text" name="mail"/>
+    <input type="submit" value="Ok"/>
+</form>

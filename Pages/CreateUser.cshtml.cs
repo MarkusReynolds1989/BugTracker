@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
 {
-    public class CreatUserModel : PageModel
+    public class CreateUserModel : PageModel
     {
-        public void OnGet()
+        public void OnPost()
         {
         }
     }
