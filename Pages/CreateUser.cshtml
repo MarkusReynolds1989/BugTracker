@@ -1,40 +1,56 @@
 ﻿@page
 @model CreateUserModel
 
-<form
-    class="form-group"
-    method="post">
-    <label for="firstName"> Firstname: </label>
-    <input
-        type="text"
-        id="firstName"
-        name="Firstname"
-        class="form-control">
-    <label for="lastName"> Lastname: </label>
-    <input
-        type="text"
-        id="lastName"
-        name="LastName"
-        class="form-control">
-    <label for="userName"> Username: </label>
-    <input
-        type="text"
-        id="userName"
-        name="Username"
-        class="form-control">
-    <label for="password"> Password:</label>
-    <input
-        type="password"
-        id="password"
-        name="CreatePassword"
-        class="form-control"/>
-    <label for="confirmPassword">
-        Confirm Password:
-    </label>
-    <input type="password"
-           id="confirmPassword"
-           class="form-control"/>
+@{
+    ViewData["Title"] = "Create User";
+}
 
-    <input type="text" name="mail"/>
-    <input type="submit" value="Ok"/>
+<h1 style="text-align: center">Create a User</h1>
+<form
+    method="post">
+    <div class="form-group">
+        <label for="firstName"> Firstname: </label>
+        <input
+            type="text"
+            id="firstName"
+            name="FirstName"
+            class="form-control">
+        <label for="lastName"> Lastname: </label>
+        <input
+            type="text"
+            id="lastName"
+            name="LastName"
+            class="form-control">
+        <label for="userName"> Username: </label>
+        <input
+            type="text"
+            id="userName"
+            name="UserName"
+            class="form-control">
+        <label for="password"> Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="CreatePassword"
+            class="form-control"/>
+        <label for="confirmPassword">
+            Confirm Password:
+        </label>
+        <input type="password"
+               id="confirmPassword"
+               class="form-control"/>
+        <label for="email">
+            Email:
+        </label>
+        <input
+            type="email"
+            id="email"
+            name="Email"
+            class="form-control"/>
+    </div>
+    <input
+        type="submit"
+        id="submit"
+        value="Submit"
+        class="btn btn-primary"/>
 </form>
