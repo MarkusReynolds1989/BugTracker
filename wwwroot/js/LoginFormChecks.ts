@@ -4,10 +4,10 @@ const regUsername: RegExp = /[A-Za-z][A-Za-z0-9]+/;
 // We can reuse all this code when we go over to creating users.
 const regPassword: RegExp = /[A-Za-z0-9]+[*\\%#@]/;
 
-let userName = document.getElementById("username") as HTMLInputElement;
-let password = document.getElementById("password") as HTMLInputElement;
-let feedback = document.getElementById("loginFeedback") as HTMLInputElement;
-let submit = document.getElementById("submit") as HTMLInputElement;
+const userName = document.getElementById("username") as HTMLInputElement;
+const password = document.getElementById("password") as HTMLInputElement;
+const feedback = document.getElementById("loginFeedback") as HTMLInputElement;
+const submit = document.getElementById("submit") as HTMLInputElement;
 
 const verifyUsername = (): boolean => {
     if (regUsername.test(userName.value)) {

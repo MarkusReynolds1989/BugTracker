@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BugTracker.Controllers;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
 {
     public class CreateUserModel : PageModel
     {
+        // Capture user data in this methods data.
         public void OnPost()
         {
             // Step 1: Authenticate the user. If they are not allowed to see this data we shouldn't 
@@ -28,10 +24,15 @@ namespace BugTracker.Pages
             userController.Init();
 
             // Step 4: Submit the data.
-            userController.Insert(new Models.User(userName, password));
-
-            // Step 5: Redirect to the users page to show our added person.
-            Response.Redirect("/Users");
+            if (userController.Insert(new Models.User(userName, password)))
+            {
+                // Step 5: Redirect to the users page to show our added person.
+                Response.Redirect("/Users");
+            }
+            else
+            {
+                // Post some sort of message that the addition failed.
+            }
 
             // Drawbacks, no mass adding. Has to be one at a time.
             // A little bit slow to redirect.

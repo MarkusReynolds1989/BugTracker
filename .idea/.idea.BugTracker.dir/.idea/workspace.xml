@@ -22,12 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Minor javascript code for login.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="CreateUser.cshtml and CreateUser.cshtml.cs rough draft.">
+      <change afterPath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/ModifyUser.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/ModifyUser.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +75,18 @@
       <option value="$PROJECT_DIR$/wwwroot/js/login.ts" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
-      <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/ModifyTicket.cshtml.cs" />
+      <option value="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" />
+      <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" />
+      <option value="$PROJECT_DIR$/wwwroot/js/site.js" />
+      <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -92,7 +110,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last.edited.regexp" value="sdfasdf" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -143,7 +161,8 @@
       <workItem from="1607988746718" duration="3040000" />
       <workItem from="1609801754209" duration="5899000" />
       <workItem from="1610061620410" duration="2417000" />
-      <workItem from="1610072579594" duration="2400000" />
+      <workItem from="1610072579594" duration="2784000" />
+      <workItem from="1610148997333" duration="5678000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -257,14 +276,23 @@
       <option name="project" value="LOCAL" />
       <updated>1610072698403</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="CreateUser.cshtml and CreateUser.cshtml.cs rough draft.">
+      <created>1610075007980</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610075007980</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/wwwroot/js/login.js" />
+        <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.js" />
+        <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" />
+        <option value="$PROJECT_DIR$/wwwroot/js/UserFormChecks.js" />
       </list>
     </option>
   </component>
@@ -299,6 +327,11 @@
     <MESSAGE value="Tickets.cshtml and more." />
     <MESSAGE value="Minor javascript code for login." />
     <MESSAGE value="use this gitignore." />
-    <option name="LAST_COMMIT_MESSAGE" value="use this gitignore." />
+    <MESSAGE value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
+    <option name="LAST_COMMIT_MESSAGE" value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
