@@ -43,13 +43,13 @@ namespace BugTracker
                 app.UseHsts();
             }
 
+            // Run method on app so we can use sessions for login info.
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
-            // Run method on app so we can use sessions for login info.
-            app.UseSession();
         }
     }
 }

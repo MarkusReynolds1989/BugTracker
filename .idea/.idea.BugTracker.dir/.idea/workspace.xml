@@ -22,20 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Fixed auto formatting so that everything will format automatically.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Reformatted all views to use new tag rules.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateTicket.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateTicket.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Error.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/ModifyUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/ModifyUser.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Privacy.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +43,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/CreateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -78,11 +78,8 @@
       <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/site.js" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
-      <option value="$PROJECT_DIR$/Startup.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Error.cshtml" />
@@ -95,6 +92,9 @@
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/Startup.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -171,7 +171,7 @@
       <workItem from="1610061620410" duration="2417000" />
       <workItem from="1610072579594" duration="2784000" />
       <workItem from="1610148997333" duration="6794000" />
-      <workItem from="1610200678015" duration="604000" />
+      <workItem from="1610200678015" duration="3545000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -327,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610201187476</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Reformatted all views to use new tag rules.">
+      <created>1610201298020</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610201298020</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +384,8 @@
     <MESSAGE value="Implemented middle with auth for Tickets." />
     <MESSAGE value="Sorted tags alphabetically using the :sort command in vim." />
     <MESSAGE value="Fixed auto formatting so that everything will format automatically." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed auto formatting so that everything will format automatically." />
+    <MESSAGE value="Reformatted all views to use new tag rules." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatted all views to use new tag rules." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

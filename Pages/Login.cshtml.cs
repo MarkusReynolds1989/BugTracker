@@ -9,8 +9,8 @@ namespace BugTracker.Pages
     {
         public void OnPost()
         {
-            var userName = ViewData["UserName"].ToString();
-            var password = ViewData["Password"].ToString();
+            var userName = Request.Form["UserName"].ToString();
+            var password = Request.Form["Password"].ToString();
             var login = new LoginController(userName, password);
             if (login.AuthorizeUser() != null)
             {
@@ -22,6 +22,15 @@ namespace BugTracker.Pages
             else
             {
                 // No session info, tell the user they can't log in.
+                Response.Redirect("Login?statusCode=401");
+            }
+        }
+
+        public void OnGet(int statusCode = 0)
+        {
+            if (statusCode == 401)
+            {
+                ViewData["Feedback"] = "Incorrect username or password.";
             }
         }
     }
