@@ -2,13 +2,14 @@ using System;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BugTracker.Pages
 {
     public class Ticket : PageModel
     {
-        public void OnGet(int ticketId)
+        public void OnGet(int ticketId = 0)
         {
             var ticketController = new TicketController();
             ticketController.Init();
@@ -52,13 +53,14 @@ namespace BugTracker.Pages
                     statusIndCd,
                     loggerId);
             
+            // TODO: Fix error where this isn't redirecting.
             if (ticketController.Update(updateTicket))
             {
-                Response.Redirect($"/Tickets");
+                Response.Redirect($"/Ticket?ticketId={ticketId}");
             }
             else
             {
-                Response.Redirect($"/Tickets?ticketId={ticketId}");
+                Response.Redirect($"/Ticket?ticketId={ticketId}");
             }
         }
     }
