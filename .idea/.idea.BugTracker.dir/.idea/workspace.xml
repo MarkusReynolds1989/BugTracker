@@ -22,11 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="More gitignore.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="LoginFormChecks.ts for Login.cshtml.&#10;Front end checking before sending it back to server.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,21 +55,24 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F46FB46D-3988-4C85-AB43-7FEBA5CB9EF8/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/27/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19B3447F-EED7-48F4-B362-071ED33E9131/160/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/2D/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B5C0ECE9-48E9-456E-A76D-60AC6F690356/82/ViewExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/14F77EE4-639B-4CE9-849B-C8F1BB98D456/11C/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/wwwroot/js/login.ts" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
@@ -84,7 +90,6 @@
       <option value="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" />
       <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Privacy.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
@@ -94,6 +99,12 @@
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
+      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -171,7 +182,7 @@
       <workItem from="1610072579594" duration="2784000" />
       <workItem from="1610148997333" duration="6794000" />
       <workItem from="1610200678015" duration="3545000" />
-      <workItem from="1610208756176" duration="1784000" />
+      <workItem from="1610208756176" duration="12486000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -341,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610208844651</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="LoginFormChecks.ts for Login.cshtml.&#10;Front end checking before sending it back to server.">
+      <created>1610210603152</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610210603152</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +411,119 @@
     <MESSAGE value="Fixed auto formatting so that everything will format automatically." />
     <MESSAGE value="Reformatted all views to use new tag rules." />
     <MESSAGE value="Fixed G files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed G files" />
+    <MESSAGE value="LoginFormChecks.ts for Login.cshtml.&#10;Front end checking before sending it back to server." />
+    <option name="LAST_COMMIT_MESSAGE" value="LoginFormChecks.ts for Login.cshtml.&#10;Front end checking before sending it back to server." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml</url>
+          <line>5</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml" initialLine="5" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="33" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="969" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1026" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>34</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="34" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1039" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1096" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="36" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1146" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1203" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>37</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="37" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1216" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1279" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>43</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="43" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1539" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1585" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>45</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="45" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1635" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1883" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Pages/Ticket.cshtml.cs</url>
+          <line>54</line>
+          <properties documentPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" initialLine="54" containingFunctionPresentation="method 'OnPost'">
+            <startOffsets>
+              <option value="1909" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1951" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
