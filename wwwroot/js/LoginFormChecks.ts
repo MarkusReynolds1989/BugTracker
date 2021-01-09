@@ -1,40 +1,34 @@
-// Username must contain a character as the first part but the rest can be numbers + letters as they like, no symbols.
-const regUsername: RegExp = /[A-Za-z][A-Za-z0-9]+/;
-// Password can contain any combo of letters and numbers but also must contain symbols.
-// We can reuse all this code when we go over to creating users.
-const regPassword: RegExp = /[A-Za-z0-9]+[*\\%#@]/;
+// Step 1: Gather the elements of the page.
+const userName = document.getElementById("username") as HTMLInputElement,
+    password = document.getElementById("password") as HTMLInputElement,
+    feedback = document.getElementById("loginFeedback") as HTMLInputElement,
+    clearButton = document.getElementById("clear");
 
-const userName = document.getElementById("username") as HTMLInputElement;
-const password = document.getElementById("password") as HTMLInputElement;
-const feedback = document.getElementById("loginFeedback") as HTMLInputElement;
-const submit = document.getElementById("submit") as HTMLInputElement;
+let submitButton = document.getElementById("submit") as HTMLInputElement,
+    passwordIsEmpty: boolean = true,
+    usernameIsEmpty: boolean = true;
 
-const verifyUsername = (): boolean => {
-    if (regUsername.test(userName.value)) {
-        feedback.hidden = true;
-        password.style.backgroundColor = "White";
-        return true;
+// Step 2: Create our functions.
+
+// Clears username and password.
+const clear = () => {
+    userName.value = "";
+    password.value = "";
+}
+
+const checkInput = () => {
+    usernameIsEmpty = userName.value.length <= 0;
+    passwordIsEmpty = password.value.length <= 0;
+    if (!usernameIsEmpty && !passwordIsEmpty) {
+        submitButton.disabled = false;
     }
 
-    userName.style.backgroundColor = "Red";
-    feedback.hidden = false;
-    feedback.innerText = "Incorrect username";
-    return false;
-}
-
-const verifyPassword = (): boolean => {
-    if (regPassword.test(password.value)) {
-        feedback.hidden = true;
-        password.style.backgroundColor = "White";
-        return true;
+    if (usernameIsEmpty || passwordIsEmpty) {
+        submitButton.disabled = true;
     }
-
-    userName.style.backgroundColor = "Red";
-    feedback.hidden = false;
-    feedback.innerText = "Incorrect password";
-    return false;
 }
 
-if (!verifyUsername() || !verifyPassword()) {
-    submit.disabled = true;
-}
+// Step 3: Add event listeners.
+clearButton.addEventListener("click", clear);
+password.addEventListener("input", checkInput);
+userName.addEventListener("input", checkInput);

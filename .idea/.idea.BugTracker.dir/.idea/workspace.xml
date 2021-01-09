@@ -23,8 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="More gitignore.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,6 @@
       <option value="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/site.js" />
-      <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml" />
@@ -90,8 +91,9 @@
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
+      <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -169,7 +171,7 @@
       <workItem from="1610072579594" duration="2784000" />
       <workItem from="1610148997333" duration="6794000" />
       <workItem from="1610200678015" duration="3545000" />
-      <workItem from="1610208756176" duration="30000" />
+      <workItem from="1610208756176" duration="1784000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -332,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610201298020</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed G files">
+      <created>1610208844651</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610208844651</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,7 +392,8 @@
     <MESSAGE value="Sorted tags alphabetically using the :sort command in vim." />
     <MESSAGE value="Fixed auto formatting so that everything will format automatically." />
     <MESSAGE value="Reformatted all views to use new tag rules." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformatted all views to use new tag rules." />
+    <MESSAGE value="Fixed G files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed G files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
