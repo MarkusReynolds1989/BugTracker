@@ -5,27 +5,33 @@
     var ticket = (Models.Ticket) ViewData["ticket"];
 }
 
-<div class="row">
-    <div class="col">
-        <input type="text"
-               class="input-group"
-               id="ticketId"
-               name="TicketId"
-               value="@ticket.TicketId"/>
-        <input type="text"
-               class="input-group"
-               id="loggerId"
-               name="LoggerId"
-               value="@ticket.LoggerId"/>
-        <input type="text"
-               class="input-group"
-               id="workerId"
-               name="WorkerId"
-               value="@ticket.WorkerId"/>
+<div
+    class = "row">
+    <div
+        class = "col">
+        <input
+            class = "input-group"
+            id = "ticketId"
+            name = "TicketId"
+            type = "text"
+            value = "@ticket.TicketId"/>
+        <input
+            class = "input-group"
+            id = "loggerId"
+            name = "LoggerId"
+            type = "text"
+            value = "@ticket.LoggerId"/>
+        <input
+            class = "input-group"
+            id = "workerId"
+            name = "WorkerId"
+            type = "text"
+            value = "@ticket.WorkerId"/>
         <br>
-        <select class="input-group"
-                id="statusIndCd"
-                name="StatusIndCd">
+        <select
+            class = "input-group"
+            id = "statusIndCd"
+            name = "StatusIndCd">
             <option>@ticket.StatusIndCd</option> <!-- TODO: Figure out how to model this -->
             <option>Close</option>
             <option>Pending</option>
@@ -33,23 +39,26 @@
     </div>
     <!-- End of column -->
 
-    <div class="col">
-        <input type="text"
-               class="input-group"
-               id="title"
-               name="Title"
-               value="@ticket.Title"/>
+    <div
+        class = "col">
+        <input
+            class = "input-group"
+            id = "title"
+            name = "Title"
+            type = "text"
+            value = "@ticket.Title"/>
 
         <textarea id = "desc" name = "Desc">@ticket.Description</textarea>
     </div>
 </div>
 
 <br>
-<textarea cols="50px" 
-          class="input-group"
+<textarea class="input-group" 
+          cols="50px"
           id = "resolution"
           name = "Resolution">@ticket.Resolution</textarea>
 <br>
-<input type="button"
-       class="btn btn-primary"
-       value="Save"/>
+<input
+    class = "btn btn-primary"
+    type = "button"
+    value = "Save"/>
