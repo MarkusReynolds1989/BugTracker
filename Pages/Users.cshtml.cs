@@ -7,6 +7,7 @@ namespace BugTracker.Pages
     {
         public void OnGet()
         {
+            // Need to store some sort of auth level over in the Login method.
             var userController = new UserController();
             userController.Init();
             var userList = userController.SelectAll();
