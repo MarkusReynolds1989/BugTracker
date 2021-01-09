@@ -22,10 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Implemented basic authentication in Login.cshtml.cs">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Implemented middle with auth for Tickets.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,6 @@
       <option value="$PROJECT_DIR$/wwwroot/js/login.ts" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
-      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" />
@@ -78,6 +76,7 @@
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -153,7 +152,8 @@
       <workItem from="1609801754209" duration="5899000" />
       <workItem from="1610061620410" duration="2417000" />
       <workItem from="1610072579594" duration="2784000" />
-      <workItem from="1610148997333" duration="6609000" />
+      <workItem from="1610148997333" duration="6794000" />
+      <workItem from="1610200678015" duration="192000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -288,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610155740160</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Implemented middle with auth for Tickets.">
+      <created>1610156019392</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610156019392</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +342,8 @@
     <MESSAGE value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
     <MESSAGE value="Work on several files for the site. Architecture on several others." />
     <MESSAGE value="Implemented basic authentication in Login.cshtml.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented basic authentication in Login.cshtml.cs" />
+    <MESSAGE value="Implemented middle with auth for Tickets." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented middle with auth for Tickets." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

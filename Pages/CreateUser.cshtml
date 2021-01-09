@@ -2,6 +2,7 @@
 @model CreateUserModel
 
 @{
+    // Set the title of the page.
     ViewData["Title"] = "Create User";
 }
 
@@ -11,46 +12,47 @@
     <div class="form-group">
         <label for="firstName"> Firstname: </label>
         <input
-            type="text"
+            class="form-control"
             id="firstName"
             name="FirstName"
-            class="form-control">
+            type="text"/>
         <label for="lastName"> Lastname: </label>
         <input
-            type="text"
+            class="form-control"
             id="lastName"
             name="LastName"
-            class="form-control">
+            type="text"/>
         <label for="userName"> Username: </label>
         <input
-            type="text"
+            class="form-control"
             id="userName"
             name="UserName"
-            class="form-control">
+            type="text"/>
         <label for="password"> Password:</label>
         <input
-            type="password"
+            class="form-control"
             id="password"
             name="CreatePassword"
-            class="form-control"/>
+            type="password"/>
         <label for="confirmPassword">
             Confirm Password:
         </label>
-        <input type="password"
-               id="confirmPassword"
-               class="form-control"/>
+        <input
+            class="form-control"
+            id="confirmPassword"
+            type="password"/>
         <label for="email">
             Email:
         </label>
         <input
-            type="email"
+            class="form-control"
             id="email"
             name="Email"
-            class="form-control"/>
+            type="email"/>
     </div>
     <input
-        type="submit"
+        class="btn btn-primary"
         id="submit"
-        value="Submit"
-        class="btn btn-primary"/>
+        type="submit"
+        value="Submit"/>
 </form>
