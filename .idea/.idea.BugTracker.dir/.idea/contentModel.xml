@@ -45,8 +45,6 @@
         <e p="Index.cshtml.cs" t="Include" />
         <e p="Login.cshtml" t="Include" />
         <e p="Login.cshtml.cs" t="Include" />
-        <e p="ModifyTicket.cshtml" t="Include" />
-        <e p="ModifyTicket.cshtml.cs" t="Include" />
         <e p="ModifyUser.cshtml" t="Include" />
         <e p="ModifyUser.cshtml.cs" t="Include" />
         <e p="Privacy.cshtml" t="Include" />
