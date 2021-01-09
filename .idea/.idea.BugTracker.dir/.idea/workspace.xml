@@ -22,21 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="CreateUser.cshtml and CreateUser.cshtml.cs rough draft.">
-      <change afterPath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/ModifyTicket.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/ModifyUser.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/ModifyUser.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Work on several files for the site. Architecture on several others.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +55,6 @@
       <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
@@ -87,6 +75,8 @@
       <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/site.js" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
+      <option value="$PROJECT_DIR$/Startup.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -162,7 +152,7 @@
       <workItem from="1609801754209" duration="5899000" />
       <workItem from="1610061620410" duration="2417000" />
       <workItem from="1610072579594" duration="2784000" />
-      <workItem from="1610148997333" duration="5678000" />
+      <workItem from="1610148997333" duration="6322000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -283,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610075007980</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Work on several files for the site. Architecture on several others.">
+      <created>1610155109250</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610155109250</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +325,8 @@
     <MESSAGE value="Minor javascript code for login." />
     <MESSAGE value="use this gitignore." />
     <MESSAGE value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
-    <option name="LAST_COMMIT_MESSAGE" value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
+    <MESSAGE value="Work on several files for the site. Architecture on several others." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on several files for the site. Architecture on several others." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
