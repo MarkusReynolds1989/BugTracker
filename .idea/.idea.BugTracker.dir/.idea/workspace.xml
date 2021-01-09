@@ -22,11 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Reformatted all views to use new tag rules.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="More gitignore.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +50,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/CreateUser.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -69,7 +66,6 @@
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/wwwroot/js/login.ts" />
-      <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml.cs" />
@@ -95,6 +91,7 @@
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
+      <option value="$PROJECT_DIR$/.gitignore" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -172,6 +169,7 @@
       <workItem from="1610072579594" duration="2784000" />
       <workItem from="1610148997333" duration="6794000" />
       <workItem from="1610200678015" duration="3545000" />
+      <workItem from="1610208756176" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
