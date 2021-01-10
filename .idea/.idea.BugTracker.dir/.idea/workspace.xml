@@ -22,15 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Don't need a modify ticket view, we can do it through the Ticket view.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Changed how login works, adjusted database users.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +50,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Login.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
@@ -183,7 +178,7 @@
       <workItem from="1610148997333" duration="6794000" />
       <workItem from="1610200678015" duration="3545000" />
       <workItem from="1610208756176" duration="13585000" />
-      <workItem from="1610235645541" duration="1582000" />
+      <workItem from="1610235645541" duration="1729000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -381,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610231154834</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Changed how login works, adjusted database users.">
+      <created>1610237246475</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1610237246475</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +413,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd." />
     <MESSAGE value="Added the IDataProcess.cs interface." />
     <MESSAGE value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
     <MESSAGE value="Renamed status_ind_cd to StatusindCd" />
@@ -436,26 +437,10 @@
     <MESSAGE value="Fixed update tests, all tests good." />
     <MESSAGE value="Bug on line 56 where it will update but then throw a reference error." />
     <MESSAGE value="Don't need a modify ticket view, we can do it through the Ticket view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Don't need a modify ticket view, we can do it through the Ticket view." />
+    <MESSAGE value="Changed how login works, adjusted database users." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed how login works, adjusted database users." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Controllers/LoginController.cs</url>
-          <line>35</line>
-          <properties documentPath="$PROJECT_DIR$/Controllers/LoginController.cs" initialLine="35" containingFunctionPresentation="method 'AuthorizeUser'">
-            <startOffsets>
-              <option value="1206" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2181" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Frame#BugTracker.BugTrackerTest.LoginControllerTests.LoginTest" memberName="login" />

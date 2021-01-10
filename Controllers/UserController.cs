@@ -70,7 +70,7 @@ namespace BugTracker.Controllers
                 $"Update User SET name = \"{user.Name}\", " +
                 $"password = \"{user.Password}\" " +
                 $"WHERE user_id = {user.UserId}";
-            
+
             bool success;
 
             MySqlTransaction transaction = null;
@@ -160,7 +160,7 @@ namespace BugTracker.Controllers
                 Authentication.Close();
                 Console.WriteLine(exception);
             }
-            
+
             return userList;
         }
 

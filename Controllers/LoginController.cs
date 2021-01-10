@@ -11,17 +11,13 @@ namespace BugTracker.Controllers
         // In this case, this will be created from a post method to
         // local host.
         private readonly MySqlConnectionStringBuilder _authenticationString;
-        private readonly string _userName;
-        private readonly string _password;
 
         public LoginController()
         {
-            _userName = "admin";
-            _password = "password123";
             _authenticationString =
                 new MySqlConnectionStringBuilder
                 {
-                    UserID = _userName, Password = _password, Database = "bug_tracker", Server = "***REMOVED***"
+                    UserID = "admin", Password = "password", Database = "bug_tracker", Server = "***REMOVED***"
                 };
         }
 
