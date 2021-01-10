@@ -52,7 +52,7 @@ namespace BugTracker.Pages
                     resolution,
                     statusIndCd,
                     loggerId);
-            
+
             // TODO: Fix error where this isn't redirecting.
             if (ticketController.Update(updateTicket))
             {

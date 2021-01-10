@@ -11,12 +11,12 @@ namespace BugTracker.Pages
         {
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["Password"].ToString();
-            var login = new LoginController(userName, password);
-            if (login.AuthorizeUser() != null)
+            var login = new LoginController();
+            var user = login.AuthorizeUser(new Models.User(0, userName, password, true));
+            if (user != null)
             {
-                var userId = login.AuthorizeUser().UserId;
                 // Set the users session user id here.
-                HttpContext.Session.SetInt32("UserId", userId);
+                HttpContext.Session.SetInt32("UserId", user.UserId);
                 Response.Redirect("Tickets/");
             }
             else

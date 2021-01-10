@@ -22,9 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Fixed update tests, all tests good.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Don't need a modify ticket view, we can do it through the Ticket view.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +58,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Ticket.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/19/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F46FB46D-3988-4C85-AB43-7FEBA5CB9EF8/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/27/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Pages/Login.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19B3447F-EED7-48F4-B362-071ED33E9131/160/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/2D/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B5C0ECE9-48E9-456E-A76D-60AC6F690356/82/ViewExecutor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -68,8 +71,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/wwwroot/js/login.ts" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
@@ -92,7 +93,6 @@
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Startup.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
@@ -102,6 +102,9 @@
       <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -179,7 +182,8 @@
       <workItem from="1610072579594" duration="2784000" />
       <workItem from="1610148997333" duration="6794000" />
       <workItem from="1610200678015" duration="3545000" />
-      <workItem from="1610208756176" duration="13300000" />
+      <workItem from="1610208756176" duration="13585000" />
+      <workItem from="1610235645541" duration="1582000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -363,7 +367,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610230107863</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Bug on line 56 where it will update but then throw a reference error.">
+      <created>1610230910577</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610230910577</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Don't need a modify ticket view, we can do it through the Ticket view.">
+      <created>1610231154834</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610231154834</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +411,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added GPL 3.0 License. Added readme.md." />
     <MESSAGE value="Formatting,&#10;Changed the name of the &quot;Class.cs&quot; file to StatusInd.cs, Fixed the capilization of the enum StatusInd." />
     <MESSAGE value="Added the IDataProcess.cs interface." />
     <MESSAGE value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
@@ -417,7 +434,33 @@
     <MESSAGE value="Fixed G files" />
     <MESSAGE value="LoginFormChecks.ts for Login.cshtml.&#10;Front end checking before sending it back to server." />
     <MESSAGE value="Fixed update tests, all tests good." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed update tests, all tests good." />
+    <MESSAGE value="Bug on line 56 where it will update but then throw a reference error." />
+    <MESSAGE value="Don't need a modify ticket view, we can do it through the Ticket view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Don't need a modify ticket view, we can do it through the Ticket view." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Controllers/LoginController.cs</url>
+          <line>35</line>
+          <properties documentPath="$PROJECT_DIR$/Controllers/LoginController.cs" initialLine="35" containingFunctionPresentation="method 'AuthorizeUser'">
+            <startOffsets>
+              <option value="1206" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2181" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#BugTracker.BugTrackerTest.LoginControllerTests.LoginTest" memberName="login" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

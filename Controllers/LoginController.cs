@@ -14,10 +14,10 @@ namespace BugTracker.Controllers
         private readonly string _userName;
         private readonly string _password;
 
-        public LoginController(string userName, string password)
+        public LoginController()
         {
-            _userName = userName;
-            _password = password;
+            _userName = "admin";
+            _password = "password123";
             _authenticationString =
                 new MySqlConnectionStringBuilder
                 {
@@ -27,7 +27,7 @@ namespace BugTracker.Controllers
 
         // Return the user from the database if the password and username match.
         // Return null if no match or error.
-        public User AuthorizeUser()
+        public User AuthorizeUser(User user)
         {
             User authenticatedUser = null;
             using var authenticationConnection =
@@ -37,7 +37,7 @@ namespace BugTracker.Controllers
             {
                 authenticationConnection.Open();
                 var query =
-                    $"SELECT * FROM User WHERE name = \"{_userName}\" AND password = \"{_password}\"";
+                    $"SELECT * FROM User WHERE name = \"{user.Name}\" AND password = \"{user.Password}\"";
                 var command = authenticationConnection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
