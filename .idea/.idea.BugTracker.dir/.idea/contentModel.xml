@@ -86,12 +86,12 @@
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="js" t="Include">
+          <e p="CreateTicketFormChecks.js" t="Include" />
+          <e p="CreateTicketFormChecks.ts" t="Include" />
+          <e p="CreateUserFormChecks.js" t="Include" />
+          <e p="CreateUserFormChecks.ts" t="Include" />
           <e p="LoginFormChecks.js" t="Include" />
           <e p="LoginFormChecks.ts" t="Include" />
-          <e p="TicketFormChecks.js" t="Include" />
-          <e p="TicketFormChecks.ts" t="Include" />
-          <e p="UserFormChecks.js" t="Include" />
-          <e p="UserFormChecks.ts" t="Include" />
           <e p="site.js" t="Include" />
         </e>
         <e p="lib" t="Include">

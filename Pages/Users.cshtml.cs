@@ -10,8 +10,8 @@ namespace BugTracker.Pages
             // Need to store some sort of auth level over in the Login method.
             var userController = new UserController();
             userController.Init();
-            var userList = userController.SelectAll();
-            ViewData["list"] = userList;
+            var users = userController.SelectAll();
+            ViewData["users"] = users;
         }
     }
 }
