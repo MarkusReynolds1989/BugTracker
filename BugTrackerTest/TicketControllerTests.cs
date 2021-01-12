@@ -30,7 +30,7 @@ namespace BugTracker.BugTrackerTest
         public void TicketUpdateTest()
         {
             Assert.True(_ticketController.Init());
-            Assert.True(_ticketController.Update(new Ticket(0,0,"title","Test ticket","resolve",StatusIndCd.Closed,0)));
+            Assert.True(_ticketController.Update(new Ticket(0,1,"title","Test ticket","resolve",StatusIndCd.Closed,1)));
         }
 
         // Only run this test when we have to because we will have to query or hardcore that value everytime.

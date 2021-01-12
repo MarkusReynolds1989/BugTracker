@@ -2,23 +2,25 @@ using System;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BugTracker.Pages
 {
     public class Ticket : PageModel
     {
-        public void OnGet(int ticketId)
+        public void OnGet(int ticketId = 0)
         {
             var ticketController = new TicketController();
             ticketController.Init();
             var ticket = ticketController.SelectRow(ticketId);
             if (ticket != null)
             {
-                ViewData["ticket"] = ticket;
+                ViewData["Ticket"] = ticket;
             }
             else
             {
-                Redirect("https://localhost:5001/Error");
+                Response.Redirect("https://localhost:5001/Error");
             }
         }
 
@@ -28,17 +30,20 @@ namespace BugTracker.Pages
             // Update everything from page.
             // TODO: Clean up parsing the int with error handling, or just check with
             // Typescript. 
-            var ticketId = int.Parse(Request.Form["TicketId"]);
-            var loggerId = int.Parse(Request.Form["LoggerId"]);
-            var workerId = int.Parse(Request.Form["WorkerId"]);
-            var statusIndCd = (StatusIndCd) int.Parse(Request.Form["StatusIndCd"]);
-            var title = Request.Form["Title"];
-            var description = Request.Form["Desc"];
-            var resolution = Request.Form["Resolution"];
+
+            // Immutable
+            int.TryParse(Request.Form["TicketId"], out var ticketId);
+            int.TryParse(Request.Form["LoggerId"], out var loggerId);
+            // Worker ID can change.
+            int.TryParse(Request.Form["WorkerId"], out var workerId);
+            int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
+            var statusIndCd = (StatusIndCd) statusValue;
+            var title = Request.Form["Title"].ToString();
+            var description = Request.Form["Desc"].ToString();
+            var resolution = Request.Form["Resolution"].ToString();
+
             var ticketController = new TicketController();
-
             ticketController.Init();
-
             var updateTicket =
                 new Models.Ticket(ticketId,
                     workerId,
@@ -48,7 +53,15 @@ namespace BugTracker.Pages
                     statusIndCd,
                     loggerId);
 
-            ticketController.Update(updateTicket);
+            // TODO: Fix error where this isn't redirecting.
+            if (ticketController.Update(updateTicket))
+            {
+                Response.Redirect($"/Ticket?ticketId={ticketId}");
+            }
+            else
+            {
+                Response.Redirect($"/Ticket?ticketId={ticketId}");
+            }
         }
     }
 }

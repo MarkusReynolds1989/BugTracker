@@ -28,6 +28,7 @@ namespace BugTracker.BugTrackerTest
         public void UserUpdateTest()
         {
             Assert.True(_userConnection.Init());
+            Assert.True(_userConnection.Update(new User(0, "test", "test", true)));
         }
 
         // Only run this test when we have to because we will have to query or hardcore that value everytime.

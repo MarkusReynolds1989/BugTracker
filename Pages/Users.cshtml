@@ -3,19 +3,30 @@
 @{
     var list = (IList<Models.User>) ViewData["list"];
     // Admin only. 
-    // TODO: Logic to only show for admin.
+    // TODO: Logic to only show for admin
 }
 
 <div>
-    <ul class="list-group list-group-flush">
+    <ul
+        class = "list-group list-group-flush">
         @foreach (var user in list)
         {
-            <li class="list-group-item">
+            <li
+                class = "list-group-item">
                 @user.UserId
-                <input class="form-control" value="@user.Name"/>
-                <input class="form-control" value="@user.Password"/>
-                <input class="form-control" value="@user.ActiveInd.ToString()"/>
-                <button class="btn alert-danger">Update</button>
+                <input
+                    class = "form-control"
+                    value = "@user.Name"/>
+                <input
+                    class = "form-control"
+                    value = "@user.Password"/>
+                <input
+                    class = "form-control"
+                    value = "@user.ActiveInd.ToString()"/>
+                <button
+                    class = "alert-danger btn">
+                    Update
+                </button>
             </li>
         }
     </ul>

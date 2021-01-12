@@ -16,7 +16,7 @@ namespace BugTracker.Controllers
             // This is temporary, and when we go to prod we will change this.
             AuthenticationString = new MySqlConnectionStringBuilder
             {
-                UserID = "markus", Password = "password123", Database = "bug_tracker",
+                UserID = "admin", Password = "password123", Database = "bug_tracker",
                 Server = "***REMOVED***"
             };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
@@ -36,7 +36,7 @@ namespace BugTracker.Controllers
         public bool Insert(Ticket ticket)
         {
             var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
-                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int)ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
+                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int) ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -66,10 +66,13 @@ namespace BugTracker.Controllers
 
         public bool Update(Ticket ticket)
         {
-            // TODO: Consider configuring this query to where the code can change a ticket_id.
-            var query = "UPDATE Ticket (title, description, resolution, status_ind_cd)" +
-                        $"VALUES (\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{ticket.StatusIndCd}\")" +
-                        $"WHERE ticket_id = {ticket.TicketId}";
+            var query =
+                $"UPDATE Ticket SET worker_id = {ticket.WorkerId}, " +
+                $"title = \"{ticket.Title}\", " +
+                $"description = \"{ticket.Description}\", " +
+                $"resolution = \"{ticket.Resolution}\", " +
+                $"status_ind = {(int) ticket.StatusIndCd} " +
+                $"WHERE ticket_id = {ticket.TicketId}";
 
             bool success;
 

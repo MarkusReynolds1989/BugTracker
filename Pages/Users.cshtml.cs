@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using BugTracker.Controllers;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
@@ -10,6 +7,7 @@ namespace BugTracker.Pages
     {
         public void OnGet()
         {
+            // Need to store some sort of auth level over in the Login method.
             var userController = new UserController();
             userController.Init();
             var userList = userController.SelectAll();
