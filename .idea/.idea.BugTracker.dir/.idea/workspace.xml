@@ -22,9 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Git ignore changes.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Fixed bug in LoginController.cs where I wrote the wrong password.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.RazorAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.RazorAssemblyInfo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,18 +54,16 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F46FB46D-3988-4C85-AB43-7FEBA5CB9EF8/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/27/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19B3447F-EED7-48F4-B362-071ED33E9131/160/Future.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateUser.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/2D/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B5C0ECE9-48E9-456E-A76D-60AC6F690356/82/ViewExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/CreateTicket.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/19/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F46FB46D-3988-4C85-AB43-7FEBA5CB9EF8/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/27/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19B3447F-EED7-48F4-B362-071ED33E9131/160/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/2D/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B5C0ECE9-48E9-456E-A76D-60AC6F690356/82/ViewExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/14F77EE4-639B-4CE9-849B-C8F1BB98D456/11C/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/markus/Code/C#/BugTracker/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -73,7 +75,6 @@
       <option value="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" />
       <option value="$PROJECT_DIR$/wwwroot/js/site.js" />
-      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
@@ -83,7 +84,6 @@
       <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Privacy.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Startup.cs" />
@@ -91,14 +91,16 @@
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
       <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
+      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -398,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610413682018</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed bug in LoginController.cs where I wrote the wrong password.">
+      <created>1610413892553</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1610413892553</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +437,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Renamed status_ind_cd to StatusindCd" />
     <MESSAGE value="local files" />
     <MESSAGE value="Adjusted the UserController.cs and UserControllerTests.cs classes. Adjusted the SelectAll method from the UserController.cs class.&#10;Added in a vertical slice to gather the users from the database and throw them on the page so we can see them for now." />
     <MESSAGE value="Fixed some issues with const/ return value of the method." />
@@ -453,7 +461,8 @@
     <MESSAGE value="Changed how login works, adjusted database users." />
     <MESSAGE value="Changed login database username and password to static strings." />
     <MESSAGE value="Git ignore changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Git ignore changes." />
+    <MESSAGE value="Fixed bug in LoginController.cs where I wrote the wrong password." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in LoginController.cs where I wrote the wrong password." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

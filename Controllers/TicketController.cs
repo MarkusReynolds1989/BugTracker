@@ -173,7 +173,7 @@ namespace BugTracker.Controllers
         }
 
         // Implement overload for getting tickets by worker_id.
-        public IList<Ticket> SelectAll(int id)
+        public IList<Ticket> SelectAll(int? id)
         {
             // Removed const.
             var query = $"SELECT * FROM Ticket WHERE worker_id ={id}";
