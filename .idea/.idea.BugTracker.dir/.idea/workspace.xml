@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Changed login database username and password to static strings.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Git ignore changes.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,10 +95,10 @@
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
+      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -391,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610237399365</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Git ignore changes.">
+      <created>1610413682018</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1610413682018</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +428,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Adjusted IDataProcess.cs,&#10;Added UserController.cs,&#10;Added UnitTesting.&#10;Implemented Init and Insert methods for UserController.cs.&#10;Started working on the Update method." />
     <MESSAGE value="Renamed status_ind_cd to StatusindCd" />
     <MESSAGE value="local files" />
     <MESSAGE value="Adjusted the UserController.cs and UserControllerTests.cs classes. Adjusted the SelectAll method from the UserController.cs class.&#10;Added in a vertical slice to gather the users from the database and throw them on the page so we can see them for now." />
@@ -446,7 +452,8 @@
     <MESSAGE value="Don't need a modify ticket view, we can do it through the Ticket view." />
     <MESSAGE value="Changed how login works, adjusted database users." />
     <MESSAGE value="Changed login database username and password to static strings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed login database username and password to static strings." />
+    <MESSAGE value="Git ignore changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Git ignore changes." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
