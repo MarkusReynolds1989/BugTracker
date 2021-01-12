@@ -56,10 +56,6 @@
               "target": "Package",
               "version": "[8.0.22, )"
             },
-            "MySql.Data.Entity": {
-              "target": "Package",
-              "version": "[7.0.7-m61, )"
-            },
             "xunit": {
               "target": "Package",
               "version": "[2.4.1, )"
@@ -83,11 +79,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/current/sdk/3.1.404/RuntimeIdentifierGraph.json"
->>>>>>> a5caee484add776e19c3d3c053b333f95e36501b
         }
       }
     }
