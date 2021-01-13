@@ -22,16 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Login -&gt; Tickets now works correctly.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Started work on typescript, middle mostly done, just needs error handling.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/CreateTicketFormChecks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/TicketFormChecks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/CreateTicketFormChecks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/UserFormChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/UserFormChecks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/CreateTicketFormChecks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/CreateTicketFormChecks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +58,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/19/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F46FB46D-3988-4C85-AB43-7FEBA5CB9EF8/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/27/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19B3447F-EED7-48F4-B362-071ED33E9131/160/Future.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/2D/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B5C0ECE9-48E9-456E-A76D-60AC6F690356/82/ViewExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FB0DD658-5B65-4AC4-B540-052351F5FFBD/5/DiagnosticListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C8D93653-9414-4302-BAD3-A7967F6C7074/19/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/14F77EE4-639B-4CE9-849B-C8F1BB98D456/11C/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/obj/Debug/netcoreapp3.1/BugTracker.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/markus/Code/C#/BugTracker/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -95,7 +94,6 @@
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
@@ -105,6 +103,7 @@
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.ts" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
     </changedPaths>
   </component>
@@ -187,6 +186,7 @@
       <workItem from="1610235645541" duration="1777000" />
       <workItem from="1610328460338" duration="1916000" />
       <workItem from="1610406968573" duration="2771000" />
+      <workItem from="1610581615104" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -419,16 +419,18 @@
       <option name="project" value="LOCAL" />
       <updated>1610416542554</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Started work on typescript, middle mostly done, just needs error handling.">
+      <created>1610417325920</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1610417325920</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.js" />
-      </list>
-    </option>
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
@@ -447,7 +449,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Adjusted the UserController.cs and UserControllerTests.cs classes. Adjusted the SelectAll method from the UserController.cs class.&#10;Added in a vertical slice to gather the users from the database and throw them on the page so we can see them for now." />
     <MESSAGE value="Fixed some issues with const/ return value of the method." />
     <MESSAGE value="Fixed some issues with const/ return value of the method. in TicketController.cs." />
     <MESSAGE value="Removed Tickets Model for now." />
@@ -472,7 +473,8 @@
     <MESSAGE value="Git ignore changes." />
     <MESSAGE value="Fixed bug in LoginController.cs where I wrote the wrong password." />
     <MESSAGE value="Login -&gt; Tickets now works correctly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login -&gt; Tickets now works correctly." />
+    <MESSAGE value="Started work on typescript, middle mostly done, just needs error handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on typescript, middle mostly done, just needs error handling." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
