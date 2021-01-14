@@ -22,22 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Remove JS.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Basic security, you can't access certain pages unless you are logged in.">
+      <change afterPath="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BugTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BugTracker.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/ModifyUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/User.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/ModifyUser.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/User.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/Razor/Pages/ModifyUser.cshtml.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Error.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Error.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Privacy.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Privacy.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,13 +83,10 @@
       <option value="$PROJECT_DIR$/Pages/ModifyUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Privacy.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
-      <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
       <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/.gitignore" />
@@ -111,6 +104,10 @@
       <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/Startup.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -134,7 +131,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last.edited.regexp" value="sdfasdf" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.ASP.NET (Razor)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -192,7 +189,7 @@
       <workItem from="1610235645541" duration="1777000" />
       <workItem from="1610328460338" duration="1916000" />
       <workItem from="1610406968573" duration="2771000" />
-      <workItem from="1610581615104" duration="1328000" />
+      <workItem from="1610581615104" duration="2270000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -439,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610581691295</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Basic security, you can't access certain pages unless you are logged in.">
+      <created>1610584377093</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1610584377093</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +466,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fixed some issues with const/ return value of the method. in TicketController.cs." />
     <MESSAGE value="Removed Tickets Model for now." />
     <MESSAGE value="Testing updated, most tests pass. Middle for Ticket.cshtml.cs." />
     <MESSAGE value="Tickets.cshtml and more." />
@@ -487,7 +490,8 @@
     <MESSAGE value="Login -&gt; Tickets now works correctly." />
     <MESSAGE value="Started work on typescript, middle mostly done, just needs error handling." />
     <MESSAGE value="Remove JS." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove JS." />
+    <MESSAGE value="Basic security, you can't access certain pages unless you are logged in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic security, you can't access certain pages unless you are logged in." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

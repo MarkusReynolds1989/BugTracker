@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html
     lang = "en">
 <head>
@@ -23,7 +23,7 @@
             class = "container">
             <a
                 asp-area = ""
-                asp-page = "/Login"
+                asp-page = "/Index"
                 class = "navbar-brand">
                 BugTracker
             </a>
@@ -47,18 +47,18 @@
                         class = "nav-item">
                         <a
                             asp-area = ""
-                            asp-page = "/Tickets"
+                            asp-page = "/Index"
                             class = "nav-link text-dark">
-                            My Tickets
+                            Home
                         </a>
                     </li>
                     <li
                         class = "nav-item">
                         <a
                             asp-area = ""
-                            asp-page = "/CreateTicket"
+                            asp-page = "/Privacy"
                             class = "nav-link text-dark">
-                            New Ticket
+                            Privacy
                         </a>
                     </li>
                 </ul>
@@ -79,6 +79,12 @@
     class = "border-top footer text-muted">
     <div
         class = "container">
+        &copy; 2020 - BugTracker -
+        <a
+            asp-area = ""
+            asp-page = "/Privacy">
+            Privacy
+        </a>
     </div>
 </footer>
 
