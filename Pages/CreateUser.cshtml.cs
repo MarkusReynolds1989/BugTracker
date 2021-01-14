@@ -1,4 +1,5 @@
 using BugTracker.Controllers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
@@ -10,7 +11,12 @@ namespace BugTracker.Pages
         {
             // Step 1: Authenticate the user. If they are not allowed to see this data we shouldn't 
             // let them submit anything, we can control it from here.
-
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
+            } 
+            
             // Step 2: Collect the data from the form, we can safely assume that the JS is going to catch
             // bad data. 
             // TODO: Add name or username and email to the database.  
@@ -39,6 +45,15 @@ namespace BugTracker.Pages
             // Relying on front end to validate the data, will need to
             // validate it on the back end as well so no one can mess with the client
             // script.
+        }
+
+        public void OnGet()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
+            } 
         }
     }
 }

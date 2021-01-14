@@ -11,6 +11,12 @@ namespace BugTracker.Pages
     {
         public void OnGet(int ticketId = 0)
         {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
+            }
+            
             var ticketController = new TicketController();
             ticketController.Init();
             var ticket = ticketController.SelectRow(ticketId);

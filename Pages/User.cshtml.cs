@@ -1,4 +1,5 @@
 using BugTracker.Controllers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
@@ -7,6 +8,12 @@ namespace BugTracker.Pages
     {
         public void OnGet(int userId)
         {
+            var loginUserId = HttpContext.Session.GetInt32("UserId");
+            if (loginUserId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
+            }
+
             var userController = new UserController();
             userController.Init();
             var user = userController.SelectRow(userId);

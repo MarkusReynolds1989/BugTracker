@@ -11,6 +11,11 @@ namespace BugTracker.Pages
         {
             // If this try fails we don't want them to access this page as they haven't logged in.
             var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                Response.Redirect("Login");
+            }
+            
             // Create a new ticket controller object on the heap.
             var ticketController = new TicketController();
             // Initialize the database connection and string.
@@ -19,7 +24,7 @@ namespace BugTracker.Pages
             // Have to use this BitConverter here to get the data.
             var tickets = ticketController.SelectAll(userId);
             // You can use this on the page now.
-            ViewData["tickets"] = tickets;
+            ViewData["Tickets"] = tickets;
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using BugTracker.Controllers;
 using Microsoft.AspNetCore.Http;
@@ -12,8 +13,9 @@ namespace BugTracker.Pages
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["Password"].ToString();
             var login = new LoginController();
-            var user = login.AuthorizeUser(new Models.User(0, userName, password, true));
-            if (user != null)
+            var user = login.AuthorizeUser(new Models.User(-1, userName, password, true));
+            
+            if (user != null && !string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(password))
             {
                 // Set the users session user id here.
                 HttpContext.Session.SetInt32("UserId", user.UserId);
