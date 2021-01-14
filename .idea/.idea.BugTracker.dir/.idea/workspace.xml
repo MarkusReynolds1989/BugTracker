@@ -22,18 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Basic security, you can't access certain pages unless you are logged in.">
-      <change afterPath="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Made login page default page.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Error.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Index.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Privacy.cshtml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +92,6 @@
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Index.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
@@ -106,8 +99,9 @@
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Startup.cs" />
+      <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -124,7 +118,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34980989" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35008192" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -189,7 +183,7 @@
       <workItem from="1610235645541" duration="1777000" />
       <workItem from="1610328460338" duration="1916000" />
       <workItem from="1610406968573" duration="2771000" />
-      <workItem from="1610581615104" duration="2270000" />
+      <workItem from="1610581615104" duration="3624000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -443,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610584377093</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Made login page default page.">
+      <created>1610585156793</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1610585156793</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +467,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Removed Tickets Model for now." />
     <MESSAGE value="Testing updated, most tests pass. Middle for Ticket.cshtml.cs." />
     <MESSAGE value="Tickets.cshtml and more." />
     <MESSAGE value="Minor javascript code for login." />
@@ -491,7 +491,8 @@
     <MESSAGE value="Started work on typescript, middle mostly done, just needs error handling." />
     <MESSAGE value="Remove JS." />
     <MESSAGE value="Basic security, you can't access certain pages unless you are logged in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic security, you can't access certain pages unless you are logged in." />
+    <MESSAGE value="Made login page default page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made login page default page." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
