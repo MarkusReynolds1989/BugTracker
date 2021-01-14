@@ -47,7 +47,7 @@ namespace BugTracker.Controllers
         /// Deletes the selected row in the database with the information specified.
         /// </summary>
         /// <returns> Returns true if the delete is successful and false if not.</returns>
-        public bool Delete(T item);
+        public bool Delete(int id);
 
         /// <summary>
         /// Selects the information from the database and adds it to a list. This method will not work

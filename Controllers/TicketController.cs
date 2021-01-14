@@ -101,9 +101,10 @@ namespace BugTracker.Controllers
             return success;
         }
 
-        public bool Delete(Ticket ticket)
+        public bool Delete(int id)
         {
-            var query = $"DELETE FROM Ticket WHERE ticket_id ={ticket.TicketId}";
+            // we don't have an activeInd for tickets.. do one of the statusInd values = inactive?
+            var query = "UPDATE Ticket SET status_ind="0$"WHERE ticket_id ={id}";
             bool success;
 
             MySqlTransaction transaction = null;
