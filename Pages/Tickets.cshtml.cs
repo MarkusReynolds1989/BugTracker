@@ -10,16 +10,23 @@ namespace BugTracker.Pages
         public void OnGet()
         {
             // If this try fails we don't want them to access this page as they haven't logged in.
-            HttpContext.Session.TryGetValue("UserId", out var userId);
-            // Create a new ticket controller object on the heap.
-            var ticketController = new TicketController();
-            // Initialize the database connection and string.
-            ticketController.Init();
-            // Gather all the tickets assigned to the particular userId.
-            // Have to use this BitConverter here to get the data.
-            var tickets = ticketController.SelectAll(BitConverter.ToInt32(userId));
-            // You can use this on the page now.
-            ViewData["tickets"] = tickets;
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                Response.Redirect("Login");
+            }
+            else
+            {
+                // Create a new ticket controller object on the heap.
+                var ticketController = new TicketController();
+                // Initialize the database connection and string.
+                ticketController.Init();
+                // Gather all the tickets assigned to the particular userId.
+                // Have to use this BitConverter here to get the data.
+                var tickets = ticketController.SelectAll(userId);
+                // You can use this on the page now.
+                ViewData["Tickets"] = tickets;
+            }
         }
     }
 }

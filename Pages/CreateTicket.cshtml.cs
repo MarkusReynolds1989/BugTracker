@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using BugTracker.Controllers;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -16,7 +18,12 @@ namespace BugTracker.Pages
         public void OnPost()
         {
             // Step 1: Authenticate the user. If they are not allowed to see this data we shouldn't 
-            // let them submit anything, we can control it from here.
+            // let them submit anything, w
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
+            }
 
             // Step2: Collect the data from the form submission.
             // TODO: Add in try parse to catch any errors.
@@ -46,6 +53,15 @@ namespace BugTracker.Pages
             else
             {
                 // Post some sort of message that the addition failed.
+            }
+        }
+
+        public void OnGet()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null) // TODO: Check auth level.
+            {
+                Response.Redirect("Login");
             }
         }
     }

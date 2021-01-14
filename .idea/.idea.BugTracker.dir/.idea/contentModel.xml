@@ -39,16 +39,8 @@
         <e p="CreateTicket.cshtml.cs" t="Include" />
         <e p="CreateUser.cshtml" t="Include" />
         <e p="CreateUser.cshtml.cs" t="Include" />
-        <e p="Error.cshtml" t="Include" />
-        <e p="Error.cshtml.cs" t="Include" />
-        <e p="Index.cshtml" t="Include" />
-        <e p="Index.cshtml.cs" t="Include" />
         <e p="Login.cshtml" t="Include" />
         <e p="Login.cshtml.cs" t="Include" />
-        <e p="ModifyUser.cshtml" t="Include" />
-        <e p="ModifyUser.cshtml.cs" t="Include" />
-        <e p="Privacy.cshtml" t="Include" />
-        <e p="Privacy.cshtml.cs" t="Include" />
         <e p="Shared" t="Include">
           <e p="_Layout.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -57,6 +49,8 @@
         <e p="Ticket.cshtml.cs" t="Include" />
         <e p="Tickets.cshtml" t="Include" />
         <e p="Tickets.cshtml.cs" t="Include" />
+        <e p="User.cshtml" t="Include" />
+        <e p="User.cshtml.cs" t="Include" />
         <e p="Users.cshtml" t="Include" />
         <e p="Users.cshtml.cs" t="Include" />
         <e p="_ViewImports.cshtml" t="Include" />
@@ -85,15 +79,7 @@
           <e p="site.css" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
-        <e p="js" t="Include">
-          <e p="LoginFormChecks.js" t="Include" />
-          <e p="LoginFormChecks.ts" t="Include" />
-          <e p="TicketFormChecks.js" t="Include" />
-          <e p="TicketFormChecks.ts" t="Include" />
-          <e p="UserFormChecks.js" t="Include" />
-          <e p="UserFormChecks.ts" t="Include" />
-          <e p="site.js" t="Include" />
-        </e>
+        <e p="js" t="Include" />
         <e p="lib" t="Include">
           <e p="bootstrap" t="Include">
             <e p="LICENSE" t="Include" />

@@ -1,6 +1,7 @@
 @page
 @model User
 @{
+<<<<<<< HEAD
     var list = (IList<Models.User>)ViewData["list"];
     // Admin only.
     // TODO: Logic to only show for admin
@@ -136,4 +137,31 @@
             </div>
         </div>
     </div>
+=======
+    // Data entry for the page.
+    // This data is in a list format so you can foreach over it.
+    var users = (IList<Models.User>) @ViewData["Users"];
+}
+
+<div>
+    <ul
+        class = "list-group list-group-flush">
+        @foreach (var user in users)
+        {
+            <li
+                class = "list-group-item">
+                @user.UserId
+                <input
+                    class = "form-control"
+                    value = "@user.Name"/>
+                <input
+                    class = "form-control"
+                    value = "@user.Password"/>
+                <input
+                    class = "form-control"
+                    value = "@user.ActiveInd.ToString()"/>
+            </li>
+        }
+    </ul>
+>>>>>>> 45f8702f002f6aac9579aecbc05c6bc0064750bc
 </div>

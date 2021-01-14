@@ -98,9 +98,9 @@ namespace BugTracker.Controllers
             return success;
         }
 
-        public bool Delete(User user)
+        public bool Delete(int id)
         {
-            var query = $"DELETE FROM User WHERE user_id ={user.UserId}";
+            var query = "UPDATE User SET active_ind ="0$" WHERE user_id={id}";
             bool success;
 
             MySqlTransaction transaction = null;
