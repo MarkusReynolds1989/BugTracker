@@ -7111,19 +7111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Logan\\.nuget\\packages\\": {}
+    "C:\\Users\\karim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj",
+      "projectUniqueName": "C:\\Users\\karim\\BugTracker\\BugTracker.csproj",
       "projectName": "BugTracker",
-      "projectPath": "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj",
-      "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Logan\\BugTracker\\obj\\",
+      "projectPath": "C:\\Users\\karim\\BugTracker\\BugTracker.csproj",
+      "packagesPath": "C:\\Users\\karim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\karim\\BugTracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Logan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\karim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7191,13 +7191,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Logan\\BugTracker\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

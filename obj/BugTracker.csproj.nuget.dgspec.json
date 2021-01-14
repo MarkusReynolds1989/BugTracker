@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj": {}
+    "C:\\Users\\karim\\BugTracker\\BugTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj": {
+    "C:\\Users\\karim\\BugTracker\\BugTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj",
+        "projectUniqueName": "C:\\Users\\karim\\BugTracker\\BugTracker.csproj",
         "projectName": "BugTracker",
-        "projectPath": "C:\\Users\\Logan\\BugTracker\\BugTracker.csproj",
-        "packagesPath": "C:\\Users\\Logan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Logan\\BugTracker\\obj\\",
+        "projectPath": "C:\\Users\\karim\\BugTracker\\BugTracker.csproj",
+        "packagesPath": "C:\\Users\\karim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\karim\\BugTracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Logan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\karim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
