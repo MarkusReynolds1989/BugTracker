@@ -136,7 +136,7 @@ namespace BugTracker.Controllers
 
         public IList<Ticket> SelectAll()
         {
-            const string query = "SELECT * FROM Ticket ";
+            const string query = "SELECT * FROM Ticket WHERE Ticket.active_ind=1";
 
             var ticketList = new List<Ticket>();
 
@@ -178,7 +178,7 @@ namespace BugTracker.Controllers
         public IList<Ticket> SelectAll(int? id)
         {
             // Removed const.
-            var query = $"SELECT * FROM Ticket WHERE worker_id ={id}";
+            var query = $"SELECT * FROM Ticket WHERE worker_id ={id} AND Ticket.active_ind=1";
 
             var ticketList = new List<Ticket>();
 
@@ -219,7 +219,7 @@ namespace BugTracker.Controllers
         public Ticket SelectRow(int id)
         {
             // Removed const.
-            var query = $"SELECT * FROM Ticket WHERE ticket_id={id}";
+            var query = $"SELECT * FROM Ticket WHERE ticket_id={id} AND Ticket.active_ind=1";
 
             Ticket ticket = null;
 

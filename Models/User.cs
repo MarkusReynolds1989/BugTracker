@@ -8,7 +8,8 @@ namespace BugTracker.Models
         public string Name { get; private set; }
         public string Password { get; private set; }
         public bool ActiveInd { get; private set; }
-        
+        public AuthCd AuthCd { get; private set; }
+
         // This constructor is for a user that already exists.
         public User(int userId, string name, string password, bool activeInd)
         {
