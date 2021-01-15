@@ -1,167 +1,276 @@
 @page
 @model User
 @{
-<<<<<<< HEAD
-    var list = (IList<Models.User>)ViewData["list"];
-    // Admin only.
-    // TODO: Logic to only show for admin
-}
-
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<hr>
-<div class="container bootstrap snippets bootdey">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="main-box no-header clearfix">
-                <div class="main-box-body clearfix">
-                    <div class="table-responsive">
-                        <table class="table user-list">
-                            <thead>
-                                <tr>
-                                    <th><span>User</span></th>
-                                    <th><span>Active Tickets</span></th>
-                                    <th class="text-center"><span>Status</span></th>
-                                     <th><span>Email</span></th>
-                                     <th><span>Edit Profile</span></th>
-                                     <th><span>Completed Tickets</span></th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                                        <a href="#" class="user-link">Full name 1</a>
-                                        <span class="user-subhead">Member</span>
-                                    </td>
-                                    <td>2</td>
-                                    <td class="text-center">
-                                        <span class="label label-default">pending</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">Markus@gmail.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link text-warning">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link text-info">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_3.jpg" alt="">
-                                        <a href="#" class="user-link">Full name 2</a>
-                                        <span class="user-subhead">Admin</span>
-                                    </td>
-                                    <td>1</td>
-                                    <td class="text-center">
-                                        <span class="label label-success">Active</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">logan@gmail.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link  text-warning">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link  text-info">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg"  alt="">
-                                        <a href="#" class="user-link">Full name 3</a>
-                                        <span class="user-subhead">Member</span>
-                                    </td>
-                                    <td>3</td>
-                                    <td class="text-center">
-                                        <span class="label label-danger">inactive</span>
-                                    </td>
-                                    <td>
-                                        <a href="#">karim@gmail.com</a>
-                                    </td>
-                                    <td style="width: 20%;">
-                                        <a href="#" class="table-link  text-warning">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link  text-info">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link danger">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-=======
     // Data entry for the page.
     // This data is in a list format so you can foreach over it.
     var users = (IList<Models.User>) @ViewData["Users"];
 }
 
-<div>
-    <ul
-        class = "list-group list-group-flush">
-        @foreach (var user in users)
-        {
-            <li
-                class = "list-group-item">
-                @user.UserId
-                <input
-                    class = "form-control"
-                    value = "@user.Name"/>
-                <input
-                    class = "form-control"
-                    value = "@user.Password"/>
-                <input
-                    class = "form-control"
-                    value = "@user.ActiveInd.ToString()"/>
-            </li>
-        }
-    </ul>
->>>>>>> 45f8702f002f6aac9579aecbc05c6bc0064750bc
+<link
+    href = "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+    rel = "stylesheet"
+    type = "text/css">
+<hr>
+<div
+    class = "bootdey bootstrap container snippets">
+<div
+    class = "row">
+<div
+    class = "col-lg-12">
+<div
+    class = "clearfix main-box no-header">
+<div
+    class = "clearfix main-box-body">
+<div
+    class = "table-responsive">
+<table
+    class = "table user-list">
+<thead>
+<tr>
+    <th>
+        <span>User</span>
+    </th>
+    <th>
+        <span>Active Tickets</span>
+    </th>
+    <th
+        class = "text-center">
+        <span>Status</span>
+    </th>
+    <th>
+        <span>Email</span>
+    </th>
+    <th>
+        <span>Edit Profile</span>
+    </th>
+    <th>
+        <span>Completed Tickets</span>
+    </th>
+    <th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>
+        <img
+            alt = ""
+            src = "https://bootdey.com/img/Content/user_1.jpg">
+        <a
+            class = "user-link"
+            href = "#">
+            Full name 1
+        </a>
+        <span
+            class = "user-subhead">
+            Member
+        </span>
+    </td>
+    <td>2</td>
+    <td
+        class = "text-center">
+        <span
+            class = "label label-default">
+            pending
+        </span>
+    </td>
+    <td>
+        <a
+            href = "#">
+            Markus@gmail.com
+        </a>
+    </td>
+    <td
+        style = "width: 20%;">
+        <a
+            class = "table-link text-warning"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-search-plus fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "table-link text-info"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-pencil fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "danger table-link"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-stack-1x fa-trash-o">
+                </i>
+            </span>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td>
+        <img
+            alt = ""
+            src = "https://bootdey.com/img/Content/user_3.jpg">
+        <a
+            class = "user-link"
+            href = "#">
+            Full name 2
+        </a>
+        <span
+            class = "user-subhead">
+            Admin
+        </span>
+    </td>
+    <td>1</td>
+    <td
+        class = "text-center">
+        <span
+            class = "label label-success">
+            Active
+        </span>
+    </td>
+    <td>
+        <a
+            href = "#">
+            logan@gmail.com
+        </a>
+    </td>
+    <td
+        style = "width: 20%;">
+        <a
+            class = "table-link  text-warning"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-search-plus fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "table-link  text-info"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-pencil fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "danger table-link"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-stack-1x fa-trash-o">
+                </i>
+            </span>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td>
+        <img
+            alt = ""
+            src = "https://bootdey.com/img/Content/user_1.jpg">
+        <a
+            class = "user-link"
+            href = "#">
+            Full name 3
+        </a>
+        <span
+            class = "user-subhead">
+            Member
+        </span>
+    </td>
+    <td>3</td>
+    <td
+        class = "text-center">
+        <span
+            class = "label label-danger">
+            inactive
+        </span>
+    </td>
+    <td>
+        <a
+            href = "#">
+            karim@gmail.com
+        </a>
+    </td>
+    <td
+        style = "width: 20%;">
+        <a
+            class = "table-link  text-warning"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-search-plus fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "table-link  text-info"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-pencil fa-stack-1x">
+                </i>
+            </span>
+        </a>
+        <a
+            class = "danger table-link"
+            href = "#">
+            <span
+                class = "fa-stack">
+                <i
+                    class = "fa fa-square fa-stack-2x">
+                </i>
+                <i
+                    class = "fa fa-inverse fa-stack-1x fa-trash-o">
+                </i>
+            </span>
+        </a>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

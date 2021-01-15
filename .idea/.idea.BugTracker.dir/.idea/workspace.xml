@@ -22,12 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Made login page default page.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Navbar, icons.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/BugTracker.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,20 +88,14 @@
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/.gitignore" />
       <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
-      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.ts" />
-      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Index.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
@@ -102,6 +105,12 @@
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
+      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -183,7 +192,8 @@
       <workItem from="1610235645541" duration="1777000" />
       <workItem from="1610328460338" duration="1916000" />
       <workItem from="1610406968573" duration="2771000" />
-      <workItem from="1610581615104" duration="3624000" />
+      <workItem from="1610581615104" duration="3678000" />
+      <workItem from="1610666296981" duration="1513000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -444,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610585156793</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Navbar, icons.">
+      <created>1610586514560</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1610586514560</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +484,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Testing updated, most tests pass. Middle for Ticket.cshtml.cs." />
     <MESSAGE value="Tickets.cshtml and more." />
     <MESSAGE value="Minor javascript code for login." />
     <MESSAGE value="use this gitignore." />
@@ -492,7 +508,8 @@
     <MESSAGE value="Remove JS." />
     <MESSAGE value="Basic security, you can't access certain pages unless you are logged in." />
     <MESSAGE value="Made login page default page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made login page default page." />
+    <MESSAGE value="Navbar, icons." />
+    <option name="LAST_COMMIT_MESSAGE" value="Navbar, icons." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
