@@ -22,11 +22,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Ignore.">
+    <list default="true" id="cb848086-2829-481b-ad52-1f456dc1e04b" name="Default Changelist" comment="Adjusted userpage.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BugTracker.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/User.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/User.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/BugTracker.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/AuthCd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/AuthLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Ticket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/User.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/User.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Users.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Users.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,30 +94,33 @@
       <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/LoginFormChecks.ts" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
       <option value="$PROJECT_DIR$/.gitignore" />
-      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml" />
       <option value="$PROJECT_DIR$/wwwroot/js/CreateUserFormChecks.ts" />
       <option value="$PROJECT_DIR$/Pages/Login.cshtml" />
       <option value="$PROJECT_DIR$/Pages/Index.cshtml" />
-      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/CreateTicket.cshtml.cs" />
-      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Ticket.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Shared/_AuthLayout.cshtml" />
       <option value="$PROJECT_DIR$/Startup.cs" />
       <option value="$PROJECT_DIR$/Pages/Tickets.cshtml.cs" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml" />
-      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
-      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/BugTrackerTest/TicketControllerTests.cs" />
       <option value="$PROJECT_DIR$/Pages/Users.cshtml" />
       <option value="$PROJECT_DIR$/Controllers/TicketController.cs" />
       <option value="$PROJECT_DIR$/Pages/User.cshtml" />
+      <option value="$PROJECT_DIR$/Models/AuthLevel.cs" />
+      <option value="$PROJECT_DIR$/Models/Ticket.cs" />
+      <option value="$PROJECT_DIR$/Models/User.cs" />
+      <option value="$PROJECT_DIR$/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/LoginControllerTests.cs" />
+      <option value="$PROJECT_DIR$/Pages/CreateUser.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Login.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/User.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Controllers/LoginController.cs" />
+      <option value="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" />
     </changedPaths>
   </component>
   <component name="MacroExpansionManager">
@@ -189,7 +203,7 @@
       <workItem from="1610328460338" duration="1916000" />
       <workItem from="1610406968573" duration="2771000" />
       <workItem from="1610581615104" duration="3678000" />
-      <workItem from="1610666296981" duration="2890000" />
+      <workItem from="1610666296981" duration="6479000" />
     </task>
     <task id="LOCAL-00001" summary="Added GPL 3.0 License. Added readme.md.">
       <created>1607645946685</created>
@@ -478,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610669356200</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Adjusted userpage.">
+      <created>1610672367372</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1610672367372</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +522,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="use this gitignore." />
     <MESSAGE value="CreateUser.cshtml and CreateUser.cshtml.cs rough draft." />
     <MESSAGE value="Work on several files for the site. Architecture on several others." />
     <MESSAGE value="Implemented basic authentication in Login.cshtml.cs" />
@@ -526,9 +546,27 @@
     <MESSAGE value="Navbar, icons." />
     <MESSAGE value="Fixed controller." />
     <MESSAGE value="Ignore." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ignore." />
+    <MESSAGE value="Adjusted userpage." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted userpage." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs</url>
+          <line>37</line>
+          <properties documentPath="$PROJECT_DIR$/BugTrackerTest/UserControllerTests.cs" initialLine="37" containingFunctionPresentation="method 'UserDeleteTest'">
+            <startOffsets>
+              <option value="1233" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1234" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Frame#BugTracker.BugTrackerTest.LoginControllerTests.LoginTest" memberName="login" />

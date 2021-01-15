@@ -33,7 +33,7 @@ namespace BugTracker.Controllers
             {
                 authenticationConnection.Open();
                 var query =
-                    $"SELECT * FROM User WHERE name = \"{user.Name}\" AND password = \"{user.Password}\"";
+                    $"SELECT * FROM User WHERE user_name = \"{user.UserName}\" AND password = \"{user.Password}\"";
                 var command = authenticationConnection.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = query;
@@ -42,9 +42,20 @@ namespace BugTracker.Controllers
                 {
                     var userId = inputStream.GetInt32(0);
                     var userName = inputStream.GetString(1);
-                    var userPassword = inputStream.GetString(2);
-                    var activeInd = inputStream.GetBoolean(3);
-                    authenticatedUser = new User(userId, userName, userPassword, activeInd);
+                    var firstName = inputStream.GetString(2);
+                    var lastName = inputStream.GetString(3);
+                    var userPassword = inputStream.GetString(4);
+                    var email = inputStream.GetString(5);
+                    var activeInd = inputStream.GetBoolean(6);
+                    var authLevel = inputStream.GetInt32(7);
+                    authenticatedUser = new User(userId,
+                        userName,
+                        firstName,
+                        lastName,
+                        userPassword,
+                        email,
+                        activeInd,
+                        (AuthLevel) authLevel);
                 }
             }
             catch (MySqlException e)

@@ -21,14 +21,15 @@ namespace BugTracker.BugTrackerTest
         public void UserInsertTest()
         {
             Assert.True(_userConnection.Init());
-            Assert.True(_userConnection.Insert(new User("Tom", "password123")));
+            Assert.True(_userConnection.Insert(new User("Tom", "Tom", "Smith", "password123", "tom@tom.com", 0)));
         }
 
         [Fact]
         public void UserUpdateTest()
         {
             Assert.True(_userConnection.Init());
-            Assert.True(_userConnection.Update(new User(0, "test", "test", true)));
+            Assert.True(_userConnection.Update(new User(0, "test", "Tester", "McTester", "test", "test@test.com", true,
+                AuthLevel.User)));
         }
 
         // Only run this test when we have to because we will have to query or hardcore that value everytime.
@@ -36,7 +37,7 @@ namespace BugTracker.BugTrackerTest
         public void UserDeleteTest()
         {
             Assert.True(_userConnection.Init());
-            //Assert.True(_userConnection.Delete(new User(6, null, null, true)));
+            Assert.True(_userConnection.Delete(0));
         }
 
         [Fact]

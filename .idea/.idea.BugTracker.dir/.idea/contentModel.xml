@@ -30,7 +30,7 @@
       </e>
       <e p="License.md" t="Include" />
       <e p="Models" t="Include">
-        <e p="AuthCd.cs" t="Include" />
+        <e p="AuthLevel.cs" t="Include" />
         <e p="StatusIndCd.cs" t="Include" />
         <e p="Ticket.cs" t="Include" />
         <e p="User.cs" t="Include" />

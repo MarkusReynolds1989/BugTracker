@@ -10,7 +10,8 @@ namespace BugTracker.BugTrackerTest
         public void LoginTest()
         {
             var login = new LoginController();
-            Assert.NotNull(login.AuthorizeUser(new User(0,"test", "test", true)));
+            Assert.NotNull(login.AuthorizeUser(new User(0, "test", "test", "McTester", "password123", "test@test.com",
+                true, AuthLevel.Admin)));
         }
     }
 }

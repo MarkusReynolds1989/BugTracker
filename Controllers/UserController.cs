@@ -36,7 +36,7 @@ namespace BugTracker.Controllers
         public bool Insert(User user)
         {
             var query = "INSERT INTO User (name, password) " +
-                        $"VALUES (\"{user.Name}\", \"{user.Password}\")";
+                        $"VALUES (\"{user.UserName}\", \"{user.Password}\")";
             bool success;
 
             MySqlTransaction transaction = null;
@@ -67,7 +67,7 @@ namespace BugTracker.Controllers
         public bool Update(User user)
         {
             var query =
-                $"Update User SET name = \"{user.Name}\", " +
+                $"Update User SET name = \"{user.UserName}\", " +
                 $"password = \"{user.Password}\" " +
                 $"WHERE user_id = {user.UserId}";
 
@@ -149,9 +149,14 @@ namespace BugTracker.Controllers
                 {
                     var userId = inputStream.GetInt32(0);
                     var userName = inputStream.GetString(1);
-                    var userPassword = inputStream.GetString(2);
-                    var activeInd = inputStream.GetBoolean(3);
-                    userList.Add(new User(userId, userName, userPassword, activeInd));
+                    var firstName = inputStream.GetString(2);
+                    var lastname = inputStream.GetString(3);
+                    var userPassword = inputStream.GetString(4);
+                    var email = inputStream.GetString(5);
+                    var activeInd = inputStream.GetBoolean(6);
+                    var authLevel = inputStream.GetInt32(7);
+                    userList.Add(new User(userId, userName, firstName, lastname, userPassword, email, activeInd,
+                        (AuthLevel) authLevel));
                 }
 
                 Authentication.Close();
@@ -185,9 +190,14 @@ namespace BugTracker.Controllers
                 {
                     var userId = inputStream.GetInt32(0);
                     var userName = inputStream.GetString(1);
-                    var userPassword = inputStream.GetString(2);
-                    var activeInd = inputStream.GetBoolean(3);
-                    user = new User(userId, userName, userPassword, activeInd);
+                    var firstName = inputStream.GetString(2);
+                    var lastname = inputStream.GetString(3);
+                    var userPassword = inputStream.GetString(4);
+                    var email = inputStream.GetString(5);
+                    var activeInd = inputStream.GetBoolean(6);
+                    var authLevel = inputStream.GetInt32(7);
+                    user = new User(userId, userName, firstName, lastname, userPassword, email, activeInd,
+                        (AuthLevel) authLevel);
                 }
 
                 Authentication.Close();

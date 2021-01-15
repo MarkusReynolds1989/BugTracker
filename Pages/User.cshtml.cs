@@ -28,12 +28,12 @@ namespace BugTracker.Pages
             }
         }
 
-        public void OnPost()
+        /*public void OnPost()
         {
             // This is where we actually update the user.
             // Gather data from page.
             var userId = int.Parse(Request.Form["UserId"]);
-            var userName = Request.Form["Name"];
+            var userName = Request.Form["UserName"];
             var password = Request.Form["Password"];
             // Don't let them change the active ind here,
             // it should be readonly in the page and throw an error
@@ -60,6 +60,6 @@ namespace BugTracker.Pages
             var userId = int.Parse(Request.Form["UserId"]);
             // Delete method goes here from user id.
             // userController.Delete(userId);
-        }
+        } */
     }
 }

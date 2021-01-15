@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Models
 {
-    public enum AuthCd
+    public enum AuthLevel
     {
         Guest,
         User,

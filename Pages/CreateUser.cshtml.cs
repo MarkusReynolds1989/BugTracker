@@ -15,12 +15,13 @@ namespace BugTracker.Pages
             if (userId == null) // TODO: Check auth level.
             {
                 Response.Redirect("Login");
-            } 
-            
+            }
+
             // Step 2: Collect the data from the form, we can safely assume that the JS is going to catch
             // bad data. 
             // TODO: Add name or username and email to the database.  
-            var name = $"{Request.Form["FirstName"]} {Request.Form["LastName"]}";
+            var firstName = Request.Form["FirstName"].ToString();
+            var lastName = Request.Form["LastName"].ToString();
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["CreatePassword"].ToString();
             var email = Request.Form["Email"].ToString();
@@ -30,7 +31,7 @@ namespace BugTracker.Pages
             userController.Init();
 
             // Step 4: Submit the data.
-            if (userController.Insert(new Models.User(userName, password)))
+            if (userController.Insert(new Models.User(userName, firstName, lastName, password, email, 0)))
             {
                 // Step 5: Redirect to the users page to show our added person.
                 Response.Redirect("/Users");
@@ -53,7 +54,7 @@ namespace BugTracker.Pages
             if (userId == null) // TODO: Check auth level.
             {
                 Response.Redirect("Login");
-            } 
+            }
         }
     }
 }
