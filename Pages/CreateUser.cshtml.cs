@@ -12,9 +12,10 @@ namespace BugTracker.Pages
             // Step 1: Authenticate the user. If they are not allowed to see this data we shouldn't 
             // let them submit anything, we can control it from here.
             var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null) // TODO: Check auth level.
+            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
+            if (userId == null && authLevel == null || authLevel < 2) // TODO: Check auth level.
             {
-                Response.Redirect("Login");
+                Response.Redirect("Login?statusCode=401");
             }
 
             // Step 2: Collect the data from the form, we can safely assume that the JS is going to catch

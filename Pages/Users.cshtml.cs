@@ -12,7 +12,7 @@ namespace BugTracker.Pages
             var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
             if (userId == null && authLevel == null || authLevel < 2) // TODO: Check auth level.
             {
-                Response.Redirect("Login");
+                Response.Redirect("Login?statusCode=401");
             }
 
             var userController = new UserController();
