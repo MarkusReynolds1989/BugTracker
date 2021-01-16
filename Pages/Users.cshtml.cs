@@ -9,11 +9,12 @@ namespace BugTracker.Pages
         public void OnGet()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null) // TODO: Check auth level.
+            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
+            if (userId == null && authLevel == null || authLevel < 2) // TODO: Check auth level.
             {
                 Response.Redirect("Login");
-            } 
-            
+            }
+
             var userController = new UserController();
             userController.Init();
             var users = userController.SelectAll();
