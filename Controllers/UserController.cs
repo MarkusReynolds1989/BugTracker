@@ -131,7 +131,7 @@ namespace BugTracker.Controllers
 
         public IList<User> SelectAll()
         {
-            const string query = "SELECT * FROM User WHERE Ticket.active_ind=1";
+            const string query = "SELECT * FROM User WHERE active_ind=1";
 
             var userList = new List<User>();
 
@@ -172,7 +172,7 @@ namespace BugTracker.Controllers
 
         public User SelectRow(int id)
         {
-            var query = $"SELECT * FROM User WHERE user_id={id} AND Ticket.active_ind=1";
+            var query = $"SELECT * FROM User WHERE user_id={id} AND active_ind=1";
 
             User user = null;
 
