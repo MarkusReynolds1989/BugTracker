@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
 {
-    public class User : PageModel
+    public class Users : PageModel
     {
         public void OnGet()
         {

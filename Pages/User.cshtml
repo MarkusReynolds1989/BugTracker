@@ -1,5 +1,51 @@
 @page
-@model BugTracker.Pages.User
-
+@model User
 @{
+    ViewData["Title"] = "User";
+    var user = (Models.User) ViewData["User"];
 }
+
+<form
+    method = "post">
+    <label
+        for = "userId">
+        User Id:
+    </label>
+    <input
+        class = "form-control"
+        id = "userId"
+        name = "UserId"
+        readonly
+        type = "text"
+        value = "@user.UserId"/>
+    <label
+        for = "userName">
+        User Name:
+    </label>
+    <input
+        class = "form-control"
+        id = "userName"
+        name = "UserName"
+        type = "text"
+        value = "@user.UserName"/>
+    <label
+        for = "firstName">
+        First Name:
+    </label>
+    <input
+        class = "form-control"
+        id = "firstName"
+        name = "FirstName"
+        type = "text"
+        value = "@user.Firstname">
+    <button
+        class = "btn btn-primary"
+        type = "submit">
+        Submit
+    </button>
+    <button
+        class = "btn btn-danger"
+        type = "submit">
+        Delete
+    </button>
+</form>
