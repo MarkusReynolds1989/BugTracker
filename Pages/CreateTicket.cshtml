@@ -1,43 +1,77 @@
 ﻿@page
+@using BugTracker.Controllers
+@using BugTracker.Models
+@using System.Net
+@using Microsoft.AspNetCore.Http
 @model CreateTicketModel
 @{
+    ViewData["Title"] = "Create Ticket";
 }
-Requestor
-<br/>
-<input
-    maxlength = "30"
-    name = "LoggerID"
-    size = "30"
-    type = "text"/>
 
-Problem
-<br/>
-<input
-    maxlength = "30"
-    name = "Title"
-    size = "30"
-    type = "text"/>
+<h1>Create Ticket</h1>
 
-Number for update
-<br/>
-<input
-    maxlength = "30"
-    name = "ContactInfo"
-    size = "30"
-    type = "text"/>
-
-Please explain any detail that might help and solve your problem
-<br/>
-<input
-    maxlength = "80"
-    size = "80"
-    type = "text"/>
-
-Assignee
-<br/>
-<select
-    class = "input-group"
-    id = "assignee"
-    name = "Assignee">
-
-</select>
+<form
+    method = "post">
+    <div
+        class = "row">
+        <div
+            class = "col-sm-4">
+            <label
+                for = "loggerId">
+                Logger Id:
+            </label>
+            <input
+                class = "form-control"
+                id = "loggerId"
+                name = "LoggerId"
+                readonly
+                type = "text"
+                value = "@HttpContext.Session.GetInt32("UserId")"/>
+            <label
+                for = "workerId">
+                Worker Id:
+            </label>
+            <input
+                class = "form-control"
+                id = "workerId"
+                name = "WorkerId"
+                type = "text"/>
+            <label
+                for = "statusIndCd">
+                Ticket Status:
+            </label>
+            <select
+                asp-items = "Html.GetEnumSelectList<StatusIndCd>()"
+                class = "form-control"
+                id = "statusIndCd"
+                name = "StatusIndCd">
+            </select>
+        </div>
+        <div
+            class = "col">
+            <label
+                for = "_title">
+                Title:
+            </label>
+            <input
+                class = "form-control"
+                id = "_title"
+                name = "_Title"
+                type = "text"/>
+            <label
+                for = "desc">
+                Description:
+            </label>
+            <textarea
+        class = "form-control"
+        id = "desc"
+        name = "Desc">
+        </textarea>
+        </div>
+    </div>
+    <button
+        class = "btn btn-primary"
+        type = "submit">
+        Submit
+    </button>
+</form>

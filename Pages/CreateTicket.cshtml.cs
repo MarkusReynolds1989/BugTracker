@@ -30,7 +30,6 @@ namespace BugTracker.Pages
             var workerId = int.Parse(Request.Form["WorkerId"]);
             var title = Request.Form["Title"];
             var description = Request.Form["Description"];
-            var resolution = Request.Form["Resolution"];
             var statusIndCd = (StatusIndCd) int.Parse(Request.Form["StatusIndCd"]);
             var loggerId = int.Parse(Request.Form["LoggerId"]);
 
@@ -41,7 +40,7 @@ namespace BugTracker.Pages
                 workerId
                 , title
                 , description
-                , resolution
+                , ""
                 , statusIndCd
                 , loggerId);
 
