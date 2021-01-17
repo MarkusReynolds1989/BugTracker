@@ -1,10 +1,11 @@
 @page
+@using BugTracker.Models
 @model User
 @{
     ViewData["Title"] = "User";
     var user = (Models.User) ViewData["User"];
 }
-
+<h1>Modify User</h1>
 <form
     method = "post">
     <label
@@ -38,6 +39,38 @@
         name = "FirstName"
         type = "text"
         value = "@user.Firstname">
+    <label
+        for = "lastName">
+        Last Name:
+    </label>
+    <input
+        class = "form-control"
+        id = "lastName"
+        name = "LastName"
+        type = "text"
+        value = "@user.Lastname"/>
+    <label
+        for = "email">
+        Email:
+    </label>
+    <input
+        class = "form-control"
+        id = "email"
+        name = "Email"
+        type = "email"
+        value = "@user.Email"/>
+    <label
+        for = "authLevel">
+        Authorization Level:
+    </label>
+    <select
+        asp-for = "@user.AuthLevel"
+        asp-items = "Html.GetEnumSelectList<AuthLevel>()"
+        class = "form-control"
+        id = "authLevel"
+        name = "AuthLevel">
+    </select>
+    <br>
     <button
         class = "btn btn-primary"
         type = "submit">
