@@ -62,11 +62,12 @@ namespace BugTracker.Pages
             // TODO: Fix error where this isn't redirecting.
             if (ticketController.Update(updateTicket))
             {
-                Response.Redirect($"/Ticket?ticketId={ticketId}");
+                Response.Redirect("/Tickets");
             }
             else
             {
-                Response.Redirect($"/Ticket?ticketId={ticketId}");
+                //Error here
+                Response.Redirect("/Tickets");
             }
         }
     }

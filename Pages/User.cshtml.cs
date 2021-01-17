@@ -29,7 +29,7 @@ namespace BugTracker.Pages
             }
         }
 
-        /*public void OnPost()
+        public void OnPost()
         {
             // This is where we actually update the user.
             // Gather data from page.
@@ -42,7 +42,7 @@ namespace BugTracker.Pages
             var activeInd = bool.Parse(Request.Form["ActiveInd"]);
             var userController = new UserController();
             userController.Init();
-            var user = new Models.User(userId, userName, password, activeInd);
+            var user = new Models.User();
             if (userController.Update(user))
             {
                 Response.Redirect("Users/");
@@ -60,7 +60,7 @@ namespace BugTracker.Pages
             userController.Init();
             var userId = int.Parse(Request.Form["UserId"]);
             // Delete method goes here from user id.
-            // userController.Delete(userId);
-        } */
+            userController.Delete(userId);
+        }
     }
 }
