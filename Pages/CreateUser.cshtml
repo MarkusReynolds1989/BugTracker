@@ -16,30 +16,30 @@
         class = "form-group">
         <label
             for = "firstName">
-            FirstuserName:
+            First Name:
         </label>
         <input
             class = "form-control"
             id = "firstName"
-            name = "FirstUserName"
+            name = "FirstName"
             type = "text"/>
         <label
             for = "lastName">
-            LastuserName:
+            Last Name:
         </label>
         <input
             class = "form-control"
             id = "lastName"
-            name = "LastUserName"
+            name = "LastName"
             type = "text"/>
         <label
             for = "userName">
-            UseruserName:
+            User Name:
         </label>
         <input
             class = "form-control"
             id = "userName"
-            name = "UserUserName"
+            name = "UserName"
             type = "text"/>
         <label
             for = "password">
@@ -67,11 +67,20 @@
             id = "email"
             name = "Email"
             type = "email"/>
+        <label
+            for = "authLevel">
+            Authorization Level
+        </label>
+        <select
+            asp-items = "Html.GetEnumSelectList<Models.AuthLevel>()"
+            class = "form-control"
+            id = "authLevel"
+            name = "AuthLevel">
+        </select>
     </div>
-    <input
+    <button
         class = "btn btn-primary"
-        disabled
-        id = "submit"
-        type = "password"
-        value = "Submit"/>
+        type = "submit">
+        Submit
+    </button>
 </form>

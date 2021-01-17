@@ -1,4 +1,5 @@
 using BugTracker.Controllers;
+using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -13,7 +14,7 @@ namespace BugTracker.Pages
             // let them submit anything, we can control it from here.
             var userId = HttpContext.Session.GetInt32("UserId");
             var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
-            if (userId == null && authLevel == null || authLevel < 2) 
+            if (userId == null && authLevel == null || authLevel < 2)
             {
                 Response.Redirect("Login?statusCode=401");
             }
@@ -26,13 +27,14 @@ namespace BugTracker.Pages
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["CreatePassword"].ToString();
             var email = Request.Form["Email"].ToString();
-
+            var authlevel = int.Parse(Request.Form["AuthLevel"].ToString());
             // Step 3: Call the database to prepare it to consume the data.
             var userController = new UserController();
             userController.Init();
 
             // Step 4: Submit the data.
-            if (userController.Insert(new Models.User(userName, firstName, lastName, password, email, 0)))
+            if (userController.Insert(new Models.User(userName, firstName, lastName, password, email,
+                (AuthLevel) authlevel)))
             {
                 // Step 5: Redirect to the users page to show our added person.
                 Response.Redirect("/Users");

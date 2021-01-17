@@ -35,8 +35,11 @@ namespace BugTracker.Controllers
 
         public bool Insert(User user)
         {
-            var query = "INSERT INTO User (name, password) " +
-                        $"VALUES (\"{user.UserName}\", \"{user.Password}\")";
+            var query = "INSERT INTO User (user_name, first_name," +
+                        "last_name, password, email, auth_level) " +
+                        $"VALUES (\"{user.UserName}\", \"{user.Firstname}\"," +
+                        $"\"{user.Lastname}\", \"{user.Password}\", \"{user.Email}\"," +
+                        $"{(int) user.AuthLevel})";
             bool success;
 
             MySqlTransaction transaction = null;
