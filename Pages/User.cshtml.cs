@@ -51,7 +51,7 @@ namespace BugTracker.Pages
             {
                 // Give feedback on page about why we failed.
             }
-        }*/
+        }
 
         public void OnDelete()
         {
@@ -61,6 +61,6 @@ namespace BugTracker.Pages
             var userId = int.Parse(Request.Form["UserId"]);
             // Delete method goes here from user id.
             userController.Delete(userId);
-        }
+        }*/
     }
 }

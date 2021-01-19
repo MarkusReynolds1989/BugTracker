@@ -70,7 +70,7 @@ namespace BugTracker.Controllers
         public bool Update(User user)
         {
             var query =
-                $"Update User SET name = \"{user.UserName}\", " +
+                $"Update User SET user_name = \"{user.UserName}\", " +
                 $"password = \"{user.Password}\" " +
                 $"WHERE user_id = {user.UserId}";
 
