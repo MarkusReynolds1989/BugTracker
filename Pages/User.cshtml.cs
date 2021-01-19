@@ -29,7 +29,7 @@ namespace BugTracker.Pages
             }
         }
 
-        public void OnPost()
+        /*public void OnPost()
         {
             // This is where we actually update the user.
             // Gather data from page.
@@ -51,7 +51,7 @@ namespace BugTracker.Pages
             {
                 // Give feedback on page about why we failed.
             }
-        }
+        }*/
 
         public void OnDelete()
         {
