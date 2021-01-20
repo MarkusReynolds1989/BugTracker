@@ -1,9 +1,12 @@
 using System;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Org.BouncyCastle.Crypto.Tls;
 
 namespace BugTracker.Pages
 {
@@ -16,7 +19,7 @@ namespace BugTracker.Pages
             {
                 Response.Redirect("Login");
             }
-            
+
             var ticketController = new TicketController();
             ticketController.Init();
             var ticket = ticketController.SelectRow(ticketId);
@@ -31,12 +34,8 @@ namespace BugTracker.Pages
         }
 
         // Updates our current value with the values in the fields.
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            // Update everything from page.
-            // TODO: Clean up parsing the int with error handling, or just check with
-            // Typescript. 
-
             // Immutable
             int.TryParse(Request.Form["TicketId"], out var ticketId);
             int.TryParse(Request.Form["LoggerId"], out var loggerId);
@@ -62,13 +61,15 @@ namespace BugTracker.Pages
             // TODO: Fix error where this isn't redirecting.
             if (ticketController.Update(updateTicket))
             {
-                Response.Redirect("/Tickets");
+                return new RedirectToPageResult("Tickets");
             }
-            else
-            {
-                //Error here
-                Response.Redirect("/Tickets");
-            }
+
+            return new PageResult();
+        }
+
+        public IActionResult OnPostDelete()
+        {
+            return new PageResult();
         }
     }
 }

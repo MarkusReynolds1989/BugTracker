@@ -1,13 +1,14 @@
 using System;
 using BugTracker.Controllers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
 {
     public class Tickets : PageModel
     {
-        public void OnGet()
+        public PageResult OnGet()
         {
             // If this try fails we don't want them to access this page as they haven't logged in.
             var userId = HttpContext.Session.GetInt32("UserId");
@@ -27,6 +28,8 @@ namespace BugTracker.Pages
                 // You can use this on the page now.
                 ViewData["Tickets"] = tickets;
             }
+
+            return new PageResult();
         }
     }
 }

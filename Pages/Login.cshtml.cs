@@ -3,13 +3,14 @@ using System.Net;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
 {
     public class Login : PageModel
     {
-        public void OnPost()
+        public IActionResult OnPost()
         {
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["Password"].ToString();
@@ -21,13 +22,11 @@ namespace BugTracker.Pages
                 // Set the users session user id here.
                 HttpContext.Session.SetInt32("UserId", user.UserId);
                 HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);
-                Response.Redirect("Tickets/");
+                return new RedirectToPageResult("Tickets");
             }
-            else
-            {
-                // No session info, tell the user they can't log in.
-                Response.Redirect("Login?statusCode=401");
-            }
+
+            Response.Redirect("Login?statusCode=401");
+            return new PageResult();
         }
 
         public void OnGet(int statusCode = 0)

@@ -1,5 +1,7 @@
 using BugTracker.Controllers;
+using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BugTracker.Pages
@@ -29,7 +31,7 @@ namespace BugTracker.Pages
             }
         }
 
-        /*public void OnPost()
+        public IActionResult OnPost()
         {
             // This is where we actually update the user.
             // Gather data from page.
@@ -42,25 +44,29 @@ namespace BugTracker.Pages
             var activeInd = bool.Parse(Request.Form["ActiveInd"]);
             var userController = new UserController();
             userController.Init();
-            var user = new Models.User();
-            if (userController.Update(user))
+            // Dummy Data
+            var updateUser = new Models.User("", "", "", "", "", AuthLevel.Admin);
+            if (userController.Update(updateUser))
             {
-                Response.Redirect("Users/");
+                return new RedirectToPageResult("Users");
             }
-            else
-            {
-                // Give feedback on page about why we failed.
-            }
+
+            return new PageResult();
         }
 
-        public void OnDelete()
+        public IActionResult OnPostDelete()
         {
             // Simply set the user to inactive.
             var userController = new UserController();
             userController.Init();
             var userId = int.Parse(Request.Form["UserId"]);
             // Delete method goes here from user id.
-            userController.Delete(userId);
-        }*/
+            if (userController.Delete(userId))
+            {
+                return new RedirectToPageResult("Users");
+            }
+
+            return new PageResult();
+        }
     }
 }
