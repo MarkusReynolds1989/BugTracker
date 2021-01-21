@@ -70,12 +70,12 @@ namespace BugTracker.Controllers
         public bool Update(User user)
         {
             var query =
-                $"Update User SET user_name = \"{user.UserName}\", " +
+                $"Update User SET user_name = \"{user.UserName}\"," +
                 $"first_name = \"{user.Firstname}\"," +
                 $"last_name = \"{user.Lastname}\"," +
                 $"password = \"{user.Password}\"," +
                 $"email = \"{user.Email}\"," +
-                $"auth_level = \"{user.AuthLevel}\"," +
+                $"auth_level = {(int) user.AuthLevel} " +
                 $"WHERE user_id = {user.UserId}";
 
             bool success;
@@ -107,7 +107,7 @@ namespace BugTracker.Controllers
 
         public bool Delete(int id)
         {
-            var query = "UPDATE User SET active_ind =0" +
+            var query = "UPDATE User SET active_ind = 0" +
                         $"WHERE user_id = {id}";
             bool success;
 

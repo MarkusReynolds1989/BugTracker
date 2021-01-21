@@ -21,7 +21,7 @@ namespace BugTracker.BugTrackerTest
         public void UserInsertTest()
         {
             Assert.True(_userConnection.Init());
-            Assert.True(_userConnection.Insert(new User("Tom", "Tom", "Smith", "password123", "tom@tom.com", 0)));
+            Assert.True(_userConnection.Insert(new User("Tom", "Tom", "Smith", "password123", "tom@tom.com", AuthLevel.Admin)));
         }
 
         [Fact]

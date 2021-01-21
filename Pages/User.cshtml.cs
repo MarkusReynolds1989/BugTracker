@@ -37,15 +37,16 @@ namespace BugTracker.Pages
             // Gather data from page.
             var userId = int.Parse(Request.Form["UserId"]);
             var userName = Request.Form["UserName"];
+            var firstname = Request.Form["FirstName"];
+            var lastname = Request.Form["LastName"];
             var password = Request.Form["Password"];
-            // Don't let them change the active ind here,
-            // it should be readonly in the page and throw an error
-            // if the manipulate the code.
-            var activeInd = bool.Parse(Request.Form["ActiveInd"]);
+            var email = Request.Form["Email"];
+            var authLevel = (AuthLevel) int.Parse(Request.Form["AuthLevel"]);
+
             var userController = new UserController();
             userController.Init();
-            // Dummy Data
-            var updateUser = new Models.User("", "", "", "", "", AuthLevel.Admin);
+
+            var updateUser = new Models.User(userId, userName, firstname, lastname, password, email, true, authLevel);
             if (userController.Update(updateUser))
             {
                 return new RedirectToPageResult("Users");

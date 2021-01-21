@@ -49,6 +49,7 @@ namespace BugTracker.Pages
 
             var ticketController = new TicketController();
             ticketController.Init();
+            
             var updateTicket =
                 new Models.Ticket(ticketId,
                     workerId,
@@ -58,7 +59,6 @@ namespace BugTracker.Pages
                     statusIndCd,
                     loggerId);
 
-            // TODO: Fix error where this isn't redirecting.
             if (ticketController.Update(updateTicket))
             {
                 return new RedirectToPageResult("Tickets");
