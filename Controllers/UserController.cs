@@ -71,7 +71,11 @@ namespace BugTracker.Controllers
         {
             var query =
                 $"Update User SET user_name = \"{user.UserName}\", " +
-                $"password = \"{user.Password}\" " +
+                $"first_name = \"{user.Firstname}\"," +
+                $"last_name = \"{user.Lastname}\"," +
+                $"password = \"{user.Password}\"," +
+                $"email = \"{user.Email}\"," +
+                $"auth_level = \"{user.AuthLevel}\"," +
                 $"WHERE user_id = {user.UserId}";
 
             bool success;
