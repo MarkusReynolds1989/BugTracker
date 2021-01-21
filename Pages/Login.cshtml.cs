@@ -2,9 +2,11 @@ using System;
 using System.Net;
 using BugTracker.Controllers;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Org.BouncyCastle.Asn1.Cmp;
 
 namespace BugTracker.Pages
 {
@@ -25,16 +27,11 @@ namespace BugTracker.Pages
                 return new RedirectToPageResult("Tickets");
             }
 
-            Response.Redirect("Login?statusCode=401");
-            return new PageResult();
+            return new ChallengeResult();
         }
 
-        public void OnGet(int statusCode = 0)
+        public void OnGet()
         {
-            if (statusCode == 401)
-            {
-                ViewData["Feedback"] = "Incorrect username or password.";
-            }
         }
     }
 }

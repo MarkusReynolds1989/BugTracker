@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 namespace BugTracker.Controllers
 {
     // Set a session to a user from the user that is logged in.
-    public class LoginController
+    public class LoginController 
     {
         // In this case, this will be created from a post method to
         // local host.
