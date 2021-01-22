@@ -27,11 +27,16 @@ namespace BugTracker.Pages
                 return new RedirectToPageResult("Tickets");
             }
 
-            return new ChallengeResult();
+            // Redirect to OnGet(with feedback);
+            return new UnauthorizedResult();
         }
 
-        public void OnGet()
+        public void OnGet(int id = 0)
         {
+            if (id == -1)
+            {
+                ViewData["Feedback"] = "Incorrect password or username.";
+            }
         }
     }
 }

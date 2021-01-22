@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
@@ -44,12 +45,12 @@ namespace BugTracker.Pages
             int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
             var statusIndCd = (StatusIndCd) statusValue;
             var title = Request.Form["Title"].ToString();
-            var description = Request.Form["Desc"].ToString();
+            var description = Request.Form["Description"].ToString();
             var resolution = Request.Form["Resolution"].ToString();
 
             var ticketController = new TicketController();
             ticketController.Init();
-            
+
             var updateTicket =
                 new Models.Ticket(ticketId,
                     workerId,

@@ -6,6 +6,10 @@
     var user = (Models.User) ViewData["User"];
 }
 <h1>Modify User</h1>
+<input
+    hidden
+    name = "_userId"
+    value = "@ViewData["_userId"]"/>
 <form
     method = "post">
     <label
@@ -72,13 +76,19 @@
     </select>
     <br>
     <button
-        class = "btn btn-primary"
-        type = "submit">
+        class = "btn btn-primary">
         Submit
     </button>
+</form>
+<form
+    asp-page-handler = "delete"
+    method = "post">
+    <input
+        hidden
+        name = "UserId"
+        value = "@ViewData["_userId"]"/>
     <button
-        class = "btn btn-danger"
-        type = "submit">
+        class = "btn btn-danger">
         Delete
     </button>
 </form>

@@ -3,6 +3,7 @@ using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Ubiety.Dns.Core.Records.NotUsed;
 
 namespace BugTracker.Pages
 {
@@ -24,6 +25,7 @@ namespace BugTracker.Pages
             if (user != null)
             {
                 ViewData["User"] = user;
+                ViewData["_userId"] = userId;
             }
             else
             {
@@ -39,20 +41,19 @@ namespace BugTracker.Pages
             var userName = Request.Form["UserName"];
             var firstname = Request.Form["FirstName"];
             var lastname = Request.Form["LastName"];
-            var password = Request.Form["Password"];
             var email = Request.Form["Email"];
             var authLevel = (AuthLevel) int.Parse(Request.Form["AuthLevel"]);
 
             var userController = new UserController();
             userController.Init();
 
-            var updateUser = new Models.User(userId, userName, firstname, lastname, password, email, true, authLevel);
+            var updateUser = new Models.User(userId, userName, firstname, lastname, "", email, true, authLevel);
             if (userController.Update(updateUser))
             {
                 return new RedirectToPageResult("Users");
             }
 
-            return new PageResult();
+            return new RedirectResult($"User?userId={userId}");
         }
 
         public IActionResult OnPostDelete()
@@ -67,7 +68,7 @@ namespace BugTracker.Pages
                 return new RedirectToPageResult("Users");
             }
 
-            return new PageResult();
+            return new RedirectToPageResult($"User?userId={userId}");
         }
     }
 }

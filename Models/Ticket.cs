@@ -5,25 +5,20 @@ namespace BugTracker.Models
 {
     public class Ticket
     {
+        [BindProperty] [Required] public int TicketId { get; }
+        [BindProperty] [Required] public int WorkerId { get; }
+
         [BindProperty]
-        public int TicketId { get; }
-        [BindProperty]
-        public int WorkerId { get; }
-        [BindProperty]
-        [Required, MaxLength(30)]
+        [Required, MaxLength(45)]
         public string Title { get; }
+
         [BindProperty]
-        [Required, MaxLength(200)]
+        [Required, MaxLength(300)]
         public string Description { get; }
-        [BindProperty]
-        [MaxLength(200)]
-        public string Resolution { get; }
-        [BindProperty]
-        [Required, Range(0, 2)]
-        public StatusIndCd StatusIndCd { get; }
-        [BindProperty]
-        [Required]
-        public int LoggerId { get; }
+
+        [BindProperty] [MaxLength(300)] public string Resolution { get; }
+        [BindProperty] [Required] public StatusIndCd StatusIndCd { get; }
+        [BindProperty] [Required] public int LoggerId { get; }
 
         // Constructor for ticket that already exists.
         public Ticket(int ticketId, int workerId, string title, string description, string resolution,
