@@ -27,6 +27,7 @@ namespace BugTracker.Pages
             if (ticket != null)
             {
                 ViewData["Ticket"] = ticket;
+                ViewData["_ticketId"] = ticketId;
             }
             else
             {
@@ -70,7 +71,17 @@ namespace BugTracker.Pages
 
         public IActionResult OnPostDelete()
         {
-            return new PageResult();
+            // Simply set the user to inactive.
+            var ticketController = new TicketController();
+            ticketController.Init();
+            var ticketId = int.Parse(Request.Form["TicketId"]);
+            // Delete method goes here from user id.
+            if (ticketController.Delete(ticketId))
+            {
+                return new RedirectToPageResult("Tickets");
+            }
+
+            return new RedirectToPageResult($"Tickets?ticketId={ticketId}");
         }
     }
 }

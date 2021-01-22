@@ -39,7 +39,7 @@ namespace BugTracker.BugTrackerTest
         public void TicketDeleteTest()
         {
             Assert.True(_ticketController.Init());
-            //Assert.True(_ticketController.Delete(new Ticket(0,0,null,null,null,0,0)));
+            Assert.True(_ticketController.Delete(1));
         }
 
         [Fact]
