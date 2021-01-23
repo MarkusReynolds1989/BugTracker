@@ -8,13 +8,13 @@ namespace BugTracker.Pages
 {
     public class Tickets : PageModel
     {
-        public PageResult OnGet()
+        public IActionResult OnGet()
         {
             // If this try fails we don't want them to access this page as they haven't logged in.
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
             {
-                Response.Redirect("Login");
+                return new RedirectToPageResult("Login");
             }
             else
             {
@@ -29,7 +29,7 @@ namespace BugTracker.Pages
                 ViewData["Tickets"] = tickets;
             }
 
-            return new PageResult();
+            return Page();
         }
     }
 }
