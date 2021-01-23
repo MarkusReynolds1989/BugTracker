@@ -55,7 +55,7 @@ namespace BugTracker.Pages
                 }
             }
 
-            return new PageResult();
+            return Page();
         }
 
         public IActionResult OnPostDelete()
@@ -70,7 +70,7 @@ namespace BugTracker.Pages
                 return new RedirectToPageResult("Tickets");
             }
 
-            return new RedirectToPageResult($"Tickets?ticketId={ticketId}");
+            return Page();
         }
 
         public void OnGet(int ticketId = 0)

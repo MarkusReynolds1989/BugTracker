@@ -1,53 +1,43 @@
+using System.ComponentModel.DataAnnotations;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Ubiety.Dns.Core.Records.NotUsed;
 
 namespace BugTracker.Pages
 {
     public class User : PageModel
     {
-        public void OnGet(int userId)
-        {
-            var loginUserId = HttpContext.Session.GetInt32("UserId");
-            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
-            if (loginUserId == null && authLevel == null || authLevel < 2)
-            {
-                Response.Redirect("Login?statusCode=401");
-            }
+        [BindProperty]
+        [Required, MaxLength(45)]
+        public string UserName { get; set; }
 
-            var userController = new UserController();
-            userController.Init();
-            var user = userController.SelectRow(userId);
-            // Entry point for the data on the page.
-            if (user != null)
-            {
-                ViewData["User"] = user;
-                ViewData["_userId"] = userId;
-            }
-            else
-            {
-                // Give feedback on page that the transaction failed.
-            }
-        }
+        [BindProperty]
+        [Required, MaxLength(45)]
+        public string FirstName { get; set; }
+
+        [BindProperty]
+        [Required, MaxLength(45)]
+        public string LastName { get; set; }
+
+        [BindProperty]
+        [Required, MaxLength(45)]
+        public string Email { get; set; }
 
         public IActionResult OnPost()
         {
-            // This is where we actually update the user.
-            // Gather data from page.
             var userId = int.Parse(Request.Form["UserId"]);
-            var userName = Request.Form["UserName"];
-            var firstname = Request.Form["FirstName"];
-            var lastname = Request.Form["LastName"];
-            var email = Request.Form["Email"];
+            UserName = Request.Form["UserName"];
+            FirstName = Request.Form["FirstName"];
+            LastName = Request.Form["LastName"];
+            Email = Request.Form["Email"];
             var authLevel = (AuthLevel) int.Parse(Request.Form["AuthLevel"]);
 
             var userController = new UserController();
             userController.Init();
 
-            var updateUser = new Models.User(userId, userName, firstname, lastname, "", email, true, authLevel);
+            var updateUser = new Models.User(userId, UserName, FirstName, LastName, "", Email, true, authLevel);
             if (userController.Update(updateUser))
             {
                 return new RedirectToPageResult("Users");
@@ -69,6 +59,30 @@ namespace BugTracker.Pages
             }
 
             return new RedirectToPageResult($"User?userId={userId}");
+        }
+
+        public IActionResult OnGet(int userId)
+        {
+            var loginUserId = HttpContext.Session.GetInt32("UserId");
+            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
+            if (loginUserId == null && authLevel == null || authLevel < 2)
+            {
+                Response.Redirect("Login?statusCode=401");
+            }
+
+            var userController = new UserController();
+            userController.Init();
+            var user = userController.SelectRow(userId);
+            // Entry point for the data on the page.
+            if (user != null)
+            {
+                ViewData["User"] = user;
+                ViewData["_userId"] = userId;
+                return new PageResult();
+            }
+
+            // An incorrect selection returns you to the users page.
+            return new RedirectToPageResult("Users");
         }
     }
 }

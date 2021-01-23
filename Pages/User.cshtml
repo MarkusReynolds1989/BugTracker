@@ -5,6 +5,13 @@
     ViewData["Title"] = "User";
     var user = (Models.User) ViewData["User"];
 }
+
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
+}
+
 <h1>Modify User</h1>
 <form
     method = "post">
@@ -17,48 +24,72 @@
         id = "userId"
         name = "UserId"
         readonly
-        type = "text"
+        type = "number"
         value = "@user.UserId"/>
     <label
         for = "userName">
         User Name:
     </label>
     <input
+        asp-for = "UserName"
         class = "form-control"
         id = "userName"
         name = "UserName"
         type = "text"
         value = "@user.UserName"/>
+    <span
+        asp-validation-for = "UserName"
+        class = "alert-danger">
+    </span>
+    <br>
     <label
         for = "firstName">
         First Name:
     </label>
     <input
+        asp-for = "FirstName"
         class = "form-control"
         id = "firstName"
         name = "FirstName"
         type = "text"
         value = "@user.Firstname">
+    <span
+        asp-validation-for = "FirstName"
+        class="alert-danger">
+    </span>
+    <br>
     <label
         for = "lastName">
         Last Name:
     </label>
     <input
+        asp-for = "LastName"
         class = "form-control"
         id = "lastName"
         name = "LastName"
         type = "text"
         value = "@user.Lastname"/>
+    <span
+        asp-validation-for = "LastName"
+        class = "alert-danger">
+    </span>
+    <br>
     <label
         for = "email">
         Email:
     </label>
     <input
+        asp-for = "Email"
         class = "form-control"
         id = "email"
         name = "Email"
         type = "email"
         value = "@user.Email"/>
+    <span
+        asp-validation-for = "Email"
+        class = "alert-danger">
+    </span>
+    <br>
     <label
         for = "authLevel">
         Authorization Level:
@@ -76,6 +107,7 @@
         Submit
     </button>
 </form>
+<br>
 <form
     asp-page-handler = "delete"
     method = "post">
