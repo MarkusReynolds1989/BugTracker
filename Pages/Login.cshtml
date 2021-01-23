@@ -4,6 +4,12 @@
     ViewData["Title"] = "Login";
 }
 
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
+}
+
 <div
     class = "card"
     style = "
@@ -15,9 +21,6 @@
         position: absolute;
       ">
     <h2> Login</h2>
-    @{
-        // Notice the method here, we need to post to securely send the login info
-    }
     <form
         class = "form"
         method = "post"
@@ -28,23 +31,27 @@
           align-content: center;
         ">
         <input
+            asp-for = "UserName"
             class = "form-control"
             id = "username"
             name = "UserName"
-            placeholder = "userName"
+            placeholder = "user name"
             type = "text"/>
+        <span
+            asp-validation-for = "UserName"
+            class = "alert-danger">
+        </span>
         <input
+            asp-for = "Password"
             class = "form-control"
             id = "password"
             name = "Password"
             placeholder = "password"
             type = "password"/>
-        <label
-            class = "form-control-plaintext"
-            id = "loginFeedback"
-            userName = "LoginFeedback">
-            @ViewData["Feedback"]
-        </label>
+        <span
+            asp-validation-for = "Password"
+            class = "alert-danger">
+        </span>
         <button
             class = "btn btn-primary"
             id = "submit"

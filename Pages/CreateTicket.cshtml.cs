@@ -10,13 +10,12 @@ using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BugTracker.Pages
 {
     public class CreateTicketModel : PageModel
     {
-        [BindProperty] [Required] public int WorkerId { get; set; }
-
         [BindProperty]
         [Required]
         [MaxLength(45)]
@@ -26,6 +25,8 @@ namespace BugTracker.Pages
         [Required]
         [MaxLength(300)]
         public string Description { get; set; }
+
+        public IList<SelectListItem> Users { get; set; }
 
         public void OnPost()
         {
@@ -39,7 +40,7 @@ namespace BugTracker.Pages
             if (ModelState.IsValid)
             {
                 // Step2: Collect the data from the form submission.
-                WorkerId = int.Parse(Request.Form["WorkerId"]);
+                var workerId = int.Parse(Request.Form["WorkerId"]);
                 _Title = Request.Form["_Title"];
                 Description = Request.Form["Description"];
                 var statusIndCd = (StatusIndCd) int.Parse(Request.Form["StatusIndCd"]);
@@ -49,7 +50,7 @@ namespace BugTracker.Pages
                 var ticketController = new TicketController();
                 ticketController.Init();
                 var ticket = new Models.Ticket(
-                    WorkerId
+                    workerId
                     , _Title
                     , Description
                     , ""
@@ -67,10 +68,21 @@ namespace BugTracker.Pages
         public void OnGet()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null) // TODO: Check auth level.
+            if (userId == null) 
             {
                 Response.Redirect("Login");
             }
+
+            // Generate users that can accept tickets.
+            var userController = new UserController();
+            userController.Init();
+            var usersTemp = userController.SelectAll().Where(user => user.AuthLevel != AuthLevel.Guest).ToList();
+            Users = usersTemp.Select(user => new SelectListItem
+            {
+                Value = user.UserId.ToString(),
+                Text = user.UserName,
+            }).ToList();
+            ViewData["Users"] = Users;
         }
     }
 }

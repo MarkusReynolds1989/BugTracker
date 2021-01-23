@@ -1,16 +1,17 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BugTracker.Pages
 {
     public class Ticket : PageModel
     {
-        [BindProperty] [Required] public int WorkerId { get; set; }
-
         [BindProperty]
         [Required]
         [MaxLength(45)]
@@ -23,6 +24,8 @@ namespace BugTracker.Pages
 
         [BindProperty] [MaxLength(300)] public string Resolution { get; set; }
 
+        public IList<SelectListItem> Users { get; set; }
+
         // Updates our current value with the values in the fields.
         public IActionResult OnPost()
         {
@@ -30,10 +33,10 @@ namespace BugTracker.Pages
             {
                 int.TryParse(Request.Form["TicketId"], out var ticketId);
                 int.TryParse(Request.Form["LoggerId"], out var loggerId);
-                WorkerId = int.Parse(Request.Form["WorkerId"]);
+                var workerId = int.Parse(Request.Form["WorkerId"]);
                 int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
                 var statusIndCd = (StatusIndCd) statusValue;
-                _Title = Request.Form["Title"].ToString();
+                _Title = Request.Form["_Title"].ToString();
                 Description = Request.Form["Description"].ToString();
                 Resolution = Request.Form["Resolution"].ToString();
 
@@ -42,7 +45,7 @@ namespace BugTracker.Pages
 
                 var updateTicket =
                     new Models.Ticket(ticketId,
-                        WorkerId,
+                        workerId,
                         _Title,
                         Description,
                         Resolution,
@@ -73,12 +76,12 @@ namespace BugTracker.Pages
             return Page();
         }
 
-        public void OnGet(int ticketId = 0)
+        public IActionResult OnGet(int ticketId)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null) // TODO: Check auth level.
             {
-                Response.Redirect("Login");
+                return new RedirectToPageResult("Login");
             }
 
             var ticketController = new TicketController();
@@ -88,11 +91,23 @@ namespace BugTracker.Pages
             {
                 ViewData["Ticket"] = ticket;
                 ViewData["_ticketId"] = ticketId;
+
+                // Generate users that can accept tickets.
+                var userController = new UserController();
+                userController.Init();
+                var usersTemp = userController.SelectAll().Where(user => user.AuthLevel != AuthLevel.Guest).ToList();
+                Users = usersTemp.Select(user => new SelectListItem
+                {
+                    Value = user.UserId.ToString(),
+                    Text = user.UserName,
+                }).ToList();
+                ViewData["Users"] = Users;
+                Description = ticket.Description;
+                Resolution = ticket.Resolution;
+                return new PageResult();
             }
-            else
-            {
-                Response.Redirect("https://localhost:5001/Error");
-            }
+
+            return new RedirectToPageResult("Tickets");
         }
     }
 }

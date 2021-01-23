@@ -35,16 +35,12 @@
                 for = "workerId">
                 Worker Id:
             </label>
-            <input
-                asp-for = "WorkerId"
+            <select
+                asp-items = "Model.Users"
                 class = "form-control"
                 id = "workerId"
-                name = "WorkerId"
-                type = "number"/>
-            <span
-                asp-validation-for = "WorkerId"
-                class = "alert-danger">
-            </span>
+                name = "WorkerId">
+            </select>
             <br>
             <label
                 for = "statusIndCd">

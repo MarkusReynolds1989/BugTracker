@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using BugTracker.Controllers;
 using BugTracker.Models;
@@ -12,6 +13,12 @@ namespace BugTracker.Pages
 {
     public class Login : PageModel
     {
+        [BindProperty, Required, MaxLength(45)]
+        public string UserName { get; set; }
+
+        [BindProperty, Required, MaxLength(45)]
+        public string Password { get; set; }
+
         public IActionResult OnPost()
         {
             var userName = Request.Form["UserName"].ToString();
@@ -28,15 +35,11 @@ namespace BugTracker.Pages
             }
 
             // Redirect to OnGet(with feedback);
-            return new UnauthorizedResult();
+            return Page();
         }
 
-        public void OnGet(int id = 0)
+        public void OnGet()
         {
-            if (id == -1)
-            {
-                ViewData["Feedback"] = "Incorrect password or username.";
-            }
         }
     }
 }

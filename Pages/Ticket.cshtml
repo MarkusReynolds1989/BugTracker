@@ -4,6 +4,7 @@
 
 @{
     var ticket = (Models.Ticket) ViewData["Ticket"];
+    ViewData["Title"] = "Ticket";
 }
 
 @section Scripts
@@ -44,17 +45,13 @@
                 for = "workerId">
                 Worker ID:
             </label>
-            <input
-                asp-for = "WorkerId"
+            <select
+                asp-items = "Model.Users"
                 class = "form-control"
                 id = "workerId"
                 name = "WorkerId"
-                type = "number"
-                value = "@ticket.WorkerId"/>
-            <span
-                asp-validation-for = "WorkerId"
-                class = "alert-danger">
-            </span>
+                value = "@ticket.WorkerId">
+            </select>
             <br>
             <label
                 for = "statusIndCd">
@@ -78,7 +75,7 @@
                 asp-for = "_Title"
                 class = "form-control"
                 id = "title"
-                name = "Title"
+                name = "_Title"
                 type = "text"
                 value = "@ticket.Title"/>
             <span
@@ -93,8 +90,6 @@
             <textarea 
                 asp-for="Description"
                 class="form-control"
-                id = "desc" 
-                name = "Description"
                 rows = "7">@ticket.Description
             </textarea>
             <span
@@ -111,7 +106,8 @@
           asp-for="Resolution"
           class="form-control" 
           id = "resolution"
-          name = "Resolution">@ticket.Resolution
+          name = "Resolution"
+          rows="7">@ticket.Resolution
     </textarea>
     <span
         asp-validation-for = "Resolution"
