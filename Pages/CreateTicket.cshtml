@@ -1,11 +1,15 @@
 ﻿@page
-@using BugTracker.Controllers
 @using BugTracker.Models
-@using System.Net
 @using Microsoft.AspNetCore.Http
 @model CreateTicketModel
 @{
     ViewData["Title"] = "Create Ticket";
+}
+
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
 }
 
 <h1>Create Ticket</h1>
@@ -25,17 +29,23 @@
                 id = "loggerId"
                 name = "LoggerId"
                 readonly
-                type = "text"
+                type = "number"
                 value = "@HttpContext.Session.GetInt32("UserId")"/>
             <label
                 for = "workerId">
                 Worker Id:
             </label>
             <input
+                asp-for = "WorkerId"
                 class = "form-control"
                 id = "workerId"
                 name = "WorkerId"
-                type = "text"/>
+                type = "number"/>
+            <span
+                asp-validation-for = "WorkerId"
+                class = "alert-danger">
+            </span>
+            <br>
             <label
                 for = "statusIndCd">
                 Ticket Status:
@@ -54,19 +64,30 @@
                 Title:
             </label>
             <input
+                asp-for = "_Title"
                 class = "form-control"
                 id = "_title"
                 name = "_Title"
                 type = "text"/>
+            <span
+                asp-validation-for = "_Title"
+                class = "alert-danger">
+            </span>
+            <br>
             <label
                 for = "desc">
                 Description:
             </label>
             <textarea
+        asp-for="Description"
         class = "form-control"
         id = "desc"
         name = "Description">
         </textarea>
+            <span
+                asp-validation-for = "Description"
+                class = "alert-danger">
+            </span>
         </div>
     </div>
     <br>
