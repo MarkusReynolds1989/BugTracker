@@ -6,6 +6,12 @@
     var ticket = (Models.Ticket) ViewData["Ticket"];
 }
 
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
+}
+
 <form
     method = "post">
     <div
@@ -21,7 +27,7 @@
                 id = "ticketId"
                 name = "TicketId"
                 readonly
-                type = "text"
+                type = "number"
                 value = "@ticket.TicketId"/>
             <label
                 for = "loggerId">
@@ -32,18 +38,24 @@
                 id = "loggerId"
                 name = "LoggerId"
                 readonly
-                type = "text"
+                type = "number"
                 value = "@ticket.LoggerId"/>
             <label
                 for = "workerId">
                 Worker ID:
             </label>
             <input
+                asp-for = "WorkerId"
                 class = "form-control"
                 id = "workerId"
                 name = "WorkerId"
-                type = "text"
+                type = "number"
                 value = "@ticket.WorkerId"/>
+            <span
+                asp-validation-for = "WorkerId"
+                class = "alert-danger">
+            </span>
+            <br>
             <label
                 for = "statusIndCd">
                 Ticket Status:
@@ -63,21 +75,32 @@
                 Title:
             </label>
             <input
+                asp-for = "_Title"
                 class = "form-control"
                 id = "title"
                 name = "Title"
                 type = "text"
                 value = "@ticket.Title"/>
+            <span
+                asp-validation-for = "_Title"
+                class = "alert-danger">
+            </span>
+            <br>
             <label
                 for = "desc">
                 Description:
             </label>
             <textarea 
+                asp-for="Description"
                 class="form-control"
                 id = "desc" 
                 name = "Description"
                 rows = "7">@ticket.Description
             </textarea>
+            <span
+                asp-validation-for = "Description"
+                class = "alert-danger">
+            </span>
         </div>
     </div>
     <label
@@ -85,10 +108,15 @@
         Resolution:
     </label>
     <textarea  
+          asp-for="Resolution"
           class="form-control" 
           id = "resolution"
           name = "Resolution">@ticket.Resolution
     </textarea>
+    <span
+        asp-validation-for = "Resolution"
+        class = "alert-danger">
+    </span>
     <br>
     <button
         class = "btn btn-primary">

@@ -1,18 +1,78 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Org.BouncyCastle.Crypto.Tls;
 
 namespace BugTracker.Pages
 {
     public class Ticket : PageModel
     {
+        [BindProperty] [Required] public int WorkerId { get; set; }
+
+        [BindProperty]
+        [Required]
+        [MaxLength(45)]
+        public string _Title { get; set; }
+
+        [BindProperty]
+        [Required]
+        [MaxLength(300)]
+        public string Description { get; set; }
+
+        [BindProperty] [MaxLength(300)] public string Resolution { get; set; }
+
+        // Updates our current value with the values in the fields.
+        public IActionResult OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                int.TryParse(Request.Form["TicketId"], out var ticketId);
+                int.TryParse(Request.Form["LoggerId"], out var loggerId);
+                WorkerId = int.Parse(Request.Form["WorkerId"]);
+                int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
+                var statusIndCd = (StatusIndCd) statusValue;
+                _Title = Request.Form["Title"].ToString();
+                Description = Request.Form["Description"].ToString();
+                Resolution = Request.Form["Resolution"].ToString();
+
+                var ticketController = new TicketController();
+                ticketController.Init();
+
+                var updateTicket =
+                    new Models.Ticket(ticketId,
+                        WorkerId,
+                        _Title,
+                        Description,
+                        Resolution,
+                        statusIndCd,
+                        loggerId);
+
+                if (ticketController.Update(updateTicket))
+                {
+                    return new RedirectToPageResult("Tickets");
+                }
+            }
+
+            return new PageResult();
+        }
+
+        public IActionResult OnPostDelete()
+        {
+            // Simply set the user to inactive.
+            var ticketController = new TicketController();
+            ticketController.Init();
+            var ticketId = int.Parse(Request.Form["TicketId"]);
+            // Delete method goes here from user id.
+            if (ticketController.Delete(ticketId))
+            {
+                return new RedirectToPageResult("Tickets");
+            }
+
+            return new RedirectToPageResult($"Tickets?ticketId={ticketId}");
+        }
+
         public void OnGet(int ticketId = 0)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
@@ -33,55 +93,6 @@ namespace BugTracker.Pages
             {
                 Response.Redirect("https://localhost:5001/Error");
             }
-        }
-
-        // Updates our current value with the values in the fields.
-        public IActionResult OnPost()
-        {
-            // Immutable
-            int.TryParse(Request.Form["TicketId"], out var ticketId);
-            int.TryParse(Request.Form["LoggerId"], out var loggerId);
-            // Worker ID can change.
-            int.TryParse(Request.Form["WorkerId"], out var workerId);
-            int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
-            var statusIndCd = (StatusIndCd) statusValue;
-            var title = Request.Form["Title"].ToString();
-            var description = Request.Form["Description"].ToString();
-            var resolution = Request.Form["Resolution"].ToString();
-
-            var ticketController = new TicketController();
-            ticketController.Init();
-
-            var updateTicket =
-                new Models.Ticket(ticketId,
-                    workerId,
-                    title,
-                    description,
-                    resolution,
-                    statusIndCd,
-                    loggerId);
-
-            if (ticketController.Update(updateTicket))
-            {
-                return new RedirectToPageResult("Tickets");
-            }
-
-            return new PageResult();
-        }
-
-        public IActionResult OnPostDelete()
-        {
-            // Simply set the user to inactive.
-            var ticketController = new TicketController();
-            ticketController.Init();
-            var ticketId = int.Parse(Request.Form["TicketId"]);
-            // Delete method goes here from user id.
-            if (ticketController.Delete(ticketId))
-            {
-                return new RedirectToPageResult("Tickets");
-            }
-
-            return new RedirectToPageResult($"Tickets?ticketId={ticketId}");
         }
     }
 }

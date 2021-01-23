@@ -39,7 +39,6 @@ namespace BugTracker.Pages
             if (ModelState.IsValid)
             {
                 // Step2: Collect the data from the form submission.
-                // TODO: Add in try parse to catch any errors.
                 WorkerId = int.Parse(Request.Form["WorkerId"]);
                 _Title = Request.Form["_Title"];
                 Description = Request.Form["Description"];
