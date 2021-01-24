@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BugTracker.Controllers;
 using BugTracker.Models;
@@ -76,7 +77,7 @@ namespace BugTracker.Pages
             return Page();
         }
 
-        public IActionResult OnGet(int ticketId)
+        public async Task<IActionResult> OnGet(int ticketId)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null) // TODO: Check auth level.
@@ -84,18 +85,19 @@ namespace BugTracker.Pages
                 return new RedirectToPageResult("Login");
             }
 
-            var ticketController = new TicketController();
-            ticketController.Init();
-            var ticket = ticketController.SelectRow(ticketId);
-            if (ticket != null)
+            try
             {
+                var ticketController = new TicketController();
+                ticketController.Init();
+                var ticket = await ticketController.SelectRow(ticketId);
                 ViewData["Ticket"] = ticket;
                 ViewData["_ticketId"] = ticketId;
 
                 // Generate users that can accept tickets.
                 var userController = new UserController();
                 userController.Init();
-                var usersTemp = userController.SelectAll().Where(user => user.AuthLevel != AuthLevel.Guest).ToList();
+                var usersTemp = userController.SelectAll().Where(user => user.AuthLevel != AuthLevel.Guest)
+                    .ToList();
                 Users = usersTemp.Select(user => new SelectListItem
                 {
                     Value = user.UserId.ToString(),
@@ -104,10 +106,13 @@ namespace BugTracker.Pages
                 ViewData["Users"] = Users;
                 Description = ticket.Description;
                 Resolution = ticket.Resolution;
-                return new PageResult();
-            }
 
-            return new RedirectToPageResult("Tickets");
+                return Page();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
 namespace BugTracker.Controllers
@@ -176,7 +178,7 @@ namespace BugTracker.Controllers
             return userList;
         }
 
-        public User SelectRow(int id)
+        public async Task<User> SelectRow(int id)
         {
             var query = $"SELECT * FROM User WHERE user_id={id} AND active_ind=1";
 
@@ -191,26 +193,28 @@ namespace BugTracker.Controllers
 
                 // We should switch to this using pattern for the connection as well.
                 // This implements IDisposable which takes care of closing the connection for us.
-                using var inputStream = command.ExecuteReader();
-                while (inputStream.Read())
+                await using (var inputStream = await command.ExecuteReaderAsync())
                 {
-                    var userId = inputStream.GetInt32(0);
-                    var userName = inputStream.GetString(1);
-                    var firstName = inputStream.GetString(2);
-                    var lastname = inputStream.GetString(3);
-                    var userPassword = inputStream.GetString(4);
-                    var email = inputStream.GetString(5);
-                    var activeInd = inputStream.GetBoolean(6);
-                    var authLevel = inputStream.GetInt32(7);
-                    user = new User(userId, userName, firstName, lastname, userPassword, email, activeInd,
-                        (AuthLevel) authLevel);
+                    while (await inputStream.ReadAsync())
+                    {
+                        var userId = inputStream.GetInt32(0);
+                        var userName = inputStream.GetString(1);
+                        var firstName = inputStream.GetString(2);
+                        var lastname = inputStream.GetString(3);
+                        var userPassword = inputStream.GetString(4);
+                        var email = inputStream.GetString(5);
+                        var activeInd = inputStream.GetBoolean(6);
+                        var authLevel = inputStream.GetInt32(7);
+                        user = new User(userId, userName, firstName, lastname, userPassword, email, activeInd,
+                            (AuthLevel) authLevel);
+                    }
                 }
 
-                Authentication.Close();
+                await Authentication.CloseAsync();
             }
             catch (MySqlException exception)
             {
-                Authentication.Close();
+                await Authentication.CloseAsync();
                 Console.WriteLine(exception);
             }
 

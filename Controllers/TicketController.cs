@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 using BugTracker.Models;
 using MySql.Data.MySqlClient;
 
@@ -215,7 +216,7 @@ namespace BugTracker.Controllers
             return ticketList;
         }
 
-        public Ticket SelectRow(int id)
+        public async Task<Ticket> SelectRow(int id)
         {
             // Removed const.
             var query = $"SELECT * FROM Ticket WHERE ticket_id={id} AND Ticket.active_ind=1";
@@ -231,25 +232,27 @@ namespace BugTracker.Controllers
 
                 // We should switch to this using pattern for the connection as well.
                 // This implements IDisposable which takes care of closing the connection for us.
-                using var inputStream = command.ExecuteReader();
-                while (inputStream.Read())
+                await using (var inputStream = await command.ExecuteReaderAsync())
                 {
-                    var ticketId = inputStream.GetInt32(0);
-                    var workerId = inputStream.GetInt32(1);
-                    var ticketTitle = inputStream.GetString(2);
-                    var ticketDescription = inputStream.GetString(3);
-                    var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
-                    var loggerId = inputStream.GetInt32(6);
-                    ticket = new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                        ticketStatusIndCd, loggerId);
+                    while (await inputStream.ReadAsync())
+                    {
+                        var ticketId = inputStream.GetInt32(0);
+                        var workerId = inputStream.GetInt32(1);
+                        var ticketTitle = inputStream.GetString(2);
+                        var ticketDescription = inputStream.GetString(3);
+                        var ticketResolution = inputStream.GetString(4);
+                        var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
+                        var loggerId = inputStream.GetInt32(6);
+                        ticket = new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
+                            ticketStatusIndCd, loggerId);
+                    }
                 }
 
-                Authentication.Close();
+                await Authentication.CloseAsync();
             }
             catch (MySqlException exception)
             {
-                Authentication.Close();
+                await Authentication.CloseAsync();
                 Console.WriteLine(exception);
             }
 

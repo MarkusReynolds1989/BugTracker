@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using BugTracker.Controllers;
 using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
@@ -61,7 +62,7 @@ namespace BugTracker.Pages
             return new RedirectToPageResult($"User?userId={userId}");
         }
 
-        public IActionResult OnGet(int userId)
+        public async Task<IActionResult> OnGet(int userId)
         {
             var loginUserId = HttpContext.Session.GetInt32("UserId");
             var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
@@ -70,19 +71,20 @@ namespace BugTracker.Pages
                 Response.Redirect("Login?statusCode=401");
             }
 
-            var userController = new UserController();
-            userController.Init();
-            var user = userController.SelectRow(userId);
-            // Entry point for the data on the page.
-            if (user != null)
+            try
             {
+                var userController = new UserController();
+                userController.Init();
+                var user = await userController.SelectRow(userId);
+                // Entry point for the data on the page.
                 ViewData["User"] = user;
                 ViewData["_userId"] = userId;
-                return new PageResult();
+                return Page();
             }
-
-            // An incorrect selection returns you to the users page.
-            return new RedirectToPageResult("Users");
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }

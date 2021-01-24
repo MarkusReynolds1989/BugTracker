@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using BugTracker.Models;
 using MySql.Data.MySqlClient;
 
 namespace BugTracker.Controllers
@@ -56,13 +58,13 @@ namespace BugTracker.Controllers
         /// <returns> Returns a list of the select objects or an empty list if unsuccessful.</returns>
         /// <typeparam name="T"> This is the type of the model implementing class.</typeparam>
         public IList<T> SelectAll();
-    
+
         /// <summary>
         /// Selects one row from the database and returns the item if it exists.
         /// </summary>
         /// <returns> Returns the row from the database or null if it doesn't exist.</returns>
         /// <typeparam name="T"> This is the type of the model implementing class.</typeparam>
         /// <param name="id"> The id of the row we are getting.</param>
-        public T SelectRow(int id);
+        public Task<T> SelectRow(int id);
     }
 }
