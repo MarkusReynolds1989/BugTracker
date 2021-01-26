@@ -18,7 +18,7 @@ namespace BugTracker.Controllers
             AuthenticationString = new MySqlConnectionStringBuilder
             {
                 UserID = "admin", Password = "password123", Database = "bug_tracker",
-                Server = "***REMOVED***"
+                Server = ""
             };
             Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
             // Open the connection.
