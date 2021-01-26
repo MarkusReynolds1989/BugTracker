@@ -21,7 +21,7 @@ namespace BugTracker.Pages
         [BindProperty, Required, MaxLength(45)]
         public string Password { get; set; }
 
-        [BindProperty, Required, MaxLength(45), Compare(nameof(Password))]
+        [BindProperty, Required, MaxLength(45)]// Compare(nameof(Password))]
         public string ConfirmPassword { get; set; }
 
         [BindProperty, Required, MaxLength(45)]
