@@ -1,11 +1,13 @@
-﻿CREATE TABLE `Ticket` (
-  `ticket_id` int(11) NOT NULL AUTO_INCREMENT,
-  `worker_id` int(11) NOT NULL,
-  `title` varchar(45) NOT NULL,
-  `description` varchar(300) NOT NULL,
-  `resolution` varchar(300) DEFAULT NULL,
-  `status_ind` int(11) NOT NULL,
-  `logger_id` int(11) NOT NULL,
-  `active_ind` tinyint(4) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`ticket_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4
+create table if not exists Ticket
+(
+	ticket_id int auto_increment
+		primary key,
+	worker_id int not null,
+	title varchar(45) not null,
+	description varchar(300) not null,
+	resolution varchar(300) default '' null,
+	status_ind enum('Open', 'InProgress', 'Closed') default 'Open' not null,
+	active_ind tinyint(1) default 1 not null,
+	logger_id int null
+);
+
