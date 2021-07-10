@@ -7,35 +7,44 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using Org.BouncyCastle.Asn1.Cmp;
 
 namespace BugTracker.Pages
 {
     public class Login : PageModel
     {
-        [BindProperty, Required, MaxLength(45)]
-        public string UserName { get; set; }
+        private readonly IConfiguration _configRoot;
+
+        private Login(IConfiguration configRoot)
+        {
+            _configRoot = configRoot;
+        }
 
         [BindProperty, Required, MaxLength(45)]
-        public string Password { get; set; }
+        public string UserName { get; }
+
+        [BindProperty, Required, MaxLength(45)]
+        public string Password { get; }
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid) return Page();
+            var login = new LoginController(_configRoot); // Injection
+
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["Password"].ToString();
-            var login = new LoginController();
-            var user = login.AuthorizeUser(new Models.User(userName, "", "", password, "", AuthLevel.Guest));
-
-            if (user != null && !string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(password))
+            var user = login.AuthorizeUser(userName, password);
+            // Set the users session user id here.s
+            if (user.UserId.HasValue)
             {
-                // Set the users session user id here.
-                HttpContext.Session.SetInt32("UserId", user.UserId);
-                HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);
-                return new RedirectToPageResult("Tickets");
+                HttpContext.Session.SetInt32("UserId", user.UserId.Value);
             }
 
+            HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);
+            return new RedirectToPageResult("Tickets");
+
             // Redirect to OnGet(with feedback);
-            return Page();
         }
 
         public void OnGet()

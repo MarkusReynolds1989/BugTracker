@@ -1,65 +1,44 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using BugTracker.Models;
+using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
 namespace BugTracker.Controllers
 {
-    public class TicketController : IDataProcess<Ticket>
+    public class TicketController
     {
-        public MySqlConnectionStringBuilder AuthenticationString { get; set; }
-        public MySqlConnection Authentication { get; set; }
+        private readonly IConfiguration _configRoot;
 
-        public bool Init()
+        public TicketController(IConfiguration configRoot)
         {
-            // This is temporary, and when we go to prod we will change this.
-            AuthenticationString = new MySqlConnectionStringBuilder
-            {
-                UserID = "admin", Password = "password123", Database = "bug_tracker",
-                Server = ""
-            };
-            Authentication = new MySqlConnection(AuthenticationString.ConnectionString);
-            // Open the connection.
-            Authentication.Open();
-            // If we are able to connect then we know our connection worked, otherwise we should close. 
-            if (Authentication.State == ConnectionState.Open)
-            {
-                Authentication.Close();
-                return true;
-            }
-
-            Authentication.Close();
-            return false;
+            _configRoot = configRoot;
         }
 
         public bool Insert(Ticket ticket)
         {
-            var query = "INSERT INTO Ticket (worker_id,title,description,resolution,status_ind,logger_id)" +
-                        $"VALUES (\"{ticket.WorkerId}\",\"{ticket.Title}\", \"{ticket.Description}\", \"{ticket.Resolution}\", \"{(int) ticket.StatusIndCd}\",\"{ticket.LoggerId}\")";
             bool success;
-
-            MySqlTransaction transaction = null;
 
             try
             {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                transaction = Authentication.BeginTransaction();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
+                using var connection = new DataConnection(_configRoot);
+                connection.Connect();
+                using var command = new MySqlCommand("AddTicket", connection.Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
+                command.Parameters.AddWithValue("@ThisTitle", ticket.Title);
+                command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
+                command.Parameters.AddWithValue("@LoggerId", ticket.LoggerId);
                 command.ExecuteNonQuery();
-                transaction.Commit();
-                Authentication.Close();
                 success = true;
             }
             catch (MySqlException exception)
             {
-                transaction?.Rollback();
                 success = false;
-                Authentication.Close();
-                Console.WriteLine(exception);
+                Debug.WriteLine(exception);
             }
 
             return success;
@@ -67,196 +46,30 @@ namespace BugTracker.Controllers
 
         public bool Update(Ticket ticket)
         {
-            var query =
-                $"UPDATE Ticket SET worker_id = {ticket.WorkerId}, " +
-                $"title = \"{ticket.Title}\", " +
-                $"description = \"{ticket.Description}\", " +
-                $"resolution = \"{ticket.Resolution}\", " +
-                $"status_ind = {(int) ticket.StatusIndCd} " +
-                $"WHERE ticket_id = {ticket.TicketId}";
-
             bool success;
-
-            MySqlTransaction transaction = null;
 
             try
             {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                transaction = Authentication.BeginTransaction();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
+                using var connection = new DataConnection(_configRoot);
+                connection.Connect();
+                var command = new MySqlCommand("UpdateTicket", connection.Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@TicketId", ticket.TicketId);
+                command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
+                command.Parameters.AddWithValue("@ThisTitle", ticket.Title);
+                command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
+                command.Parameters.AddWithValue("@ThisResolution", ticket.Resolution);
+                command.Parameters.AddWithValue("@StatusInd", ticket.StatusIndCd);
                 command.ExecuteNonQuery();
-                transaction.Commit();
-                Authentication.Close();
                 success = true;
             }
-            catch (MySqlException exception)
+            catch (MySqlException ex)
             {
-                transaction?.Rollback();
+                Debug.WriteLine(ex);
                 success = false;
-                Authentication.Close();
-                Console.WriteLine(exception);
             }
 
             return success;
-        }
-
-        public bool Delete(int id)
-        {
-            var query = "UPDATE Ticket SET active_ind = 0 " +
-                        $"WHERE ticket_id ={id}";
-            bool success;
-
-            MySqlTransaction transaction = null;
-
-            try
-            {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                transaction = Authentication.BeginTransaction();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-                transaction.Commit();
-                Authentication.Close();
-                success = true;
-            }
-            catch (MySqlException exception)
-            {
-                transaction?.Rollback();
-                success = false;
-                Authentication.Close();
-                Console.WriteLine(exception);
-            }
-
-            return success;
-        }
-
-
-        public IList<Ticket> SelectAll()
-        {
-            const string query = "SELECT * FROM Ticket WHERE Ticket.active_ind=1";
-
-            var ticketList = new List<Ticket>();
-
-            try
-            {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-
-                // We should switch to this using pattern for the connection as well.
-                // This implements IDisposable which takes care of closing the connection for us.
-                using var inputStream = command.ExecuteReader();
-                while (inputStream.Read())
-                {
-                    var ticketId = inputStream.GetInt32(0);
-                    var workerId = inputStream.GetInt32(1);
-                    var ticketTitle = inputStream.GetString(2);
-                    var ticketDescription = inputStream.GetString(3);
-                    var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
-                    var loggerId = inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                        ticketStatusIndCd, loggerId));
-                }
-
-                Authentication.Close();
-            }
-            catch (MySqlException exception)
-            {
-                Authentication.Close();
-                Console.WriteLine(exception);
-            }
-
-            return ticketList;
-        }
-
-        // Implement overload for getting tickets by worker_id.
-        public IList<Ticket> SelectAll(int? id)
-        {
-            // Removed const.
-            var query = $"SELECT * FROM Ticket WHERE worker_id ={id} AND Ticket.active_ind=1";
-
-            var ticketList = new List<Ticket>();
-
-            try
-            {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-
-                // We should switch to this using pattern for the connection as well.
-                // This implements IDisposable which takes care of closing the connection for us.
-                using var inputStream = command.ExecuteReader();
-                while (inputStream.Read())
-                {
-                    var ticketId = inputStream.GetInt32(0);
-                    var workerId = inputStream.GetInt32(1);
-                    var ticketTitle = inputStream.GetString(2);
-                    var ticketDescription = inputStream.GetString(3);
-                    var ticketResolution = inputStream.GetString(4);
-                    var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
-                    var loggerId = inputStream.GetInt32(6);
-                    ticketList.Add(new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                        ticketStatusIndCd, loggerId));
-                }
-
-                Authentication.Close();
-            }
-            catch (MySqlException exception)
-            {
-                Authentication.Close();
-                Console.WriteLine(exception);
-            }
-
-            return ticketList;
-        }
-
-        public async Task<Ticket> SelectRow(int id)
-        {
-            // Removed const.
-            var query = $"SELECT * FROM Ticket WHERE ticket_id={id} AND Ticket.active_ind=1";
-
-            Ticket ticket = null;
-
-            try
-            {
-                Authentication.Open();
-                var command = Authentication.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-
-                // We should switch to this using pattern for the connection as well.
-                // This implements IDisposable which takes care of closing the connection for us.
-                await using (var inputStream = await command.ExecuteReaderAsync())
-                {
-                    while (await inputStream.ReadAsync())
-                    {
-                        var ticketId = inputStream.GetInt32(0);
-                        var workerId = inputStream.GetInt32(1);
-                        var ticketTitle = inputStream.GetString(2);
-                        var ticketDescription = inputStream.GetString(3);
-                        var ticketResolution = inputStream.GetString(4);
-                        var ticketStatusIndCd = (StatusIndCd) inputStream.GetInt32(5);
-                        var loggerId = inputStream.GetInt32(6);
-                        ticket = new Ticket(ticketId, workerId, ticketTitle, ticketDescription, ticketResolution,
-                            ticketStatusIndCd, loggerId);
-                    }
-                }
-
-                await Authentication.CloseAsync();
-            }
-            catch (MySqlException exception)
-            {
-                await Authentication.CloseAsync();
-                Console.WriteLine(exception);
-            }
-
-            return ticket;
         }
     }
 }

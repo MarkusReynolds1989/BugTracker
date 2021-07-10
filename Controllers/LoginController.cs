@@ -1,72 +1,70 @@
-using System;
 using System.Data;
+using System.Diagnostics;
 using BugTracker.Models;
 using MySql.Data.MySqlClient;
 
+// Use this library to hash the input password vs the password in the db.
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+
 namespace BugTracker.Controllers
 {
-    // Set a session to a user from the user that is logged in.
-    public class LoginController 
+    // TODO: Set up dependency injection for SQL connection.
+    public class LoginController
     {
-        // In this case, this will be created from a post method to
-        // local host.
-        private readonly MySqlConnectionStringBuilder _authenticationString;
+        // Dependency injection.
+        private readonly IConfiguration _configRoot;
 
-        public LoginController()
+        public LoginController(IConfiguration configRoot)
         {
-            _authenticationString =
-                new MySqlConnectionStringBuilder
-                {
-                    UserID = "admin", Password = "password123", Database = "bug_tracker", Server = ""
-                };
+            _configRoot = configRoot;
         }
 
-        // Return the user from the database if the password and username match.
-        // Return null if no match or error.
-        public User AuthorizeUser(User user)
+        // Set a session to a user from the user that is logged in.
+        public User AuthorizeUser(string userName, string password)
         {
             User authenticatedUser = null;
-            using var authenticationConnection =
-                new MySqlConnection(_authenticationString.ConnectionString);
-
+            //var hashedPassWord = 
+            using var authenticationConnection = new DataConnection(_configRoot);
+            using var hash = SHA256.Create();
+            var hashedPassword = hash.ComputeHash(Encoding.Unicode.GetBytes(password)).ToString();
             try
             {
-                authenticationConnection.Open();
-                var query =
-                    $"SELECT * FROM User WHERE user_name = \"{user.UserName}\" AND password = \"{user.Password}\"";
-                var command = authenticationConnection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = query;
-                using var inputStream = command.ExecuteReader();
-                while (inputStream.Read())
+                authenticationConnection.Connect();
+                using var command = new MySqlCommand
                 {
-                    var userId = inputStream.GetInt32(0);
-                    var userName = inputStream.GetString(1);
-                    var firstName = inputStream.GetString(2);
-                    var lastName = inputStream.GetString(3);
-                    var userPassword = inputStream.GetString(4);
-                    var email = inputStream.GetString(5);
-                    var activeInd = inputStream.GetBoolean(6);
-                    var authLevel = inputStream.GetInt32(7);
-                    authenticatedUser = new User(userId,
-                        userName,
-                        firstName,
-                        lastName,
-                        userPassword,
-                        email,
-                        activeInd,
-                        (AuthLevel) authLevel);
+                    CommandType = CommandType.StoredProcedure, Connection = authenticationConnection.Connection,
+                    CommandText = "AuthenticateUser"
+                };
+                command.Parameters.AddWithValue("@UserName", userName);
+                command.Parameters.AddWithValue("@ThisPassword", hashedPassword);
+
+                using var reader = command.ExecuteReader();
+                // Build and return user.
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        authenticatedUser = new User
+                        (
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetString(5),
+                            "", // Don't bring back the hashed password for obvious reasons. No hashing on the client side.
+                            reader.GetBoolean(6),
+                            (AuthLevel) reader.GetInt32(7),
+                            reader.GetInt32(0)
+                        );
+                    }
                 }
             }
-            catch (MySqlException e)
+            catch (MySqlException ex)
             {
-                Console.WriteLine(e);
+                Debug.WriteLine(ex);
             }
 
-            // On false we can write logic to the front end like
-            // incorrect username and password.
-            // Otherwise, login successful go to next page.
-            // and set the user variable to this.
             return authenticatedUser;
         }
     }
