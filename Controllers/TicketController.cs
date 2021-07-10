@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -18,21 +17,20 @@ namespace BugTracker.Controllers
             _configRoot = configRoot;
         }
 
-        public bool Insert(Ticket ticket)
+        public async Task<bool> Insert(Ticket ticket)
         {
             bool success;
 
             try
             {
                 using var connection = new DataConnection(_configRoot);
-                connection.Connect();
-                using var command = new MySqlCommand("AddTicket", connection.Connection);
+                await using var command = new MySqlCommand("AddTicket", await connection.Connect());
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
                 command.Parameters.AddWithValue("@ThisTitle", ticket.Title);
                 command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
                 command.Parameters.AddWithValue("@LoggerId", ticket.LoggerId);
-                command.ExecuteNonQuery();
+                await command.ExecuteNonQueryAsync();
                 success = true;
             }
             catch (MySqlException exception)
@@ -44,15 +42,14 @@ namespace BugTracker.Controllers
             return success;
         }
 
-        public bool Update(Ticket ticket)
+        public async Task<bool> Update(Ticket ticket)
         {
             bool success;
 
             try
             {
                 using var connection = new DataConnection(_configRoot);
-                connection.Connect();
-                var command = new MySqlCommand("UpdateTicket", connection.Connection);
+                await using var command = new MySqlCommand("UpdateTicket", await connection.Connect());
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@TicketId", ticket.TicketId);
                 command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
@@ -60,7 +57,7 @@ namespace BugTracker.Controllers
                 command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
                 command.Parameters.AddWithValue("@ThisResolution", ticket.Resolution);
                 command.Parameters.AddWithValue("@StatusInd", ticket.StatusIndCd);
-                command.ExecuteNonQuery();
+                await command.ExecuteNonQueryAsync();
                 success = true;
             }
             catch (MySqlException ex)
@@ -70,6 +67,73 @@ namespace BugTracker.Controllers
             }
 
             return success;
+        }
+
+        public async Task<Ticket> GetTicket(int ticketId)
+        {
+            Ticket ticket = null;
+            try
+            {
+                using var connection = new DataConnection(_configRoot);
+                await using var command = new MySqlCommand("GetTicket", await connection.Connect());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@TicketId", ticketId);
+                var reader = await command.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        ticket = new Ticket(
+                            reader.GetInt32(1),
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetString(4),
+                            reader.GetInt32(5),
+                            (StatusIndCd) reader.GetInt32(6),
+                            reader.GetInt32(9));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            return ticket;
+        }
+
+        public async Task<IList<Ticket>> GetTicketsByWorkerId(int workerId)
+        {
+            IList<Ticket> output = new List<Ticket>();
+            try
+
+            {
+                using var connection = new DataConnection(_configRoot);
+                await using var command = new MySqlCommand("GetAllTicketsForWorker", await connection.Connect());
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@UserId", workerId);
+                var reader = await command.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        output.Add(new Ticket(
+                            reader.GetInt32(1),
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetString(4),
+                            reader.GetInt32(5),
+                            (StatusIndCd) reader.GetInt32(6),
+                            reader.GetInt32(9)));
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            return output;
         }
     }
 }

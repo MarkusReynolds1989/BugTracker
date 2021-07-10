@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
@@ -17,9 +18,10 @@ namespace BugTracker.Controllers
             _connectionString = _configRoot["default"];
         }
 
-        public MySqlConnection Connect()
+        public async Task<MySqlConnection> Connect()
         {
             Connection.ConnectionString = _connectionString;
+            await Connection.OpenAsync();
             return Connection;
         }
 

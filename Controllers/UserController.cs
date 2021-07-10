@@ -1,22 +1,31 @@
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using BugTracker.Models;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
 namespace BugTracker.Controllers
 {
     public class UserController
     {
-        public bool Insert(User user)
+        private IConfiguration _configRoot;
+
+        public UserController(IConfiguration configRoot)
+        {
+            _configRoot = configRoot;
+        }
+
+        public async Task<bool> Insert(User user)
         {
             bool success;
 
             try
             {
+                using var connection = new DataConnection(_configRoot);
+                await using var command = new MySqlCommand("AddUser", await connection.Connect());
+                command.CommandType = CommandType.StoredProcedure;
+                await command.ExecuteNonQueryAsync();
                 success = true;
             }
             catch (MySqlException exception)
@@ -28,7 +37,7 @@ namespace BugTracker.Controllers
             return success;
         }
 
-        public bool Update(User user)
+        public async Task<bool> Update(User user)
         {
             bool success;
 
