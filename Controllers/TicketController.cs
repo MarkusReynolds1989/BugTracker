@@ -102,7 +102,7 @@ namespace BugTracker.Controllers
             return ticket;
         }
 
-        public async Task<IList<Ticket>> GetTicketsByWorkerId(int workerId)
+        public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
         {
             IList<Ticket> output = new List<Ticket>();
             try
