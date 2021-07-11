@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace BugTracker.Controllers
 {
-    // TODO: Set up dependency injection for SQL connection.
     public class LoginController
     {
         // Dependency injection.
@@ -24,14 +23,12 @@ namespace BugTracker.Controllers
         }
 
         // Set a session to a user from the user that is logged in.
-        public async Task<User> AuthorizeUser(string userName, string password)
+        public async Task<User?> AuthorizeUser(string userName, string password)
         {
-            User authenticatedUser = null;
             //var hashedPassWord = 
             using var authenticationConnection = new DataConnection(_configRoot);
             using var hash = SHA256.Create();
             var hashedPassword = BitConverter.ToString(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
-            Debug.WriteLine(hashedPassword);
             try
             {
                 await using var command = new MySqlCommand
@@ -48,7 +45,7 @@ namespace BugTracker.Controllers
                 {
                     while (reader.Read())
                     {
-                        authenticatedUser = new User
+                        return new User
                         (
                             reader.GetString(1),
                             reader.GetString(2),
@@ -56,7 +53,7 @@ namespace BugTracker.Controllers
                             reader.GetString(5),
                             "", // Don't bring back the hashed password for obvious reasons. No hashing on the client side.
                             reader.GetBoolean(6),
-                            (AuthLevel)reader.GetInt32(7),
+                            (AuthLevel) reader.GetInt32(7),
                             reader.GetInt32(0)
                         );
                     }
@@ -67,7 +64,7 @@ namespace BugTracker.Controllers
                 Debug.WriteLine(ex);
             }
 
-            return authenticatedUser;
+            return null;
         }
     }
 }

@@ -30,11 +30,10 @@ namespace BugTracker.Pages
         [BindProperty, Required, MaxLength(300)]
         public string Description { get; set; }
 
-        public IList<SelectListItem> Users { get; set; }
+        public IEnumerable<SelectListItem> Users { get; set; }
 
         public async Task<IActionResult> OnPost()
         {
-            // Step 1: Authenticate the user. If they are not allowed to see this data we shouldn't 
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
             {
@@ -49,7 +48,7 @@ namespace BugTracker.Pages
                 Description = Request.Form["Description"];
                 var loggerId = int.Parse(Request.Form["LoggerId"]);
 
-                var ticket = new Models.Ticket(workerId, _Title, Description, "", loggerId);
+                var ticket = new Models.Ticket(workerId, _Title, Description, null, loggerId, null, null);
 
                 if (await ticketController.Insert(ticket))
                 {

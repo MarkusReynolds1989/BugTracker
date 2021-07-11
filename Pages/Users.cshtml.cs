@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using BugTracker.Controllers;
 using Microsoft.AspNetCore.Http;
@@ -22,12 +23,20 @@ namespace BugTracker.Pages
             var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
             if (userId == null && authLevel == null || authLevel < 2) // TODO: Check auth level.
             {
-                Response.Redirect("Login?statusCode=401");
+                return new RedirectResult("Login?statusCode=401");
             }
 
             var userController = new UserController(_configRoot);
-            ViewData["Users"] = await userController.GetAllUsers();
-            return new PageResult();
+            var users = await userController.GetAllUsers();
+            if (users.Any())
+            {
+                ViewData["Users"] = users;
+                return new PageResult();
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
     }
 }

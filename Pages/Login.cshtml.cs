@@ -39,7 +39,7 @@ namespace BugTracker.Pages
             }
             else
             {
-                return RedirectToPage("Login");
+                return new ForbidResult();
             }
 
             HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);

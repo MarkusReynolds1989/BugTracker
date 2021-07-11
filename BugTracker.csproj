@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <UserSecretsId>5724f07e-717e-4e2f-91e7-e230eee1f9ce</UserSecretsId>
     <GenerateProgramFile>false</GenerateProgramFile>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />

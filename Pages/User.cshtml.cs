@@ -1,4 +1,6 @@
+#nullable enable
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using BugTracker.Controllers;
 using BugTracker.Models;
@@ -6,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using MySqlX.XDevAPI.Common;
 
 namespace BugTracker.Pages
 {
@@ -41,9 +44,10 @@ namespace BugTracker.Pages
 
             var userController = new UserController(_configRoot);
 
-            var updateUser = new Models.User(UserName, FirstName, LastName, "", Email, true, authLevel, userId);
+            var updateUser = new Models.User(UserName, FirstName, LastName, Email, null, null, authLevel, userId);
             if (await userController.Update(updateUser))
             {
+                Debug.WriteLine("Success");
                 return new RedirectToPageResult("Users");
             }
 
@@ -62,13 +66,19 @@ namespace BugTracker.Pages
             try
             {
                 var userController = new UserController(_configRoot);
-                // Entry point for the data on the page.
-                ViewData["_userId"] = userId;
-                return Page();
+                var user = await userController.GetUser(userId);
+                if (user != null)
+                {
+                    ViewData["_userId"] = userId;
+                    ViewData["User"] = user;
+                    return new PageResult();
+                }
+
+                return new EmptyResult();
             }
             catch
             {
-                return BadRequest();
+                return new BadRequestResult();
             }
         }
     }
