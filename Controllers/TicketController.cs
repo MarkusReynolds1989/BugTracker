@@ -88,9 +88,9 @@ namespace BugTracker.Controllers
                             reader.GetString(2),
                             reader.GetString(3),
                             reader.GetString(4),
-                            reader.GetInt32(5),
-                            (StatusIndCd) reader.GetInt32(6),
-                            reader.GetInt32(9));
+                            reader.GetInt32(7),
+                            (StatusIndCd) reader.GetInt32(5),
+                            reader.GetInt32(0));
                     }
                 }
             }
@@ -122,9 +122,9 @@ namespace BugTracker.Controllers
                             reader.GetString(2),
                             reader.GetString(3),
                             reader.GetString(4),
-                            reader.GetInt32(5),
-                            (StatusIndCd) reader.GetInt32(6),
-                            reader.GetInt32(9)));
+                            reader.GetInt32(7),
+                            (StatusIndCd) reader.GetInt32(5),
+                            reader.GetInt32(0)));
                     }
                 }
             }

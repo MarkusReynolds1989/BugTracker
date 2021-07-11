@@ -8,7 +8,7 @@ create table if not exists User
 	password varchar(100) not null,
 	email varchar(45) not null,
 	active_ind tinyint(1) default 1 not null,
-	auth_level enum('Guest', 'User', 'Admin') null,
+	auth_level int default 0 null,
 	constraint user_name
 		unique (user_name)
 );

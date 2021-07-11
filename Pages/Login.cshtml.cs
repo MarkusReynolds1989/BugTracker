@@ -1,14 +1,11 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using BugTracker.Controllers;
-using BugTracker.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
-using Org.BouncyCastle.Asn1.Cmp;
 
 namespace BugTracker.Pages
 {
@@ -16,7 +13,7 @@ namespace BugTracker.Pages
     {
         private readonly IConfiguration _configRoot;
 
-        private Login(IConfiguration configRoot)
+        public Login(IConfiguration configRoot)
         {
             _configRoot = configRoot;
         }
@@ -27,28 +24,26 @@ namespace BugTracker.Pages
         [BindProperty, Required, MaxLength(45)]
         public string Password { get; }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid) return Page();
             var login = new LoginController(_configRoot); // Injection
 
             var userName = Request.Form["UserName"].ToString();
             var password = Request.Form["Password"].ToString();
-            var user = login.AuthorizeUser(userName, password);
-            // Set the users session user id here.s
-            if (user.UserId.HasValue)
+            var user = await login.AuthorizeUser(userName, password);
+            // Set the users session user id here.
+            if (user != null)
             {
-                HttpContext.Session.SetInt32("UserId", user.UserId.Value);
+                if (user.UserId != null) HttpContext.Session.SetInt32("UserId", (int) user.UserId);
+            }
+            else
+            {
+                return RedirectToPage("Login");
             }
 
             HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);
             return new RedirectToPageResult("Tickets");
-
-            // Redirect to OnGet(with feedback);
-        }
-
-        public void OnGet()
-        {
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
@@ -10,17 +11,17 @@ namespace BugTracker.Controllers
     {
         private readonly IConfiguration _configRoot;
         private readonly string _connectionString;
-        public MySqlConnection Connection;
+        private MySqlConnection Connection { get; set; }
 
         public DataConnection(IConfiguration configRoot)
         {
             _configRoot = configRoot;
-            _connectionString = _configRoot["default"];
+            _connectionString = _configRoot.GetValue<string>("ConnectionString:default");
         }
 
         public async Task<MySqlConnection> Connect()
         {
-            Connection.ConnectionString = _connectionString;
+            Connection = new MySqlConnection {ConnectionString = _connectionString};
             await Connection.OpenAsync();
             return Connection;
         }

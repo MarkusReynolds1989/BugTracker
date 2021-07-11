@@ -367,3 +367,4 @@ FodyWeavers.xsd
 
 # Don't want my server info on github
 appsettings.Development.json
+appsettings.json

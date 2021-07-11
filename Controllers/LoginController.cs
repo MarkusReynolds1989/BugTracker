@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using System.Diagnostics;
 using BugTracker.Models;
@@ -6,6 +7,7 @@ using MySql.Data.MySqlClient;
 // Use this library to hash the input password vs the password in the db.
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
 namespace BugTracker.Controllers
@@ -22,25 +24,25 @@ namespace BugTracker.Controllers
         }
 
         // Set a session to a user from the user that is logged in.
-        public User AuthorizeUser(string userName, string password)
+        public async Task<User> AuthorizeUser(string userName, string password)
         {
             User authenticatedUser = null;
             //var hashedPassWord = 
             using var authenticationConnection = new DataConnection(_configRoot);
             using var hash = SHA256.Create();
-            var hashedPassword = hash.ComputeHash(Encoding.Unicode.GetBytes(password)).ToString();
+            var hashedPassword = BitConverter.ToString(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
+            Debug.WriteLine(hashedPassword);
             try
             {
-                authenticationConnection.Connect();
-                using var command = new MySqlCommand
+                await using var command = new MySqlCommand
                 {
-                    CommandType = CommandType.StoredProcedure, Connection = authenticationConnection.Connection,
-                    CommandText = "AuthenticateUser"
+                    CommandType = CommandType.StoredProcedure, Connection = await authenticationConnection.Connect(),
+                    CommandText = "AuthenticateUser",
                 };
                 command.Parameters.AddWithValue("@UserName", userName);
                 command.Parameters.AddWithValue("@ThisPassword", hashedPassword);
 
-                using var reader = command.ExecuteReader();
+                await using var reader = command.ExecuteReader();
                 // Build and return user.
                 if (reader.HasRows)
                 {
@@ -54,7 +56,7 @@ namespace BugTracker.Controllers
                             reader.GetString(5),
                             "", // Don't bring back the hashed password for obvious reasons. No hashing on the client side.
                             reader.GetBoolean(6),
-                            (AuthLevel) reader.GetInt32(7),
+                            (AuthLevel)reader.GetInt32(7),
                             reader.GetInt32(0)
                         );
                     }

@@ -1,33 +1,35 @@
 using System;
+using System.Threading.Tasks;
 using BugTracker.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 
 namespace BugTracker.Pages
 {
     public class Tickets : PageModel
     {
-        public IActionResult OnGet()
+        private IConfiguration _configRoot;
+
+        public Tickets(IConfiguration configRoot)
         {
-            // If this try fails we don't want them to access this page as they haven't logged in.
+            _configRoot = configRoot;
+        }
+
+        public async Task<IActionResult> OnGet()
+        {
             var userId = HttpContext.Session.GetInt32("UserId");
+
             if (userId == null)
             {
                 return new RedirectToPageResult("Login");
             }
-            else
-            {
-                // Create a new ticket controller object on the heap.
-                var ticketController = new TicketController();
-                // Initialize the database connection and string.
-                ticketController.Init();
-                // Gather all the tickets assigned to the particular userId.
-                // Have to use this BitConverter here to get the data.
-                var tickets = ticketController.SelectAll(userId);
-                // You can use this on the page now.
-                ViewData["Tickets"] = tickets;
-            }
+
+            var ticketController = new TicketController(_configRoot);
+            var tickets = await ticketController.GetTicketsByWorkerId((int) userId);
+
+            ViewData["Tickets"] = tickets;
 
             return Page();
         }

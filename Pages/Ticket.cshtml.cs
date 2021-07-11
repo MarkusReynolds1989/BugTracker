@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,27 +10,31 @@ using BugTracker.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 
 namespace BugTracker.Pages
 {
     public class Ticket : PageModel
     {
-        [BindProperty]
-        [Required]
-        [MaxLength(45)]
+        private IConfiguration _configRoot;
+
+        public Ticket(IConfiguration configRoot)
+        {
+            _configRoot = configRoot;
+        }
+
+        [BindProperty, Required, MaxLength(45)]
         public string _Title { get; set; }
 
-        [BindProperty]
-        [Required]
-        [MaxLength(300)]
+        [BindProperty, Required, MaxLength(300)]
         public string Description { get; set; }
 
-        [BindProperty] [MaxLength(300)] public string Resolution { get; set; }
+        [BindProperty, MaxLength(300)] public string Resolution { get; set; }
 
         public IList<SelectListItem> Users { get; set; }
 
         // Updates our current value with the values in the fields.
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
@@ -41,37 +47,20 @@ namespace BugTracker.Pages
                 Description = Request.Form["Description"].ToString();
                 Resolution = Request.Form["Resolution"].ToString();
 
-                var ticketController = new TicketController();
-                ticketController.Init();
-
+                var ticketController = new TicketController(_configRoot);
                 var updateTicket =
-                    new Models.Ticket(ticketId,
-                        workerId,
+                    new Models.Ticket(workerId,
                         _Title,
                         Description,
                         Resolution,
+                        loggerId,
                         statusIndCd,
-                        loggerId);
+                        ticketId);
 
-                if (ticketController.Update(updateTicket))
+                if (await ticketController.Update(updateTicket))
                 {
                     return new RedirectToPageResult("Tickets");
                 }
-            }
-
-            return Page();
-        }
-
-        public IActionResult OnPostDelete()
-        {
-            // Simply set the user to inactive.
-            var ticketController = new TicketController();
-            ticketController.Init();
-            var ticketId = int.Parse(Request.Form["TicketId"]);
-            // Delete method goes here from user id.
-            if (ticketController.Delete(ticketId))
-            {
-                return new RedirectToPageResult("Tickets");
             }
 
             return Page();
@@ -87,30 +76,34 @@ namespace BugTracker.Pages
 
             try
             {
-                var ticketController = new TicketController();
-                ticketController.Init();
-                var ticket = await ticketController.SelectRow(ticketId);
+                // Generate the ticket.
+                var ticketController = new TicketController(_configRoot);
+                var ticket = await ticketController.GetTicket(ticketId);
+
                 ViewData["Ticket"] = ticket;
                 ViewData["_ticketId"] = ticketId;
 
                 // Generate users that can accept tickets.
-                var userController = new UserController();
-                userController.Init();
-                var usersTemp = userController.SelectAll().Where(user => user.AuthLevel != AuthLevel.Guest)
+                var userController = new UserController(_configRoot);
+                var usersTemp = await userController.GetAllUsers();
+                usersTemp = usersTemp.Where(user => user.AuthLevel != AuthLevel.Guest)
                     .ToList();
+
                 Users = usersTemp.Select(user => new SelectListItem
                 {
                     Value = user.UserId.ToString(),
                     Text = user.UserName,
                 }).ToList();
+
                 ViewData["Users"] = Users;
                 Description = ticket.Description;
                 Resolution = ticket.Resolution;
 
                 return Page();
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return BadRequest();
             }
         }
