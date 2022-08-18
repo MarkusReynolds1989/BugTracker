@@ -1,0 +1,131 @@
+@page
+@using BugTracker.Models
+@model Ticket
+
+@{
+    var ticket = (Models.Ticket) ViewData["Ticket"];
+    ViewData["Title"] = "Ticket";
+}
+
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
+}
+
+<form
+    method = "post">
+    <div
+        class = "row">
+        <div
+            class = "col col-sm-4">
+            <label
+                for = "ticketId">
+                Ticket ID:
+            </label>
+            <input
+                class = "form-control"
+                id = "ticketId"
+                name = "TicketId"
+                readonly
+                type = "number"
+                value = "@ticket.TicketId"/>
+            <label
+                for = "loggerId">
+                Logger ID:
+            </label>
+            <input
+                class = "form-control"
+                id = "loggerId"
+                name = "LoggerId"
+                readonly
+                type = "number"
+                value = "@ticket.LoggerId"/>
+            <label
+                for = "workerId">
+                Worker ID:
+            </label>
+            <select
+                asp-items = "Model.Users"
+                class = "form-control"
+                id = "workerId"
+                name = "WorkerId"
+                value = "@ticket.WorkerId">
+            </select>
+            <br>
+            <label
+                for = "statusIndCd">
+                Ticket Status:
+            </label>
+            <select
+                asp-for = "@ticket.StatusIndCd"
+                asp-items = "Html.GetEnumSelectList<StatusIndCd>()"
+                class = "form-control"
+                id = "statusIndCd"
+                name = "StatusIndCd">
+            </select>
+        </div>
+        <div
+            class = "col">
+            <label
+                for = "title">
+                Title:
+            </label>
+            <input
+                asp-for = "_Title"
+                class = "form-control"
+                id = "title"
+                name = "_Title"
+                type = "text"
+                value = "@ticket.Title"/>
+            <span
+                asp-validation-for = "_Title"
+                class = "alert-danger">
+            </span>
+            <br>
+            <label
+                for = "desc">
+                Description:
+            </label>
+            <textarea 
+                asp-for="Description"
+                class="form-control"
+                rows = "7">@ticket.Description
+            </textarea>
+            <span
+                asp-validation-for = "Description"
+                class = "alert-danger">
+            </span>
+        </div>
+    </div>
+    <label
+        for = "resolution">
+        Resolution:
+    </label>
+    <textarea  
+          asp-for="Resolution"
+          class="form-control" 
+          rows="7">@ticket.Resolution
+    </textarea>
+    <span
+        asp-validation-for = "Resolution"
+        class = "alert-danger">
+    </span>
+    <br>
+    <button
+        class = "btn btn-primary">
+        Save
+    </button>
+</form>
+<form
+    asp-page-handler = "delete"
+    method = "post">
+    <input
+        hidden
+        name = "TicketId"
+        value = "@ViewData["_ticketId"]"/>
+    <button
+        class = "btn btn-danger">
+        Delete
+    </button>
+</form>

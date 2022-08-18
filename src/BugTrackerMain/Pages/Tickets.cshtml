@@ -1,0 +1,47 @@
+@page
+@model Tickets
+
+@{
+    // Data for the page. This data is in a list which means you can foreach through it. 
+    // See the Users page for an example of how to do it.
+    var tickets = (List<Models.Ticket>) ViewData["tickets"];
+}
+
+<table
+    class = "table">
+    <thead>
+    <tr>
+        <th
+            scope = "col">
+            Title
+        </th>
+        <th
+            scope = "col">
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var ticket in tickets)
+    {
+        var route = $"/Ticket?ticketId={ticket.TicketId}";
+        <tr>
+            <th
+                scope = "row">
+                <a href="@route" class="btn btn-outline-dark">
+                @ticket.Title
+                </a>
+            </th>
+            <td>
+                @ticket.Description
+            </td>
+            <td>
+                @ticket.StatusIndCd.ToString()
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

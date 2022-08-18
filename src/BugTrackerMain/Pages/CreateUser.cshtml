@@ -1,0 +1,127 @@
+﻿@page
+@model CreateUserModel
+
+@{
+    // Set the title of the page.
+    ViewData["Title"] = "Create User";
+}
+
+@section Scripts
+{
+    <partial
+        name = "Shared/_ValidationScriptsPartial"/>
+}
+
+<h1
+    style = "text-align: center">
+    Create a User
+</h1>
+<form
+    method = "post">
+    <div
+        class = "form-group">
+        <label
+            for = "firstName">
+            First Name:
+        </label>
+        <input
+            asp-for = "FirstName"
+            class = "form-control"
+            id = "firstName"
+            name = "FirstName"
+            type = "text"/>
+        <span
+            asp-validation-for = "FirstName"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "lastName">
+            Last Name:
+        </label>
+        <input
+            asp-for = "LastName"
+            class = "form-control"
+            id = "lastName"
+            name = "LastName"
+            type = "text"/>
+        <span
+            asp-validation-for = "LastName"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "userName">
+            User Name:
+        </label>
+        <input
+            asp-for = "UserName"
+            class = "form-control"
+            id = "userName"
+            name = "UserName"
+            type = "text"/>
+        <span
+            asp-validation-for = "UserName"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "Password">
+            Password:
+        </label>
+        <input
+            asp-for = "Password"
+            class = "form-control"
+            id = "Password"
+            type = "password"/>
+        <span
+            asp-validation-for = "Password"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "ConfirmPassword">
+            Confirm Password:
+        </label>
+        <input
+            asp-for = "ConfirmPassword"
+            class = "form-control"
+            id = "ConfirmPassword"
+            type = "password"/>
+        <span
+            asp-validation-for = "ConfirmPassword"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "email">
+            Email:
+        </label>
+        <input
+            asp-for = "Email"
+            class = "form-control"
+            id = "Email"
+            name = "Email"
+            type = "email"/>
+        <span
+            asp-validation-for = "Email"
+            class = "alert-danger">
+        </span>
+        <br>
+        <label
+            for = "authLevel">
+            Authorization Level
+        </label>
+        <select
+            asp-items = "Html.GetEnumSelectList<Models.AuthLevel>()"
+            class = "form-control"
+            id = "authLevel"
+            name = "AuthLevel">
+        </select>
+    </div>
+    <button
+        class = "btn btn-primary"
+        type = "submit">
+        Submit
+    </button>
+</form>
