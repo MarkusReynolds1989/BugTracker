@@ -50,15 +50,27 @@ public class UserController
         try
         {
             using var connection = new DataConnection(_configRoot, 10);
-            await using var command = new MySqlCommand("UpdateUser", await connection.Connect());
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@UserId", user.UserId);
-            command.Parameters.AddWithValue("@Firstname", user.FirstName);
-            command.Parameters.AddWithValue("@LastName", user.LastName);
-            command.Parameters.AddWithValue("@ThisEmail", user.Email);
-            command.Parameters.AddWithValue("@ActiveInd", true);
-            command.Parameters.AddWithValue("@AuthLevel", user.AuthLevel);
-            await command.ExecuteNonQueryAsync();
+            _ = await connection.ExecuteAsync(
+                @"
+                update user 
+                set first_name = @FirstName,
+                    last_name = @LastName,
+                    password = @ThisPassword,
+                    email = @ThisEmail,
+                    active_ind = @ActiveInd,
+                    auth_level = @AuthLevel
+                where user_id = @UserId",
+                new
+                {
+                    user.FirstName,
+                    user.LastName,
+                    ThisPassword = user.Password,
+                    ThisEmail = user.Email,
+                    user.ActiveInd,
+                    user.AuthLevel,
+                    user.UserId
+                }
+            );
             success = true;
         }
         catch (MySqlException ex)
@@ -73,14 +85,14 @@ public class UserController
     public async Task<IEnumerable<User>> GetAllUsers()
     {
         using var connection = new DataConnection(_configRoot, 10);
-        return await connection.QueryAsync<User>("select * from User");
+        return await connection.QueryAsync<User>("select * from user");
     }
 
     public async Task<User?> GetUser(int userId)
     {
         using var connection = new DataConnection(_configRoot, 10);
         var result = await connection.QueryAsync<User>(
-            "select * from User where user_id = @Id",
+            "select * from user where user_id = @Id",
             new { Id = userId }
         );
 
