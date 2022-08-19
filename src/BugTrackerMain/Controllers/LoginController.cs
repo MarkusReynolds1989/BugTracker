@@ -14,7 +14,7 @@ public class LoginController
     public async Task<User?> AuthorizeUser(string userName, string password)
     {
         //var hashedPassWord =
-        using var authenticationConnection = new DataConnection(_configRoot);
+        using var authenticationConnection = new DataConnection(_configRoot, 10);
         using var hash = SHA256.Create();
         var hashedPassword = BitConverter.ToString(
             hash.ComputeHash(Encoding.Unicode.GetBytes(password))

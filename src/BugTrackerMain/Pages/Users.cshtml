@@ -3,7 +3,7 @@
 @{
     // Data entry for the page.
     // This data is in a list format so you can foreach over it.
-    var users = (IList<Models.User>) ViewData["Users"];
+    var users = (IList<Models.User>) ViewData["Users"]!;
 }
 
 <link
@@ -40,7 +40,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach (var user in users)
+                            @foreach (var user in users!)
                             {
                                 <tr>
                                     <td>

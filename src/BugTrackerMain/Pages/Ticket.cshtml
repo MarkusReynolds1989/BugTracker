@@ -3,7 +3,7 @@
 @model Ticket
 
 @{
-    var ticket = (Models.Ticket) ViewData["Ticket"];
+    var ticket = (Models.Ticket) ViewData["Ticket"]!;
     ViewData["Title"] = "Ticket";
 }
 
@@ -29,7 +29,7 @@
                 name = "TicketId"
                 readonly
                 type = "number"
-                value = "@ticket.TicketId"/>
+                value = "@ticket!.TicketId"/>
             <label
                 for = "loggerId">
                 Logger ID:

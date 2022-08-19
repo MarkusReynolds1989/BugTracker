@@ -15,7 +15,7 @@ public class TicketController
 
         try
         {
-            using var connection = new DataConnection(_configRoot);
+            using var connection = new DataConnection(_configRoot, 10);
             await using var command = new MySqlCommand("AddTicket", await connection.Connect());
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
@@ -40,7 +40,7 @@ public class TicketController
 
         try
         {
-            using var connection = new DataConnection(_configRoot);
+            using var connection = new DataConnection(_configRoot, 10);
             await using var command = new MySqlCommand("UpdateTicket", await connection.Connect());
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@TicketId", ticket.TicketId);
@@ -66,7 +66,7 @@ public class TicketController
         Ticket? ticket = null;
         try
         {
-            var connection = new DataConnection(_configRoot, null, null, 10, ConnectionState.Open);
+            var connection = new DataConnection(_configRoot, 10);
             var result = await connection.QueryAsync<Ticket>(
                 "select * from Ticket where ticket_id = @Id",
                 new { Id = ticketId }
@@ -86,7 +86,7 @@ public class TicketController
         IList<Ticket> output = new List<Ticket>();
         try
         {
-            using var connection = new DataConnection(_configRoot);
+            using var connection = new DataConnection(_configRoot, 10);
             await using var command = new MySqlCommand(
                 "GetAllTicketsForWorker",
                 await connection.Connect()

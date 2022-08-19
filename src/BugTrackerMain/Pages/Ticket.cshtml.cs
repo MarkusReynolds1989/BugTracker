@@ -29,7 +29,8 @@ namespace BugTracker.Pages
         [BindProperty, Required, MaxLength(300)]
         public string Description { get; set; }
 
-        [BindProperty, MaxLength(300)] public string Resolution { get; set; }
+        [BindProperty, MaxLength(300)]
+        public string Resolution { get; set; }
 
         public IList<SelectListItem> Users { get; set; }
 
@@ -42,20 +43,21 @@ namespace BugTracker.Pages
                 int.TryParse(Request.Form["LoggerId"], out var loggerId);
                 var workerId = int.Parse(Request.Form["WorkerId"]);
                 int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
-                var statusIndCd = (StatusIndCd) statusValue;
+                var statusIndCd = (StatusIndCd)statusValue;
                 _Title = Request.Form["_Title"].ToString();
                 Description = Request.Form["Description"].ToString();
                 Resolution = Request.Form["Resolution"].ToString();
 
                 var ticketController = new TicketController(_configRoot);
-                var updateTicket =
-                    new Models.Ticket(workerId,
-                        _Title,
-                        Description,
-                        Resolution,
-                        loggerId,
-                        statusIndCd,
-                        ticketId);
+                var updateTicket = new Models.Ticket(
+                    workerId,
+                    _Title,
+                    Description,
+                    Resolution,
+                    loggerId,
+                    statusIndCd,
+                    ticketId
+                );
 
                 if (await ticketController.Update(updateTicket))
                 {
@@ -86,18 +88,22 @@ namespace BugTracker.Pages
                 // Generate users that can accept tickets.
                 var userController = new UserController(_configRoot);
                 var usersTemp = await userController.GetAllUsers();
-                usersTemp = usersTemp.Where(user => user.AuthLevel != AuthLevel.Guest)
+                usersTemp = usersTemp.Where(user => user.AuthLevel != AuthLevel.Guest).ToList();
+
+                Users = usersTemp
+                    .Select(
+                        user =>
+                            new SelectListItem
+                            {
+                                Value = user.UserId.ToString(),
+                                Text = user.UserName,
+                            }
+                    )
                     .ToList();
 
-                Users = usersTemp.Select(user => new SelectListItem
-                {
-                    Value = user.UserId.ToString(),
-                    Text = user.UserName,
-                }).ToList();
-
                 ViewData["Users"] = Users;
-                Description = ticket.Description;
-                Resolution = ticket.Resolution;
+                Description = ticket!.Description;
+                Resolution = ticket.Resolution!;
 
                 return Page();
             }

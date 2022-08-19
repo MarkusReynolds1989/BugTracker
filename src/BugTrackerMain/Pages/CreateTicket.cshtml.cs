@@ -48,7 +48,15 @@ namespace BugTracker.Pages
                 Description = Request.Form["Description"];
                 var loggerId = int.Parse(Request.Form["LoggerId"]);
 
-                var ticket = new Models.Ticket(workerId, _Title, Description, null, loggerId, null, null);
+                var ticket = new Models.Ticket(
+                    workerId,
+                    _Title,
+                    Description,
+                    null,
+                    loggerId,
+                    null,
+                    null
+                );
 
                 if (await ticketController.Insert(ticket))
                 {

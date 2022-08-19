@@ -2,7 +2,7 @@ namespace BugTracker.Controllers;
 
 public class UserController
 {
-    private IConfiguration _configRoot;
+    private readonly IConfiguration _configRoot;
 
     public UserController(IConfiguration configRoot)
     {
@@ -16,9 +16,10 @@ public class UserController
         var hashedPassword = BitConverter.ToString(
             hash.ComputeHash(Encoding.Unicode.GetBytes(user.Password ?? string.Empty))
         );
+
         try
         {
-            using var connection = new DataConnection(_configRoot);
+            using var connection = new DataConnection(_configRoot, 10);
             await using var command = new MySqlCommand("AddUser", await connection.Connect());
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@UserName", user.UserName);
@@ -45,7 +46,7 @@ public class UserController
 
         try
         {
-            using var connection = new DataConnection(_configRoot);
+            using var connection = new DataConnection(_configRoot, 10);
             await using var command = new MySqlCommand("UpdateUser", await connection.Connect());
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@UserId", user.UserId);
@@ -69,7 +70,7 @@ public class UserController
     public async Task<IEnumerable<User>> GetAllUsers()
     {
         IList<User> users = new List<User>();
-        using var connection = new DataConnection(_configRoot);
+        using var connection = new DataConnection(_configRoot, 10);
         await using var command = new MySqlCommand("GetAllUsers", await connection.Connect());
         command.CommandType = CommandType.StoredProcedure;
 
@@ -98,7 +99,7 @@ public class UserController
 
     public async Task<User?> GetUser(int userId)
     {
-        using var connection = new DataConnection(_configRoot);
+        using var connection = new DataConnection(_configRoot, 10);
         await using var command = new MySqlCommand("GetUser", await connection.Connect());
         command.CommandType = CommandType.StoredProcedure;
         command.Parameters.AddWithValue("@UserId", userId);
@@ -106,19 +107,16 @@ public class UserController
         await using var reader = await command.ExecuteReaderAsync();
         if (reader.HasRows)
         {
-            while (await reader.ReadAsync())
-            {
-                return new User(
-                    reader.GetString(1),
-                    reader.GetString(2),
-                    reader.GetString(3),
-                    reader.GetString(5),
-                    "",
-                    reader.GetBoolean(6),
-                    (AuthLevel)reader.GetInt32(7),
-                    reader.GetInt32(0)
-                );
-            }
+            return new User(
+                reader.GetString(1),
+                reader.GetString(2),
+                reader.GetString(3),
+                reader.GetString(5),
+                "",
+                reader.GetBoolean(6),
+                (AuthLevel)reader.GetInt32(7),
+                reader.GetInt32(0)
+            );
         }
 
         return null;

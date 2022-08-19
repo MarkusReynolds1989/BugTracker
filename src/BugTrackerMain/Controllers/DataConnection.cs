@@ -2,24 +2,17 @@ namespace BugTracker.Controllers;
 
 public sealed class DataConnection : IDbConnection
 {
-    private MySqlConnection Connection { get; set; }
-    public string ConnectionString { get; set; }
-    public int ConnectionTimeout { get; }
-    public string Database { get; }
-    public ConnectionState State { get; }
+    private MySqlConnection? Connection { get; set; }
 
-    public DataConnection(
-        IConfiguration configRoot,
-        MySqlConnection connection,
-        string database,
-        int connectionTimeout,
-        ConnectionState state
-    )
+    public string? ConnectionString { get; set; }
+
+    public int ConnectionTimeout { get; }
+    public string Database { get; } = string.Empty;
+    public ConnectionState State { get; } = ConnectionState.Closed;
+
+    public DataConnection(IConfiguration configRoot, int connectionTimeout)
     {
-        Connection = connection;
-        Database = database;
         ConnectionTimeout = connectionTimeout;
-        State = state;
         ConnectionString = configRoot.GetValue<string>("ConnectionString:default");
     }
 
@@ -30,6 +23,21 @@ public sealed class DataConnection : IDbConnection
         return Connection;
     }
 
+    public IDbCommand CreateCommand()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IDbTransaction BeginTransaction()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IDbTransaction BeginTransaction(IsolationLevel il)
+    {
+        throw new NotImplementedException();
+    }
+
     public void Dispose()
     {
         GC.SuppressFinalize(this);
@@ -38,14 +46,18 @@ public sealed class DataConnection : IDbConnection
 
     private void Dispose(bool check)
     {
-        Connection.Close();
+        if (check)
+        {
+            Connection?.Close();
+        }
     }
 
-    public IDbTransaction BeginTransaction() => throw new NotImplementedException();
+    ~DataConnection()
+    {
+        Dispose();
+    }
 
-    public IDbTransaction BeginTransaction(IsolationLevel il) =>
-        throw new NotImplementedException();
-
+    // Most likely will not implement.
     public void ChangeDatabase(string databaseName)
     {
         throw new NotImplementedException();
@@ -53,14 +65,12 @@ public sealed class DataConnection : IDbConnection
 
     public void Close()
     {
-        Connection.Close();
+        Connection?.Close();
     }
-
-    public IDbCommand CreateCommand() => throw new NotImplementedException();
 
     public void Open()
     {
-        Connection = new MySqlConnection { ConnectionString = _connectionString };
+        Connection = new MySqlConnection { ConnectionString = ConnectionString };
         Connection.Open();
     }
 }

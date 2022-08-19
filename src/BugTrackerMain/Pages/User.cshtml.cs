@@ -1,20 +1,8 @@
-#nullable enable
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using BugTracker.Controllers;
-using BugTracker.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
-using MySqlX.XDevAPI.Common;
-
 namespace BugTracker.Pages
 {
     public class User : PageModel
     {
-        private IConfiguration _configRoot;
+        private readonly IConfiguration _configRoot;
 
         public User(IConfiguration configRoot)
         {
@@ -40,11 +28,20 @@ namespace BugTracker.Pages
             FirstName = Request.Form["FirstName"];
             LastName = Request.Form["LastName"];
             Email = Request.Form["Email"];
-            var authLevel = (AuthLevel) int.Parse(Request.Form["AuthLevel"]);
+            var authLevel = (AuthLevel)int.Parse(Request.Form["AuthLevel"]);
 
             var userController = new UserController(_configRoot);
 
-            var updateUser = new Models.User(UserName, FirstName, LastName, Email, null, null, authLevel, userId);
+            var updateUser = new Models.User(
+                UserName,
+                FirstName,
+                LastName,
+                Email,
+                null,
+                null,
+                authLevel,
+                userId
+            );
             if (await userController.Update(updateUser))
             {
                 Debug.WriteLine("Success");
