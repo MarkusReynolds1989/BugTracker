@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿namespace BugTracker.Models;
 
-namespace BugTracker.Models
+public enum StatusIndCd
 {
-    public enum StatusIndCd
-    {
-        Open,
-        InProgress,
-        Closed
-    }
+    Open,
+    InProgress,
+    Closed
 }

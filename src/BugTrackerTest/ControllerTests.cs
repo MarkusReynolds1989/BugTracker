@@ -1,13 +1,10 @@
-﻿using Xunit;
+﻿namespace BugTrackerTest;
 
-namespace BugTrackerTest
+public class ControllerTests
 {
-    public class ControllerTests
+    [Fact]
+    public void Test()
     {
-        [Fact]
-        public void Test()
-        {
-            Assert.True(true);
-        }
+        Assert.True(true);
     }
 }

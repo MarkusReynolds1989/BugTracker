@@ -5,6 +5,7 @@
     <UserSecretsId>5724f07e-717e-4e2f-91e7-e230eee1f9ce</UserSecretsId>
     <GenerateProgramFile>false</GenerateProgramFile>
     <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
