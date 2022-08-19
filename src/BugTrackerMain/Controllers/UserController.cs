@@ -1,3 +1,6 @@
+using BugTracker.Pages;
+using User = BugTracker.Models.User;
+
 namespace BugTracker.Controllers;
 
 public class UserController
@@ -69,56 +72,19 @@ public class UserController
 
     public async Task<IEnumerable<User>> GetAllUsers()
     {
-        IList<User> users = new List<User>();
         using var connection = new DataConnection(_configRoot, 10);
-        await using var command = new MySqlCommand("GetAllUsers", await connection.Connect());
-        command.CommandType = CommandType.StoredProcedure;
-
-        await using var reader = await command.ExecuteReaderAsync();
-        if (reader.HasRows)
-        {
-            while (await reader.ReadAsync())
-            {
-                users.Add(
-                    new User(
-                        reader.GetString(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(5),
-                        "",
-                        reader.GetBoolean(6),
-                        (AuthLevel)reader.GetInt32(7),
-                        reader.GetInt32(0)
-                    )
-                );
-            }
-        }
-
-        return users;
+        return await connection.QueryAsync<User>("select * from User");
     }
 
     public async Task<User?> GetUser(int userId)
     {
         using var connection = new DataConnection(_configRoot, 10);
-        await using var command = new MySqlCommand("GetUser", await connection.Connect());
-        command.CommandType = CommandType.StoredProcedure;
-        command.Parameters.AddWithValue("@UserId", userId);
+        var result = await connection.QueryAsync<User>(
+            "select * from User where user_id = @Id",
+            new { Id = userId }
+        );
 
-        await using var reader = await command.ExecuteReaderAsync();
-        if (reader.HasRows)
-        {
-            return new User(
-                reader.GetString(1),
-                reader.GetString(2),
-                reader.GetString(3),
-                reader.GetString(5),
-                "",
-                reader.GetBoolean(6),
-                (AuthLevel)reader.GetInt32(7),
-                reader.GetInt32(0)
-            );
-        }
-
-        return null;
+        var user = result as User[] ?? result.ToArray();
+        return user.Length == 1 ? user.First() : null;
     }
 }
