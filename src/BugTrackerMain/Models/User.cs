@@ -9,7 +9,7 @@ public record User(
     string LastName,
     string Email,
     string? Password,
-    bool? ActiveInd,
-    AuthLevel? AuthLevel,
+    bool? ActiveIndicator,
+    AuthLevel? AuthenticationLevel,
     int? UserId
 );

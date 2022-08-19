@@ -23,15 +23,19 @@ public class UserController
         try
         {
             using var connection = new DataConnection(_configRoot, 10);
-            await using var command = new MySqlCommand("AddUser", await connection.Connect());
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@UserName", user.UserName);
-            command.Parameters.AddWithValue("@Firstname", user.FirstName);
-            command.Parameters.AddWithValue("@LastName", user.LastName);
-            command.Parameters.AddWithValue("@ThisPassword", hashedPassword);
-            command.Parameters.AddWithValue("@ThisEmail", user.Email);
-            command.Parameters.AddWithValue("AuthLevel", user.AuthLevel);
-            await command.ExecuteNonQueryAsync();
+            _ = await connection.ExecuteAsync(
+                @"
+                insert into User (user_name, first_name, last_name, password, email, auth_level)
+                values (@UserName, @FirstName, @LastName, @ThisPassword, @ThisEmail, @AuthenticationLevel)",
+                new
+                {
+                    user.UserName,
+                    user.FirstName,
+                    user.LastName,
+                    ThisPassword = hashedPassword,
+                    user.AuthenticationLevel
+                }
+            );
             success = true;
         }
         catch (MySqlException exception)
@@ -57,8 +61,8 @@ public class UserController
                     last_name = @LastName,
                     password = @ThisPassword,
                     email = @ThisEmail,
-                    active_ind = @ActiveInd,
-                    auth_level = @AuthLevel
+                    active_ind = @ActiveIndicator,
+                    auth_level = @AuthenticationLevel
                 where user_id = @UserId",
                 new
                 {
@@ -66,8 +70,8 @@ public class UserController
                     user.LastName,
                     ThisPassword = user.Password,
                     ThisEmail = user.Email,
-                    user.ActiveInd,
-                    user.AuthLevel,
+                    user.ActiveIndicator,
+                    user.AuthenticationLevel,
                     user.UserId
                 }
             );

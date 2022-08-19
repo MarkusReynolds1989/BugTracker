@@ -44,7 +44,7 @@ namespace BugTracker.Pages
                 return new ForbidResult();
             }
 
-            HttpContext.Session.SetInt32("UserAuthLevel", (int)user.AuthLevel!);
+            HttpContext.Session.SetInt32("UserAuthLevel", (int)user.AuthenticationLevel!);
             return new RedirectToPageResult("Tickets");
         }
     }

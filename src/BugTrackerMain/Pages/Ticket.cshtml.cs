@@ -88,7 +88,7 @@ namespace BugTracker.Pages
                 // Generate users that can accept tickets.
                 var userController = new UserController(_configRoot);
                 var usersTemp = await userController.GetAllUsers();
-                usersTemp = usersTemp.Where(user => user.AuthLevel != AuthLevel.Guest).ToList();
+                usersTemp = usersTemp.Where(user => user.AuthenticationLevel != AuthLevel.Guest).ToList();
 
                 Users = usersTemp
                     .Select(
