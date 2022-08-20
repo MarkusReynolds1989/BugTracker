@@ -26,7 +26,11 @@ namespace BugTracker.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid) return Page();
+            if (!ModelState.IsValid)
+            {
+                return new RedirectToPageResult("");
+            }
+
             var login = new LoginController(_configRoot); // Injection
 
             var userName = Request.Form["UserName"].ToString();
@@ -35,14 +39,17 @@ namespace BugTracker.Pages
             // Set the users session user id here.
             if (user != null)
             {
-                if (user.UserId != null) HttpContext.Session.SetInt32("UserId", (int) user.UserId);
+                if (user.UserId != null)
+                {
+                    HttpContext.Session.SetInt32("UserId", (int) user.UserId);
+                }
             }
             else
             {
                 return new ForbidResult();
             }
 
-            HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthLevel);
+            HttpContext.Session.SetInt32("UserAuthLevel", (int) user.AuthenticationLevel);
             return new RedirectToPageResult("Tickets");
         }
     }

@@ -1,139 +1,197 @@
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using BugTracker.Models;
-using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
+namespace BugTracker.Controllers;
 
-namespace BugTracker.Controllers
+public class TicketController
 {
-    public class TicketController
+    private readonly IConfiguration _configRoot;
+
+    public TicketController(IConfiguration configRoot)
     {
-        private readonly IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public TicketController(IConfiguration configRoot)
+    public async Task<bool> Insert(Ticket ticket)
+    {
+        bool success;
+
+        try
         {
-            _configRoot = configRoot;
-        }
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
 
-        public async Task<bool> Insert(Ticket ticket)
-        {
-            bool success;
+            await connection.OpenAsync();
 
-            try
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("AddTicket", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
-                command.Parameters.AddWithValue("@ThisTitle", ticket.Title);
-                command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
-                command.Parameters.AddWithValue("@LoggerId", ticket.LoggerId);
-                await command.ExecuteNonQueryAsync();
-                success = true;
-            }
-            catch (MySqlException exception)
-            {
-                success = false;
-                Debug.WriteLine(exception);
-            }
-
-            return success;
-        }
-
-        public async Task<bool> Update(Ticket ticket)
-        {
-            bool success;
-
-            try
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("UpdateTicket", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@TicketId", ticket.TicketId);
-                command.Parameters.AddWithValue("@WorkerId", ticket.WorkerId);
-                command.Parameters.AddWithValue("@ThisTitle", ticket.Title);
-                command.Parameters.AddWithValue("@ThisDescription", ticket.Description);
-                command.Parameters.AddWithValue("@ThisResolution", ticket.Resolution);
-                command.Parameters.AddWithValue("@StatusInd", ticket.StatusIndCd);
-                await command.ExecuteNonQueryAsync();
-                success = true;
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex);
-                success = false;
-            }
-
-            return success;
-        }
-
-        public async Task<Ticket> GetTicket(int ticketId)
-        {
-            Ticket ticket = null;
-            try
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("GetTicket", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@TicketId", ticketId);
-                var reader = await command.ExecuteReaderAsync();
-                if (reader.HasRows)
+            _ = await connection.ExecuteAsync(
+                @"
+                insert into ticket(WorkerId, Title, Description, LoggerId)
+                values (@WorkerId, @Title, @Description, @LoggerId)",
+                new
                 {
-                    while (await reader.ReadAsync())
+                    ticket.WorkerId,
+                    Title = new DbString
                     {
-                        ticket = new Ticket(
-                            reader.GetInt32(1),
-                            reader.GetString(2),
-                            reader.GetString(3),
-                            reader.GetString(4),
-                            reader.GetInt32(7),
-                            (StatusIndCd) reader.GetInt32(5),
-                            reader.GetInt32(0));
-                    }
+                        Value = ticket.Title,
+                        IsFixedLength = true,
+                        Length = 45,
+                        IsAnsi = false
+                    },
+                    Description = new DbString
+                    {
+                        Value = ticket.Description,
+                        IsFixedLength = false,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    ticket.LoggerId
                 }
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex);
-            }
+            );
 
-            return ticket;
+            success = true;
         }
-
-        public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
+        catch (MySqlException exception)
         {
-            IList<Ticket> output = new List<Ticket>();
-            try
-
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("GetAllTicketsForWorker", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserId", workerId);
-                var reader = await command.ExecuteReaderAsync();
-                if (reader.HasRows)
-                {
-                    while (await reader.ReadAsync())
-                    {
-                        output.Add(new Ticket(
-                            reader.GetInt32(1),
-                            reader.GetString(2),
-                            reader.GetString(3),
-                            reader.GetString(4),
-                            reader.GetInt32(7),
-                            (StatusIndCd) reader.GetInt32(5),
-                            reader.GetInt32(0)));
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex);
-            }
-
-            return output;
+            success = false;
+            Debug.WriteLine(exception);
         }
+
+        return success;
+    }
+
+    public async Task<bool> Update(Ticket ticket)
+    {
+        bool success;
+
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            _ = await connection.ExecuteAsync(
+                @"
+                update ticket
+                set WorkerId = @WorkerId,
+                    Title = @Title,
+                    Description = @Description,
+                    Resolution = @Resolution,
+                    StatusIndicator = @StatusIndicator
+                where TicketId = @TicketId
+                ",
+                new
+                {
+                    ticket.WorkerId,
+                    Title = new DbString
+                    {
+                        Value = ticket.Title,
+                        IsFixedLength = true,
+                        Length = 45,
+                        IsAnsi = false
+                    },
+                    Description = new DbString
+                    {
+                        Value = ticket.Description,
+                        IsFixedLength = false,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    Resolution = new DbString
+                    {
+                        Value = ticket.Resolution,
+                        IsFixedLength = true,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    ticket.StatusIndicator,
+                    ticket.TicketId
+                }
+            );
+
+            success = true;
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+            success = false;
+        }
+
+        return success;
+    }
+
+    public async Task<bool> Deactivate(int ticketId)
+    {
+        bool success;
+
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            _ = await connection.ExecuteAsync(
+                @"
+                update ticket set ActiveIndicator = 0 where TicketId = @TicketId",
+                new { @TicketId = ticketId }
+            );
+            success = true;
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+            success = false;
+        }
+
+        return success;
+    }
+
+    public async Task<Ticket?> GetTicket(int ticketId)
+    {
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            var result = await connection.QueryAsync<Ticket>(
+                "select * from ticket where TicketId = @TicketId",
+                new { TicketId = ticketId }
+            );
+
+            return result.First();
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+        }
+
+        return null;
+    }
+
+    public async Task<IEnumerable<Ticket>?> GetTicketsByWorkerId(int workerId)
+    {
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            return await connection.QueryAsync<Ticket>(
+                "select * from ticket where WorkerId = @WorkerId and ActiveIndicator = 1",
+                new { WorkerId = workerId }
+            );
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+        }
+
+        return null;
     }
 }

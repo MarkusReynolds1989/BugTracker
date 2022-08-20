@@ -3,7 +3,7 @@
 @model User
 @{
     ViewData["Title"] = "User";
-    var user = (Models.User) ViewData["User"];
+    var user = (Models.User) ViewData["User"]!;
 }
 
 @section Scripts
@@ -25,7 +25,7 @@
         name = "UserId"
         readonly
         type = "number"
-        value = "@user.UserId"/>
+        value = "@user!.UserId"/>
     <label
         for = "userName">
         User Name:
@@ -95,8 +95,8 @@
         Authorization Level:
     </label>
     <select
-        asp-for = "@user.AuthLevel"
-        asp-items = "Html.GetEnumSelectList<AuthLevel>()"
+        asp-for = "@user.AuthenticationLevel"
+        asp-items = "Html.GetEnumSelectList<AuthenticationLevel>()"
         class = "form-control"
         id = "authLevel"
         name = "AuthLevel">

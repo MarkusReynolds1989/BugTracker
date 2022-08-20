@@ -3,7 +3,7 @@
 @model Ticket
 
 @{
-    var ticket = (Models.Ticket) ViewData["Ticket"];
+    var ticket = (Models.Ticket) ViewData["Ticket"]!;
     ViewData["Title"] = "Ticket";
 }
 
@@ -58,8 +58,8 @@
                 Ticket Status:
             </label>
             <select
-                asp-for = "@ticket.StatusIndCd"
-                asp-items = "Html.GetEnumSelectList<StatusIndCd>()"
+                asp-for = "@ticket.StatusIndicator"
+                asp-items = "Html.GetEnumSelectList<StatusIndicator>()"
                 class = "form-control"
                 id = "statusIndCd"
                 name = "StatusIndCd">
@@ -118,14 +118,17 @@
     </button>
 </form>
 <form
-    asp-page-handler = "delete"
+    asp-page-handler = "Delete"
     method = "post">
     <input
         hidden
         name = "TicketId"
         value = "@ViewData["_ticketId"]"/>
     <button
-        class = "btn btn-danger">
-        Delete
+        class = "btn btn-danger"
+        data-toggle="tool-tip"
+        data-placement="right"
+        title="Sets the ticket to an inactive state, this will no longer display it and it will not be worked on.">
+        Deactivate
     </button>
 </form>

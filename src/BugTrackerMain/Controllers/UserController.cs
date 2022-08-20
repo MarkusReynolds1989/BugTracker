@@ -1,129 +1,126 @@
-#nullable enable
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using BugTracker.Models;
-using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
-using System.Text;
+using BugTracker.Pages;
+using User = BugTracker.Models.User;
 
-namespace BugTracker.Controllers
+namespace BugTracker.Controllers;
+
+public class UserController
 {
-    public class UserController
+    private readonly IConfiguration _configRoot;
+
+    public UserController(IConfiguration configRoot)
     {
-        private IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public UserController(IConfiguration configRoot)
+    public async Task<bool> Insert(User user)
+    {
+        bool success;
+        using var hash = SHA256.Create();
+        var hashedPassword = BitConverter.ToString(
+            hash.ComputeHash(Encoding.Unicode.GetBytes(user.Password ?? string.Empty))
+        );
+
+        try
         {
-            _configRoot = configRoot;
-        }
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
 
-        public async Task<bool> Insert(User user)
-        {
-            bool success;
-            using var hash = SHA256.Create();
-            var hashedPassword =
-                BitConverter.ToString(hash.ComputeHash(Encoding.Unicode.GetBytes(user.Password ?? string.Empty)));
-            try
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("AddUser", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserName", user.UserName);
-                command.Parameters.AddWithValue("@Firstname", user.FirstName);
-                command.Parameters.AddWithValue("@LastName", user.LastName);
-                command.Parameters.AddWithValue("@ThisPassword", hashedPassword);
-                command.Parameters.AddWithValue("@ThisEmail", user.Email);
-                command.Parameters.AddWithValue("AuthLevel", user.AuthLevel);
-                await command.ExecuteNonQueryAsync();
-                success = true;
-            }
-            catch (MySqlException exception)
-            {
-                Debug.WriteLine(exception);
-                success = false;
-            }
+            await connection.OpenAsync();
 
-            return success;
-        }
-
-        public async Task<bool> Update(User user)
-        {
-            bool success;
-
-            try
-            {
-                using var connection = new DataConnection(_configRoot);
-                await using var command = new MySqlCommand("UpdateUser", await connection.Connect());
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserId", user.UserId);
-                command.Parameters.AddWithValue("@Firstname", user.FirstName);
-                command.Parameters.AddWithValue("@LastName", user.LastName);
-                command.Parameters.AddWithValue("@ThisEmail", user.Email);
-                command.Parameters.AddWithValue("@ActiveInd", true);
-                command.Parameters.AddWithValue("@AuthLevel", user.AuthLevel);
-                await command.ExecuteNonQueryAsync();
-                success = true;
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex);
-                success = false;
-            }
-
-            return success;
-        }
-
-        public async Task<IEnumerable<User>> GetAllUsers()
-        {
-            IList<User> users = new List<User>();
-            using var connection = new DataConnection(_configRoot);
-            await using var command = new MySqlCommand("GetAllUsers", await connection.Connect());
-            command.CommandType = CommandType.StoredProcedure;
-
-            await using var reader = await command.ExecuteReaderAsync();
-            if (reader.HasRows)
-            {
-                while (await reader.ReadAsync())
+            _ = await connection.ExecuteAsync(
+                @"
+                insert into user (UserName, FirstName, LastName, Password, Email, AuthenticationLevel)
+                values (@UserName, @FirstName, @LastName, @Password, @Email, @AuthenticationLevel)",
+                new
                 {
-                    users.Add(new User(
-                        reader.GetString(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(5),
-                        "",
-                        reader.GetBoolean(6),
-                        (AuthLevel) reader.GetInt32(7),
-                        reader.GetInt32(0)));
+                    user.UserName,
+                    user.FirstName,
+                    user.LastName,
+                    Password = hashedPassword,
+                    user.AuthenticationLevel
                 }
-            }
-
-            return users;
+            );
+            success = true;
         }
-
-        public async Task<User?> GetUser(int userId)
+        catch (MySqlException exception)
         {
-            using var connection = new DataConnection(_configRoot);
-            await using var command = new MySqlCommand("GetUser", await connection.Connect());
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@UserId", userId);
-
-            await using var reader = await command.ExecuteReaderAsync();
-            if (reader.HasRows)
-            {
-                while (await reader.ReadAsync())
-                {
-                    return new User(reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                        reader.GetString(5), "", reader.GetBoolean(6), (AuthLevel) reader.GetInt32(7),
-                        reader.GetInt32(0));
-                }
-            }
-
-            return null;
+            Debug.WriteLine(exception);
+            success = false;
         }
+
+        return success;
+    }
+
+    public async Task<bool> Update(User user)
+    {
+        bool success;
+
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            _ = await connection.ExecuteAsync(
+                @"
+                update user 
+                set FirstName = @FirstName,
+                    LastName = @LastName,
+                    Password = @Password,
+                    Email = @Email,
+                    ActiveIndicator = @ActiveIndicator,
+                    AuthenticationLevel = @AuthenticationLevel
+                where UserId = @UserId",
+                new
+                {
+                    user.FirstName,
+                    user.LastName,
+                    user.Password,
+                    user.Email,
+                    user.ActiveIndicator,
+                    user.AuthenticationLevel,
+                    user.UserId
+                }
+            );
+            success = true;
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+            success = false;
+        }
+
+        return success;
+    }
+
+    public async Task<IEnumerable<User>> GetAllUsers()
+    {
+        await using var connection = new MySqlConnection(
+            _configRoot.GetConnectionString("default")
+        );
+
+        await connection.OpenAsync();
+
+        return await connection.QueryAsync<User>("select * from user");
+    }
+
+    public async Task<User?> GetUser(int userId)
+    {
+        await using var connection = new MySqlConnection(
+            _configRoot.GetConnectionString("default")
+        );
+
+        await connection.OpenAsync();
+
+        var result = await connection.QueryAsync<User>(
+            "select * from user where UserId = @Id",
+            new { Id = userId }
+        );
+
+        var user = result as User[] ?? result.ToArray();
+        return user.Length == 1 ? user.First() : null;
     }
 }

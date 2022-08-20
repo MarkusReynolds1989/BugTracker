@@ -4,7 +4,7 @@
 @{
     // Data for the page. This data is in a list which means you can foreach through it. 
     // See the Users page for an example of how to do it.
-    var tickets = (List<Models.Ticket>) ViewData["tickets"];
+    var tickets = (List<Models.Ticket>) ViewData["tickets"]!;
 }
 
 <table
@@ -25,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var ticket in tickets)
+    @foreach (var ticket in tickets!)
     {
         var route = $"/Ticket?ticketId={ticket.TicketId}";
         <tr>
@@ -39,7 +39,7 @@
                 @ticket.Description
             </td>
             <td>
-                @ticket.StatusIndCd.ToString()
+                @ticket.StatusIndicator.ToString()
             </td>
         </tr>
     }

@@ -1,70 +1,58 @@
-using System;
-using System.Data;
-using System.Diagnostics;
-using BugTracker.Models;
-using MySql.Data.MySqlClient;
+namespace BugTracker.Controllers;
 
-// Use this library to hash the input password vs the password in the db.
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-
-namespace BugTracker.Controllers
+public class LoginController
 {
-    public class LoginController
+    // Dependency injection.
+    private readonly IConfiguration _configRoot;
+
+    public LoginController(IConfiguration configRoot)
     {
-        // Dependency injection.
-        private readonly IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public LoginController(IConfiguration configRoot)
+    // Set a session to a user from the user that is logged in.
+    public async Task<User?> AuthorizeUser(string userName, string password)
+    {
+        using var hash = SHA256.Create();
+        var hashedPassword = BitConverter.ToString(
+            hash.ComputeHash(Encoding.Unicode.GetBytes(password))
+        );
+        try
         {
-            _configRoot = configRoot;
-        }
+            await using var authenticationConnection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
 
-        // Set a session to a user from the user that is logged in.
-        public async Task<User?> AuthorizeUser(string userName, string password)
-        {
-            //var hashedPassWord = 
-            using var authenticationConnection = new DataConnection(_configRoot);
-            using var hash = SHA256.Create();
-            var hashedPassword = BitConverter.ToString(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
-            try
-            {
-                await using var command = new MySqlCommand
-                {
-                    CommandType = CommandType.StoredProcedure, Connection = await authenticationConnection.Connect(),
-                    CommandText = "AuthenticateUser",
-                };
-                command.Parameters.AddWithValue("@UserName", userName);
-                command.Parameters.AddWithValue("@ThisPassword", hashedPassword);
+            await authenticationConnection.OpenAsync();
 
-                await using var reader = command.ExecuteReader();
-                // Build and return user.
-                if (reader.HasRows)
+            var result = await authenticationConnection.QueryAsync<User>(
+                "select * from user where UserName = @UserName and Password = @Password",
+                new
                 {
-                    while (reader.Read())
+                    UserName = new DbString
                     {
-                        return new User
-                        (
-                            reader.GetString(1),
-                            reader.GetString(2),
-                            reader.GetString(3),
-                            reader.GetString(5),
-                            "", // Don't bring back the hashed password for obvious reasons. No hashing on the client side.
-                            reader.GetBoolean(6),
-                            (AuthLevel) reader.GetInt32(7),
-                            reader.GetInt32(0)
-                        );
+                        Value = userName,
+                        IsFixedLength = true,
+                        Length = 45,
+                        IsAnsi = false
+                    },
+                    Password = new DbString
+                    {
+                        Value = hashedPassword,
+                        IsFixedLength = true,
+                        Length = 100,
+                        IsAnsi = false
                     }
                 }
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex);
-            }
+            );
 
-            return null;
+            return result.First();
         }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+        }
+
+        return null;
     }
 }

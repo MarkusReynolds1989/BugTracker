@@ -48,7 +48,15 @@ namespace BugTracker.Pages
                 Description = Request.Form["Description"];
                 var loggerId = int.Parse(Request.Form["LoggerId"]);
 
-                var ticket = new Models.Ticket(workerId, _Title, Description, null, loggerId, null, null);
+                var ticket = new Models.Ticket(
+                    workerId,
+                    _Title,
+                    Description,
+                    null,
+                    loggerId,
+                    null,
+                    null
+                );
 
                 if (await ticketController.Insert(ticket))
                 {
@@ -69,6 +77,16 @@ namespace BugTracker.Pages
 
             // Generate users that can accept tickets.
             var userController = new UserController(_configRoot);
+            Users = userController
+                .GetAllUsers()
+                .Result.Select(
+                    user =>
+                        new SelectListItem
+                        {
+                            Value = user.UserId.ToString(),
+                            Text = user.UserId.ToString()
+                        }
+                );
             ViewData["Users"] = Users;
         }
     }
