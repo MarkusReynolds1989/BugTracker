@@ -25,7 +25,7 @@ public class UserController
             using var connection = new DataConnection(_configRoot, 10);
             _ = await connection.ExecuteAsync(
                 @"
-                insert into User (user_name, first_name, last_name, password, email, auth_level)
+                insert into user (user_name, first_name, last_name, password, email, auth_level)
                 values (@UserName, @FirstName, @LastName, @ThisPassword, @ThisEmail, @AuthenticationLevel)",
                 new
                 {
