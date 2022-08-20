@@ -21,7 +21,31 @@ public class TicketController
 
             await connection.OpenAsync();
 
-            _ = await connection.ExecuteAsync();
+            _ = await connection.ExecuteAsync(
+                @"
+                insert into ticket(WorkerId, Title, Description, LoggerId)
+                values (@WorkerId, @Title, @Description, @LoggerId)",
+                new
+                {
+                    ticket.WorkerId,
+                    Title = new DbString
+                    {
+                        Value = ticket.Title,
+                        IsFixedLength = true,
+                        Length = 45,
+                        IsAnsi = false
+                    },
+                    Description = new DbString
+                    {
+                        Value = ticket.Description,
+                        IsFixedLength = false,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    ticket.LoggerId
+                }
+            );
+
             success = true;
         }
         catch (MySqlException exception)
@@ -39,6 +63,51 @@ public class TicketController
 
         try
         {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            _ = await connection.ExecuteAsync(
+                @"
+                update ticket
+                set WorkerId = @WorkerId,
+                    Title = @Title,
+                    Description = @Description,
+                    Resolution = @Resolution,
+                    StatusIndicator = @StatusIndicator
+                where TicketId = @TicketId
+                ",
+                new
+                {
+                    ticket.WorkerId,
+                    Title = new DbString
+                    {
+                        Value = ticket.Title,
+                        IsFixedLength = true,
+                        Length = 45,
+                        IsAnsi = false
+                    },
+                    Description = new DbString
+                    {
+                        Value = ticket.Description,
+                        IsFixedLength = false,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    Resolution = new DbString
+                    {
+                        Value = ticket.Resolution,
+                        IsFixedLength = true,
+                        Length = 300,
+                        IsAnsi = false
+                    },
+                    ticket.StatusIndicator,
+                    ticket.TicketId
+                }
+            );
+
             success = true;
         }
         catch (MySqlException ex)
@@ -52,23 +121,49 @@ public class TicketController
 
     public async Task<Ticket?> GetTicket(int ticketId)
     {
-        Ticket? ticket = null;
-        try { }
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            var result = await connection.QueryAsync<Ticket>(
+                "select * from ticket where TicketId = @TicketId",
+                new { TicketId = ticketId }
+            );
+
+            return result.First();
+        }
         catch (MySqlException ex)
         {
             Debug.WriteLine(ex);
         }
 
-        return ticket;
+        return null;
     }
 
-    /*public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
+    public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
     {
-        try { }
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            return await connection.QueryAsync<Ticket>(
+                "select * from ticket where WorkerId = @WorkerId",
+                new { WorkerId = workerId }
+            );
+        }
         catch (MySqlException ex)
         {
             Debug.WriteLine(ex);
         }
-        return new[] { };
-    }*/
+
+        return null;
+    }
 }

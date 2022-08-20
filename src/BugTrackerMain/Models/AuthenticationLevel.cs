@@ -1,6 +1,6 @@
 ﻿namespace BugTracker.Models;
 
-public enum AuthLevel
+public enum AuthenticationLevel
 {
     Guest,
     User,

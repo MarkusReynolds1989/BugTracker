@@ -14,7 +14,7 @@ public class User
     public string?    Email               { get; set; }
     public string?    Password            { get; set; }
     public bool?      ActiveIndicator     { get; set; }
-    public AuthLevel? AuthenticationLevel { get; set; }
+    public AuthenticationLevel? AuthenticationLevel { get; set; }
     public int?       UserId              { get; set; }
 
     public User(string?    userName,
@@ -23,7 +23,7 @@ public class User
                 string?    email,
                 string?    password,
                 bool?      activeIndicator,
-                AuthLevel? authenticationLevel,
+                AuthenticationLevel? authenticationLevel,
                 int?       userId)
     {
         UserName = userName;

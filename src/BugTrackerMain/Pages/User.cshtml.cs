@@ -28,7 +28,7 @@ namespace BugTracker.Pages
             FirstName = Request.Form["FirstName"];
             LastName = Request.Form["LastName"];
             Email = Request.Form["Email"];
-            var authLevel = (AuthLevel)int.Parse(Request.Form["AuthLevel"]);
+            var authLevel = (AuthenticationLevel)int.Parse(Request.Form["AuthLevel"]);
 
             var userController = new UserController(_configRoot);
 

@@ -1,6 +1,6 @@
 ﻿namespace BugTracker.Models;
 
-public enum StatusIndCd
+public enum StatusIndicator
 {
     Open,
     InProgress,

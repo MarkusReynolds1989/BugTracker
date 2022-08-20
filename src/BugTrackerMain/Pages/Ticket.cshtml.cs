@@ -43,7 +43,7 @@ namespace BugTracker.Pages
                 int.TryParse(Request.Form["LoggerId"], out var loggerId);
                 var workerId = int.Parse(Request.Form["WorkerId"]);
                 int.TryParse(Request.Form["StatusIndCd"], out var statusValue);
-                var statusIndCd = (StatusIndCd)statusValue;
+                var statusIndCd = (StatusIndicator)statusValue;
                 _Title = Request.Form["_Title"].ToString();
                 Description = Request.Form["Description"].ToString();
                 Resolution = Request.Form["Resolution"].ToString();
@@ -88,7 +88,9 @@ namespace BugTracker.Pages
                 // Generate users that can accept tickets.
                 var userController = new UserController(_configRoot);
                 var usersTemp = await userController.GetAllUsers();
-                usersTemp = usersTemp.Where(user => user.AuthenticationLevel != AuthLevel.Guest).ToList();
+                usersTemp = usersTemp
+                    .Where(user => user.AuthenticationLevel != AuthenticationLevel.Guest)
+                    .ToList();
 
                 Users = usersTemp
                     .Select(

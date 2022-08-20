@@ -58,7 +58,7 @@ namespace BugTracker.Pages
                 var userController = new UserController(_configRoot);
 
                 if (await userController.Insert(new Models.User(UserName, FirstName, LastName, Email, Password, true,
-                    (AuthLevel) authLevel, null)))
+                    (AuthenticationLevel) authLevel, null)))
                 {
                     return new RedirectToPageResult("Users");
                 }
