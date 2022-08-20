@@ -22,17 +22,22 @@ public class UserController
 
         try
         {
-            using var connection = new DataConnection(_configRoot, 10);
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
             _ = await connection.ExecuteAsync(
                 @"
-                insert into user (user_name, first_name, last_name, password, email, auth_level)
-                values (@UserName, @FirstName, @LastName, @ThisPassword, @ThisEmail, @AuthenticationLevel)",
+                insert into user (UserName, FirstName, LastName, Password, Email, AuthenticationLevel)
+                values (@UserName, @FirstName, @LastName, @Password, @Email, @AuthenticationLevel)",
                 new
                 {
                     user.UserName,
                     user.FirstName,
                     user.LastName,
-                    ThisPassword = hashedPassword,
+                    Password = hashedPassword,
                     user.AuthenticationLevel
                 }
             );
@@ -53,23 +58,28 @@ public class UserController
 
         try
         {
-            using var connection = new DataConnection(_configRoot, 10);
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
             _ = await connection.ExecuteAsync(
                 @"
                 update user 
-                set first_name = @FirstName,
-                    last_name = @LastName,
-                    password = @ThisPassword,
-                    email = @ThisEmail,
-                    active_ind = @ActiveIndicator,
-                    auth_level = @AuthenticationLevel
-                where user_id = @UserId",
+                set FirstName = @FirstName,
+                    LastName = @LastName,
+                    Password = @Password,
+                    Email = @Email,
+                    ActiveIndicator = @ActiveIndicator,
+                    AuthenticationLevel = @AuthenticationLevel
+                where UserId = @UserId",
                 new
                 {
                     user.FirstName,
                     user.LastName,
-                    ThisPassword = user.Password,
-                    ThisEmail = user.Email,
+                    user.Password,
+                    user.Email,
                     user.ActiveIndicator,
                     user.AuthenticationLevel,
                     user.UserId
@@ -88,15 +98,25 @@ public class UserController
 
     public async Task<IEnumerable<User>> GetAllUsers()
     {
-        using var connection = new DataConnection(_configRoot, 10);
+        await using var connection = new MySqlConnection(
+            _configRoot.GetConnectionString("default")
+        );
+
+        await connection.OpenAsync();
+
         return await connection.QueryAsync<User>("select * from user");
     }
 
     public async Task<User?> GetUser(int userId)
     {
-        using var connection = new DataConnection(_configRoot, 10);
+        await using var connection = new MySqlConnection(
+            _configRoot.GetConnectionString("default")
+        );
+
+        await connection.OpenAsync();
+
         var result = await connection.QueryAsync<User>(
-            "select * from user where user_id = @Id",
+            "select * from user where UserId = @Id",
             new { Id = userId }
         );
 
