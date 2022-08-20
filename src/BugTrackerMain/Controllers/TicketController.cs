@@ -144,7 +144,7 @@ public class TicketController
         return null;
     }
 
-    public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
+    public async Task<IEnumerable<Ticket>?> GetTicketsByWorkerId(int workerId)
     {
         try
         {

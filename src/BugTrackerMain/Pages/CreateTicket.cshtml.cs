@@ -77,6 +77,16 @@ namespace BugTracker.Pages
 
             // Generate users that can accept tickets.
             var userController = new UserController(_configRoot);
+            Users = userController
+                .GetAllUsers()
+                .Result.Select(
+                    user =>
+                        new SelectListItem
+                        {
+                            Value = user.UserId.ToString(),
+                            Text = user.UserId.ToString()
+                        }
+                );
             ViewData["Users"] = Users;
         }
     }
