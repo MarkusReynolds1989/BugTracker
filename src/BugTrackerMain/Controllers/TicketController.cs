@@ -1,12 +1,15 @@
+using BugTracker.Logging;
+
 namespace BugTracker.Controllers;
 
 public class TicketController
 {
     private readonly IConfiguration _configRoot;
-
+    private Logger logs;
     public TicketController(IConfiguration configRoot)
     {
         _configRoot = configRoot;
+        logs = new Logger();
     }
 
     public async Task<bool> Insert(Ticket ticket)
@@ -51,6 +54,7 @@ public class TicketController
         catch (MySqlException exception)
         {
             success = false;
+            logs.LogToFile(exception);
             Debug.WriteLine(exception);
         }
 
