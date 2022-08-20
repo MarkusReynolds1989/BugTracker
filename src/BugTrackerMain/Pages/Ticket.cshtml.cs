@@ -68,6 +68,14 @@ namespace BugTracker.Pages
             return Page();
         }
 
+        public async Task<IActionResult> OnPostDelete()
+        {
+            int.TryParse(Request.Form["TicketId"], out var ticketId);
+            var ticketController = new TicketController(_configRoot);
+            await ticketController.Deactivate(ticketId);
+            return new RedirectToPageResult("/Tickets");
+        }
+
         public async Task<IActionResult> OnGet(int ticketId)
         {
             var userId = HttpContext.Session.GetInt32("UserId");

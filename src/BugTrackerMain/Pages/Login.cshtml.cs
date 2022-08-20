@@ -28,7 +28,7 @@ namespace BugTracker.Pages
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return new RedirectToPageResult("");
             }
 
             var login = new LoginController(_configRoot); // Injection

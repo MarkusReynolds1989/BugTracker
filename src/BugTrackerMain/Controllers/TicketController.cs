@@ -119,6 +119,34 @@ public class TicketController
         return success;
     }
 
+    public async Task<bool> Deactivate(int ticketId)
+    {
+        bool success;
+
+        try
+        {
+            await using var connection = new MySqlConnection(
+                _configRoot.GetConnectionString("default")
+            );
+
+            await connection.OpenAsync();
+
+            _ = await connection.ExecuteAsync(
+                @"
+                update ticket set ActiveIndicator = 0 where TicketId = @TicketId",
+                new { @TicketId = ticketId }
+            );
+            success = true;
+        }
+        catch (MySqlException ex)
+        {
+            Debug.WriteLine(ex);
+            success = false;
+        }
+
+        return success;
+    }
+
     public async Task<Ticket?> GetTicket(int ticketId)
     {
         try
@@ -155,7 +183,7 @@ public class TicketController
             await connection.OpenAsync();
 
             return await connection.QueryAsync<Ticket>(
-                "select * from ticket where WorkerId = @WorkerId",
+                "select * from ticket where WorkerId = @WorkerId and ActiveIndicator = 1",
                 new { WorkerId = workerId }
             );
         }

@@ -29,7 +29,7 @@
                 name = "TicketId"
                 readonly
                 type = "number"
-                value = "@ticket!.TicketId"/>
+                value = "@ticket.TicketId"/>
             <label
                 for = "loggerId">
                 Logger ID:
@@ -118,14 +118,17 @@
     </button>
 </form>
 <form
-    asp-page-handler = "delete"
+    asp-page-handler = "Delete"
     method = "post">
     <input
         hidden
         name = "TicketId"
         value = "@ViewData["_ticketId"]"/>
     <button
-        class = "btn btn-danger">
-        Delete
+        class = "btn btn-danger"
+        data-toggle="tool-tip"
+        data-placement="right"
+        title="Sets the ticket to an inactive state, this will no longer display it and it will not be worked on.">
+        Deactivate
     </button>
 </form>
