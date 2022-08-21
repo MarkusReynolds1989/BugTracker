@@ -1,5 +1,8 @@
 name: .NET
 
+before_script: 
+  - cd ./src
+  
 on:
   push:
     branches: [ "dev" ]
