@@ -1,13 +1,16 @@
+using BugTracker.Logging;
+
 namespace BugTracker.Controllers;
 
 public class LoginController
 {
     // Dependency injection.
     private readonly IConfiguration _configRoot;
-
+    private Logger logs;
     public LoginController(IConfiguration configRoot)
     {
         _configRoot = configRoot;
+        logs = new Logger();
     }
 
     // Set a session to a user from the user that is logged in.
@@ -50,9 +53,9 @@ public class LoginController
         }
         catch (MySqlException ex)
         {
+            logs.LogToFile(ex);
             Debug.WriteLine(ex);
         }
-
         return null;
     }
 }

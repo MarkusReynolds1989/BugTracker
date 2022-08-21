@@ -1,4 +1,4 @@
-using BugTracker.Pages;
+using BugTracker.Logging;
 using User = BugTracker.Models.User;
 
 namespace BugTracker.Controllers;
@@ -6,10 +6,12 @@ namespace BugTracker.Controllers;
 public class UserController
 {
     private readonly IConfiguration _configRoot;
+    private Logger logs;
 
     public UserController(IConfiguration configRoot)
     {
         _configRoot = configRoot;
+        logs = new Logger();
     }
 
     public async Task<bool> Insert(User user)
@@ -45,10 +47,10 @@ public class UserController
         }
         catch (MySqlException exception)
         {
+            logs.LogToFile(exception);
             Debug.WriteLine(exception);
             success = false;
         }
-
         return success;
     }
 
@@ -89,6 +91,7 @@ public class UserController
         }
         catch (MySqlException ex)
         {
+            logs.LogToFile(ex);
             Debug.WriteLine(ex);
             success = false;
         }
