@@ -1,15 +1,15 @@
-create table if not exists User
+create table if not exists user
 (
-	user_id int auto_increment
-		primary key,
-	user_name varchar(45) not null,
-	first_name varchar(45) not null,
-	last_name varchar(45) not null,
-	password varchar(100) not null,
-	email varchar(45) not null,
-	active_ind tinyint(1) default 1 not null,
-	auth_level int default 0 null,
-	constraint user_name
-		unique (user_name)
+    UserId              int auto_increment
+        primary key,
+    UserName            varchar(45)          not null,
+    FirstName           varchar(45)          not null,
+    LastName            varchar(45)          not null,
+    Password            varchar(100)         not null,
+    Email               varchar(45)          not null,
+    ActiveIndicator     tinyint(1) default 1 not null,
+    AuthenticationLevel int        default 0 null,
+    constraint UserName
+        unique (UserName)
 );
 
