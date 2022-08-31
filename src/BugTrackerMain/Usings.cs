@@ -1,5 +1,4 @@
 ﻿global using System;
-global using System.Data;
 global using System.Diagnostics;
 global using System.Text;
 global using MySql.Data.MySqlClient;

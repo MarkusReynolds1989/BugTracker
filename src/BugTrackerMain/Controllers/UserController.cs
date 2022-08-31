@@ -1,4 +1,3 @@
-using BugTracker.Pages;
 using User = BugTracker.Models.User;
 
 namespace BugTracker.Controllers;
