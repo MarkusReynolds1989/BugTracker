@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>5724f07e-717e-4e2f-91e7-e230eee1f9ce</UserSecretsId>
     <GenerateProgramFile>false</GenerateProgramFile>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <LangVersion>10</LangVersion>
   </PropertyGroup>
   <ItemGroup>

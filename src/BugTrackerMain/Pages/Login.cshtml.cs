@@ -1,12 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using BugTracker.Controllers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
-
 namespace BugTracker.Pages
 {
     public class Login : PageModel
@@ -39,10 +30,7 @@ namespace BugTracker.Pages
             // Set the users session user id here.
             if (user != null)
             {
-                if (user.UserId != null)
-                {
-                    HttpContext.Session.SetInt32("UserId", (int) user.UserId);
-                }
+                HttpContext.Session.SetInt32("UserId", user.UserId);
             }
             else
             {
