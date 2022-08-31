@@ -138,8 +138,10 @@ if buildDb then
     connection.Execute("use bugtracker;") |> ignore
     connection.Execute(userTableScript) |> ignore
     connection.Execute(ticketTableScript) |> ignore
-    
-    let password = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+
+    let password =
+        "FE-52-06-76-B1-A1-D9-3D-AB-AB-23-19-EE-A0-36-74-F3-63-2E-AE-EB-16-3D-1E-88-24-4F-5E-B1-DE-10-EB"
+
     connection.Execute(
         $@"insert into user (UserName, FirstName, LastName, Password, Email, AuthenticationLevel) values ('admin', 'ad', 'min', '{password}', 'test@testing.com', 2)"
     )
