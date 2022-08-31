@@ -134,7 +134,7 @@ public class TicketController
             _ = await connection.ExecuteAsync(
                 @"
                 update ticket set ActiveIndicator = 0 where TicketId = @TicketId",
-                new { @TicketId = ticketId }
+                new {@TicketId = ticketId}
             );
             success = true;
         }
@@ -147,7 +147,7 @@ public class TicketController
         return success;
     }
 
-    public async Task<Ticket?> GetTicket(int ticketId)
+    public async Task<Ticket> GetTicket(int ticketId)
     {
         try
         {
@@ -159,7 +159,7 @@ public class TicketController
 
             var result = await connection.QueryAsync<Ticket>(
                 "select * from ticket where TicketId = @TicketId",
-                new { TicketId = ticketId }
+                new {TicketId = ticketId}
             );
 
             return result.First();
@@ -172,7 +172,7 @@ public class TicketController
         return null;
     }
 
-    public async Task<IEnumerable<Ticket>?> GetTicketsByWorkerId(int workerId)
+    public async Task<IEnumerable<Ticket>> GetTicketsByWorkerId(int workerId)
     {
         try
         {
@@ -184,7 +184,7 @@ public class TicketController
 
             return await connection.QueryAsync<Ticket>(
                 "select * from ticket where WorkerId = @WorkerId and ActiveIndicator = 1",
-                new { WorkerId = workerId }
+                new {WorkerId = workerId}
             );
         }
         catch (MySqlException ex)

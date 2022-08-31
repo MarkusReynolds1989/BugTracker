@@ -37,11 +37,10 @@ namespace BugTracker.Pages
                 FirstName,
                 LastName,
                 Email,
-                null,
-                null,
                 authLevel,
                 userId
             );
+            
             if (await userController.Update(updateUser))
             {
                 Debug.WriteLine("Success");

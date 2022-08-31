@@ -106,7 +106,7 @@ public class UserController
         return await connection.QueryAsync<User>("select * from user");
     }
 
-    public async Task<User?> GetUser(int userId)
+    public async Task<User> GetUser(int userId)
     {
         await using var connection = new MySqlConnection(
             _configRoot.GetConnectionString("default")
@@ -116,7 +116,7 @@ public class UserController
 
         var result = await connection.QueryAsync<User>(
             "select * from user where UserId = @Id",
-            new { Id = userId }
+            new {Id = userId}
         );
 
         var user = result as User[] ?? result.ToArray();

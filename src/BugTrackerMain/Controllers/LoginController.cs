@@ -11,7 +11,7 @@ public class LoginController
     }
 
     // Set a session to a user from the user that is logged in.
-    public async Task<User?> AuthorizeUser(string userName, string password)
+    public async Task<User> AuthorizeUser(string userName, string password)
     {
         using var hash = SHA256.Create();
         var hashedPassword = BitConverter.ToString(
