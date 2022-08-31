@@ -60,7 +60,14 @@ if not mysqlInstalled then
     
 printfn "Finished MySql Server Check..."
 
-printfn "Building solution..."
-Process.Start("powershell.exe", "cd src; dotnet build")
+printfn "Cleaning solution..."
+Process.Start("powershell.exe", "cd src; dotnet clean").WaitForExit()
+printfn "Solution clean."
 
+printfn "Building solution..."
+Process.Start("powershell.exe", "cd src; dotnet build").WaitForExit()
 printfn "Solution built."
+
+printfn "Running tests..."
+Process.Start("powershell.exe", "cd src; dotnet test").WaitForExit()
+printfn "Testing complete."
