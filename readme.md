@@ -1,6 +1,14 @@
 # Bug Tracker
 An open source project.
 
+For Development:
+1. Clone the repo.
+2. CD into the repo on an elevated shell.
+3. Run ./build. 
+4. If there are any problems, wait for SQL to download and install and then run again.
+5. The password should be admin and the username should be root for development purposes.
+6. The default admin user is admin with a password of test.
+
 To build:
 1. Compile the project.
 2. Take the files and put them into var/www on your server.
