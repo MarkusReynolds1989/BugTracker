@@ -1,90 +1,74 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Dynamic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using BugTracker.Controllers;
-using BugTracker.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Configuration;
+namespace BugTracker.Pages;
 
-namespace BugTracker.Pages
+public class CreateTicketModel : PageModel
 {
-    public class CreateTicketModel : PageModel
+    private IConfiguration _configRoot;
+
+    public CreateTicketModel(IConfiguration configRoot)
     {
-        private IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public CreateTicketModel(IConfiguration configRoot)
+    [BindProperty, Required, MaxLength(45)]
+    public string _Title { get; set; }
+
+    [BindProperty, Required, MaxLength(300)]
+    public string Description { get; set; }
+
+    public IEnumerable<SelectListItem> Users { get; set; }
+
+    public async Task<IActionResult> OnPost()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (userId == null)
         {
-            _configRoot = configRoot;
+            Response.Redirect("Login");
         }
 
-        [BindProperty, Required, MaxLength(45)]
-        public string _Title { get; set; }
-
-        [BindProperty, Required, MaxLength(300)]
-        public string Description { get; set; }
-
-        public IEnumerable<SelectListItem> Users { get; set; }
-
-        public async Task<IActionResult> OnPost()
+        if (ModelState.IsValid)
         {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null)
+            var ticketController = new TicketController(_configRoot);
+            var workerId = int.Parse(Request.Form["WorkerId"]);
+            _Title = Request.Form["_Title"];
+            Description = Request.Form["Description"];
+            var loggerId = int.Parse(Request.Form["LoggerId"]);
+
+            var ticket = new Models.Ticket(
+                workerId,
+                _Title,
+                Description,
+                loggerId
+            );
+
+            if (await ticketController.Insert(ticket))
             {
-                Response.Redirect("Login");
+                Response.Redirect("/Tickets");
             }
-
-            if (ModelState.IsValid)
-            {
-                var ticketController = new TicketController(_configRoot);
-                var workerId = int.Parse(Request.Form["WorkerId"]);
-                _Title = Request.Form["_Title"];
-                Description = Request.Form["Description"];
-                var loggerId = int.Parse(Request.Form["LoggerId"]);
-
-                var ticket = new Models.Ticket(
-                    workerId,
-                    _Title,
-                    Description,
-                    loggerId
-                );
-
-                if (await ticketController.Insert(ticket))
-                {
-                    Response.Redirect("/Tickets");
-                }
-            }
-
-            return Page();
         }
 
-        public void OnGet()
-        {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null)
-            {
-                Response.Redirect("Login");
-            }
+        return Page();
+    }
 
-            // Generate users that can accept tickets.
-            var userController = new UserController(_configRoot);
-            Users = userController
-                   .GetAllUsers()
-                   .Result.Select(
-                        user =>
-                            new SelectListItem
-                            {
-                                Value = user.UserId.ToString(),
-                                Text = user.UserId.ToString()
-                            }
-                    );
-            ViewData["Users"] = Users;
+    public void OnGet()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (userId == null)
+        {
+            Response.Redirect("Login");
         }
+
+        // Generate users that can accept tickets.
+        var userController = new UserController(_configRoot);
+        Users = userController
+            .GetAllUsers()
+            .Result.Select(
+                user =>
+                    new SelectListItem
+                    {
+                        Value = user.UserId.ToString(),
+                        Text = user.UserId.ToString()
+                    }
+            );
+        ViewData["Users"] = Users;
     }
 }

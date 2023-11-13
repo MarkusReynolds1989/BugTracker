@@ -1,42 +1,30 @@
-using System.Linq;
-using System.Threading.Tasks;
-using BugTracker.Controllers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
+namespace BugTracker.Pages;
 
-namespace BugTracker.Pages
+public class Users : PageModel
 {
-    public class Users : PageModel
+    private readonly IConfiguration _configRoot;
+    private readonly ILogger _logger;
+
+    public Users(IConfiguration configRoot)
     {
-        private readonly IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public Users(IConfiguration configRoot)
+    public async Task<IActionResult> OnGet()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
+
+        if (userId == null && authLevel == null || authLevel < 2)
         {
-            _configRoot = configRoot;
+            return new RedirectResult("Login?statusCode=401");
         }
 
-        public async Task<IActionResult> OnGet()
-        {
-            var userId = HttpContext.Session.GetInt32("UserId");
-            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
-            if (userId == null && authLevel == null || authLevel < 2) // TODO: Check auth level.
-            {
-                return new RedirectResult("Login?statusCode=401");
-            }
+        var userController = new UserController(_configRoot);
+        var users = await userController.GetAllUsers();
+        if (!users.Any()) return new EmptyResult();
 
-            var userController = new UserController(_configRoot);
-            var users = await userController.GetAllUsers();
-            if (users.Any())
-            {
-                ViewData["Users"] = users;
-                return new PageResult();
-            }
-            else
-            {
-                return new EmptyResult();
-            }
-        }
+        ViewData["Users"] = users;
+        return new PageResult();
     }
 }

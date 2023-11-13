@@ -6,18 +6,19 @@ namespace BugTracker;
 public class Startup
 {
     private readonly IConfiguration _configuration;
+    private readonly ILogger _logger;
 
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration configuration, ILogger logger)
     {
         _configuration = configuration;
+        _logger = logger;
     }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddRazorPages();
-        // Added for sessions.
         services.AddSession();
+        services.AddLogging();
         services.AddMemoryCache();
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
             CookieAuthenticationDefaults.AuthenticationScheme, options =>
@@ -29,7 +30,6 @@ public class Startup
         services.AddMvc().AddRazorPagesOptions(options => { options.Conventions.AddPageRoute("/Login", ""); });
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())

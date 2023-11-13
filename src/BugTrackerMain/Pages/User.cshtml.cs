@@ -1,81 +1,80 @@
-namespace BugTracker.Pages
+namespace BugTracker.Pages;
+
+public class User : PageModel
 {
-    public class User : PageModel
+    private readonly IConfiguration _configRoot;
+
+    public User(IConfiguration configRoot)
     {
-        private readonly IConfiguration _configRoot;
+        _configRoot = configRoot;
+    }
 
-        public User(IConfiguration configRoot)
+    [BindProperty, Required, MaxLength(45)]
+    public string UserName { get; set; }
+
+    [BindProperty, Required, MaxLength(45)]
+    public string FirstName { get; set; }
+
+    [BindProperty, Required, MaxLength(45)]
+    public string LastName { get; set; }
+
+    [BindProperty, Required, MaxLength(45)]
+    public string Email { get; set; }
+
+    public async Task<IActionResult> OnPost()
+    {
+        var userId = int.Parse(Request.Form["UserId"]);
+        UserName = Request.Form["UserName"];
+        FirstName = Request.Form["FirstName"];
+        LastName = Request.Form["LastName"];
+        Email = Request.Form["Email"];
+        var authLevel = (AuthenticationLevel) int.Parse(Request.Form["AuthLevel"]);
+
+        var userController = new UserController(_configRoot);
+
+        var updateUser = new Models.User(
+            UserName,
+            FirstName,
+            LastName,
+            Email,
+            authLevel,
+            userId
+        );
+
+        if (await userController.Update(updateUser))
         {
-            _configRoot = configRoot;
+            Debug.WriteLine("Success");
+            return new RedirectToPageResult("Users");
         }
 
-        [BindProperty, Required, MaxLength(45)]
-        public string UserName { get; set; }
+        return new RedirectResult($"User?userId={userId}");
+    }
 
-        [BindProperty, Required, MaxLength(45)]
-        public string FirstName { get; set; }
-
-        [BindProperty, Required, MaxLength(45)]
-        public string LastName { get; set; }
-
-        [BindProperty, Required, MaxLength(45)]
-        public string Email { get; set; }
-
-        public async Task<IActionResult> OnPost()
+    public async Task<IActionResult> OnGet(int userId)
+    {
+        var loginUserId = HttpContext.Session.GetInt32("UserId");
+        var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
+        if (loginUserId == null && authLevel == null || authLevel < 2)
         {
-            var userId = int.Parse(Request.Form["UserId"]);
-            UserName = Request.Form["UserName"];
-            FirstName = Request.Form["FirstName"];
-            LastName = Request.Form["LastName"];
-            Email = Request.Form["Email"];
-            var authLevel = (AuthenticationLevel)int.Parse(Request.Form["AuthLevel"]);
+            Response.Redirect("Login?statusCode=401");
+        }
 
+        try
+        {
             var userController = new UserController(_configRoot);
-
-            var updateUser = new Models.User(
-                UserName,
-                FirstName,
-                LastName,
-                Email,
-                authLevel,
-                userId
-            );
-            
-            if (await userController.Update(updateUser))
+            var user = await userController.GetUser(userId);
+            if (user != null)
             {
-                Debug.WriteLine("Success");
-                return new RedirectToPageResult("Users");
+                ViewData["_userId"] = userId;
+                ViewData["User"] = user;
+                return new PageResult();
             }
 
-            return new RedirectResult($"User?userId={userId}");
+            return new EmptyResult();
         }
-
-        public async Task<IActionResult> OnGet(int userId)
+        catch
         {
-            var loginUserId = HttpContext.Session.GetInt32("UserId");
-            var authLevel = HttpContext.Session.GetInt32("UserAuthLevel");
-            if (loginUserId == null && authLevel == null || authLevel < 2)
-            {
-                Response.Redirect("Login?statusCode=401");
-            }
-
-            try
-            {
-                var userController = new UserController(_configRoot);
-                var user = await userController.GetUser(userId);
-                if (user != null)
-                {
-                    ViewData["_userId"] = userId;
-                    ViewData["User"] = user;
-                    return new PageResult();
-                }
-
-                return new EmptyResult();
-            }
-            catch
-            {
-                return new BadRequestResult();
-            }
+            return new BadRequestResult();
         }
     }
 }
